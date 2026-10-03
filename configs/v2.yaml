@@ -1,0 +1,31 @@
+profile: refinement_v2
+source_run: runs/pilot_m2-792030855aa5
+run_root: runs
+seed: 2718
+bootstrap_replicates: 1000
+audit_layers: [7, 14, 21, 23, 28]
+audit_alphas: [0.1, 10, 1000]
+outer_folds: 3
+inner_folds: 3
+near_zero_tolerance: 0.000001
+model: Qwen/Qwen3-1.7B-Base
+revision: ea980cb0a6c2ae4b936e82123acc929f1cec04c1
+backend: mps
+attention: eager
+max_tokens: 256
+max_model_minutes: 60
+benchmark_pairs: data/v2/comparison_pairs.csv
+format_order: [natural0, natural1, ab, fewshot0, fewshot1]
+accuracy_gate: 0.80
+reversal_gate: 0.80
+context_accuracy_gate: 0.80
+context_train_per_category: 3
+context_validation_per_category: 1
+context_excluded_per_category: 2
+context_layers: [14, 23, 27]
+strengths: [-1, -0.5, 0, 0.5, 1]
+random_directions: 3
+precision_subjects: 2
+precision_tolerance: 0.01
+cpu_precision_check: auto
+causal_subjects: 4

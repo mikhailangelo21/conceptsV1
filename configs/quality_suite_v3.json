@@ -1,0 +1,78 @@
+{
+  "backend": "mps",
+  "batch_size": 1,
+  "configuration_kind": "suite_spec_not_legacy_qd_config",
+  "dataset_root": "data/quality_suite_v3",
+  "default_profile": "laptop",
+  "dtype": "float16",
+  "extraction_block_numbers": [
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28
+  ],
+  "fit_filter": {
+    "combination_split": "train",
+    "entity_split": "train",
+    "exclude_case_types": [
+      "numeric"
+    ],
+    "template_split": "train"
+  },
+  "interpretation": "Examples and engineering controls; independently labeled confirmation remains separate.",
+  "intervention": {
+    "enabled": false,
+    "gate": "per_property_behavioral_competence_and_numerical_checks",
+    "maximum_initial_properties": 3,
+    "strengths": [
+      -1,
+      -0.5,
+      0,
+      0.5,
+      1
+    ]
+  },
+  "max_model_minutes": 60,
+  "max_tokens": 256,
+  "model_id": "Qwen/Qwen3-1.7B-Base",
+  "model_revision": "reuse_and_record_existing_pinned_revision",
+  "nonlinear": {
+    "enabled": false,
+    "maximum_restarts": 10,
+    "require_grouped_validation": true,
+    "restart_seeds": [
+      11,
+      23,
+      37,
+      53,
+      71
+    ],
+    "selection": "validation_only"
+  },
+  "readouts": [
+    "last_contextualized_entity_subtoken",
+    "final_prompt_token"
+  ],
+  "ridge_alphas": [
+    0.1,
+    1,
+    10,
+    100,
+    1000
+  ],
+  "schema_version": "3.0.0",
+  "subspace_ranks": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    8,
+    12,
+    16
+  ],
+  "suite": "quality_suite_v3"
+}

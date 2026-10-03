@@ -1,0 +1,4285 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "What the V3 quality experiments show",
+    "description": "Detailed interpretation of the bounded laptop screen, with matched controls and test denominators.",
+    "blocks": [
+      {
+        "id": "section_0",
+        "type": "markdown",
+        "body": "# What the V3 quality experiments show",
+        "sourceId": "run"
+      },
+      {
+        "id": "section_1",
+        "type": "markdown",
+        "body": "## Technical summary\n\n**The model\u2019s hidden states contain useful information about explicitly stated properties, including which entity a property belongs to. This run does not establish a stable, general-purpose geometric representation of those properties.** Familiar wording produces excellent ordering scores; changes in wording, numerical scale and combinations expose substantial weaknesses. The strongest positive finding is contextual binding beyond a bag of words. The strongest caution is that high correlation is often accompanied by poor calibration or weak transfer.\n\nAcross all 14 graded scalar properties, the average test Spearman correlation is **0.964 with familiar wording and 0.721 with held-out paraphrases**. Average absolute error rises from **0.121 to 0.316** on the constructed 0\u20131 target scale. These are equal-weight averages over properties, not population estimates or independent replications. Each property has just two test entity families.\n\nThe binding test is encouraging: every familiar-wording property has correctly signed changes for all tested matched swaps. The hidden-state probe distinguishes examples with the same words but different assignments, while static word averages and unigram features cannot. Yet there is only one independent test family, and the effect weakens under paraphrase.\n\nSeveral harder claims remain unsupported. A numerical-text baseline has lower physical-value error on six of eight properties. Lexical generalization is mixed. Hue geometry is incomplete. Joint attribute prediction has serious calibration and wording-transfer problems. No causal intervention was run, so these results concern information that can be read from the model, not information demonstrated to control its answers.\n",
+        "sourceId": "run"
+      },
+      {
+        "id": "section_2",
+        "type": "markdown",
+        "body": "## What was done, in simple terms\n\nThe experiment gave a frozen language model short descriptions of real or fictional items. Some descriptions varied one property through five levels, such as tiny to very large. Others swapped which item had a property, added distractions, changed the wording, expressed measurements in different units, or varied several properties independently.\n\nAt seven internal blocks\u20144, 8, 12, 16, 20, 24 and 28\u2014the experiment recorded the model\u2019s numerical state at the final mention of the target entity and at the final token. Small statistical readouts were trained to predict the supplied property labels from those states. The language model itself was not trained. Separate questions measured whether the model preferred the correct comparative answer, using either natural continuations or A/B labels.\n\nThe model was Qwen/Qwen3-1.7B-Base at revision `ea980cb0a6c2\u2026`, using FP16 inference on MPS. The final laptop run is the laptop run ending `88fad55b46b0`; it completed 6,322 labelled cases, 12,612 unique cached readouts and 1,888 questions. Recorded model time was 982.9 seconds, about 16.4 minutes. The separate smoke run checked the integration; it is not an independent scientific replication.\n\nLabels are authored experimental fixtures, including provisional lexical ratings. They are not newly collected human judgments. A result can therefore validate tracking of the stipulated description without establishing agreement with human perception or real-world measurement.\n",
+        "sourceId": "run"
+      },
+      {
+        "id": "section_3",
+        "type": "markdown",
+        "body": "## How to read the evidence\n\n**Spearman correlation (rho)** asks whether predictions put items in the right order. One is perfect ordering, zero means no monotonic association, and a negative value means reversed ordering. It does not tell us whether predicted values are numerically correct. **Mean absolute error (MAE)** measures how far the predictions are from their labels; lower is better. A 0.25 error spans one step on a five-level 0\u20131 design scale. Those steps are experimental codes, not established equal perceptual distances.\n\n**Generalization** here has distinct meanings: new entity families; held-out sentence templates; previously withheld attribute combinations; and challenges in numerical values or units. The figures keep these separate. Every displayed test score comes from a model selected using training and validation data, not the best-performing test layer.\n\nThousands of text rows do not provide thousands of independent replications. Graded, controls and hue each have six training, two validation and two test families. Binding, numerical challenges and factorial cases each have two training, one validation and one test family. Lexical test sizes vary from three to seven concepts per property. Multiple levels, wording variants and questions from the same family are correlated. Consequently this report uses descriptive comparisons and exact denominators, not row-wise confidence intervals or significance claims.\n",
+        "sourceId": "run"
+      },
+      {
+        "id": "coverage_block",
+        "type": "table",
+        "tableId": "coverage"
+      },
+      {
+        "id": "section_4",
+        "type": "markdown",
+        "body": "## 1. Familiar wording is easy to decode, but simple baselines are strong\n\nAll 14 familiar-wording graded properties have ridge correlations between 0.935 and 0.985. This shows that a linear readout can recover their ordering in this controlled setting. However, the average static-embedding correlation is already 0.930, and the unigram TF-IDF correlation is 0.922. Average TF-IDF MAE is 0.088, better than the hidden-state ridge MAE of 0.121. The descriptions contain highly informative property words, so high performance alone does not demonstrate an abstract internal axis.\n\nParaphrase exposes a different picture. Size correlation falls from 0.985 to 0.295; pitch from 0.935 to 0.320; hardness from 0.935 to 0.148. Mass and pleasantness preserve very strong ordering. Arousal retains a correlation of 0.788 but its MAE reaches 1.000 on the 0\u20131 target scale: substantial ordering information can coexist with a severely shifted numerical prediction. Ridge outputs are unconstrained, so errors exceeding the target range are possible and are not clipped in this report.\n\nThe ordering and error figures therefore show correlation and error separately, with all 14 properties included. Each point represents ten test rows from two entity families, not ten independent entities. The numerical wording variant covers only eight properties and is kept in the supporting data rather than pooled with the 14-property comparison.\n",
+        "sourceId": "run"
+      },
+      {
+        "id": "graded_order_1_block",
+        "type": "chart",
+        "chartId": "graded_order_1"
+      },
+      {
+        "id": "graded_order_2_block",
+        "type": "chart",
+        "chartId": "graded_order_2"
+      },
+      {
+        "id": "graded_error_1_block",
+        "type": "chart",
+        "chartId": "graded_error_1"
+      },
+      {
+        "id": "graded_error_2_block",
+        "type": "chart",
+        "chartId": "graded_error_2"
+      },
+      {
+        "id": "section_5",
+        "type": "markdown",
+        "body": "## 2. Binding provides evidence beyond word presence, with limited transfer\n\nBinding pairs use the same word inventory while changing which entity has the high versus low property. A bag-of-words representation is identical across a swap; a contextual representation can distinguish the assignments. In familiar wording, all 14 hidden-state probes achieve rho 0.873 and MAE between 0.077 and 0.213. Static averages give constant predictions with rho zero; TF-IDF constant predictions have undefined rho, which must not be displayed as a measured zero. Both baselines have MAE 0.5.\n\nThe repeated rho of 0.873 is explained by tied binary targets and eight rows per property, not by a universal geometric constant. The more direct paired check shows positive predicted changes for every familiar-wording binding swap. Under paraphrase the equal-property mean fraction of correctly signed swaps falls to 94.6%, and absolute errors increase. Size falls to rho 0.436; hardness to 0.546. These are real successes and failures within this fixture, supported by only one test family.\n\nContext tracking is also imperfect when the intended property stays fixed. Averaging property-specific paired absolute changes, clause reordering moves predictions by 0.138 with familiar wording and 0.241 with paraphrase. An irrelevant change moves them by 0.064 and 0.144 respectively. For comparison, a genuine adjacent level increase changes the familiar-wording prediction by 0.201 on average. These quantities use the same 0\u20131 prediction scale, although the contrast families are not identical samples. Nuisance wording effects can be a substantial fraction of a meaningful level change. Signed averages would hide some of these effects by cancellation; the figure uses absolute changes.\n",
+        "sourceId": "run"
+      },
+      {
+        "id": "binding_error_1_block",
+        "type": "chart",
+        "chartId": "binding_error_1"
+      },
+      {
+        "id": "binding_error_2_block",
+        "type": "chart",
+        "chartId": "binding_error_2"
+      },
+      {
+        "id": "nuisance_block",
+        "type": "chart",
+        "chartId": "nuisance"
+      },
+      {
+        "id": "section_6",
+        "type": "markdown",
+        "body": "## 3. Lexical generalization is uneven and not a validation against humans\n\nFor the separate lexical probes, familiar-wording test correlations are negative for speed (\u22120.775), loudness (\u22120.632) and pitch (\u22120.667). Size, mass, temperature, elasticity and arousal look more promising, but their denominators are small. A correlation of one for mass rests on only three held-out concepts.\n\nWording matters here too: pleasantness changes from 0.949 to \u22120.158, and speed from \u22120.775 to 0.258. This suggests the readout is sensitive to how a concept is elicited. It does not establish that the model lacks the concept; it establishes that this selected linear probe and dataset do not consistently generalize. The authored ratings also prevent treating these scores as a replication of a human-norm study.\n",
+        "sourceId": "run"
+      },
+      {
+        "id": "lexical_order_1_block",
+        "type": "chart",
+        "chartId": "lexical_order_1"
+      },
+      {
+        "id": "lexical_order_2_block",
+        "type": "chart",
+        "chartId": "lexical_order_2"
+      },
+      {
+        "id": "section_7",
+        "type": "markdown",
+        "body": "## 4. Recoverable information does not guarantee a correct answer\n\nThe behavioral task scores the relative likelihood of two supplied continuations. This is a constrained comparison, not free generation or a broad reasoning benchmark. Natural answers and A/B answers initially have different entity coverage, so an unmatched overall comparison would be misleading.\n\nThe refined comparison matches property, entity, template, level and reversal. It contains six properties, one test family and four underlying comparisons per property per wording. Each natural continuation is matched to the mean accuracy over four counterbalanced A/B variants. Across these matched comparisons, familiar-wording accuracy is **87.5% for natural continuations versus 63.5% for A/B**; with paraphrase it is **75.0% versus 59.4%**. This is evidence of format sensitivity in these examples, not a general causal estimate of an A/B penalty. Danger, for example, slightly improves under A/B while pitch gets substantially worse.\n\nSome natural-continuation tasks exhibit a fixed semantic preference: danger selects the higher alternative and roughness selects the lower alternative across the test questions. Balanced labels then yield 50% accuracy. A positive average correct-answer log margin can still coexist with chance accuracy because a few confident correct answers outweigh several weaker incorrect ones. Accuracy and margins must be considered together.\n\nNumerical precision is another small but real limitation. Recomputing the single-token output-head margin changes its sign on 15 of 1,568 questions, including four of 352 single-token test questions. The largest discrepancy is 0.030 nats. Margins close to zero should not be treated as robust preferences. The other 320 questions have multi-token continuations and do not receive the same single-token head check. This is not a full FP32 rerun of the model.\n",
+        "sourceId": "run"
+      },
+      {
+        "id": "answer_format_plain_block",
+        "type": "chart",
+        "chartId": "answer_format_plain"
+      },
+      {
+        "id": "answer_format_paraphrase_block",
+        "type": "chart",
+        "chartId": "answer_format_paraphrase"
+      },
+      {
+        "id": "section_8",
+        "type": "markdown",
+        "body": "## 5. Numerical ordering is not an accurate physical measurement scale\n\nSeparate physical-value probes were trained only on eligible stated training values, then evaluated on excluded numerical challenges. The comparison baseline fits simple features extracted from numerical text; it is not a full unit-aware calculator. To compare properties without mixing grams, centimetres and other units, the refined figure divides each MAE by that property's physical training range. These are descriptive range-normalized errors, not percentage error relative to the true value.\n\nThe hidden-state probe loses to this baseline on six of eight properties: brightness, elasticity, loudness, mass, pitch and size. Its normalized MAE ranges from 0.157 for loudness to 0.648 for mass. It wins on speed (0.242 versus 0.649) and temperature (0.318 versus 0.390). The challenge mixture differs across properties; each has only one held-out family and 9\u201322 test cases. Supporting tables separate seen values, interpolation and extrapolation instead of claiming a universal numerical extrapolation result.\n\nEquivalent-unit pairs reveal a partial success: the hidden-state probe is less sensitive to changing units than the numerical-text baseline in all five available unit tests. It is not invariant, however. Mean absolute prediction changes are about 1,182 canonical mass units, 176 pitch units, 20.2 size units, 10.7 speed units and 7.1 temperature units. Better unit robustness than a weak baseline does not imply accurate conversion or a linear physical magnitude code.\n",
+        "sourceId": "run"
+      },
+      {
+        "id": "numeric_error_1_block",
+        "type": "chart",
+        "chartId": "numeric_error_1"
+      },
+      {
+        "id": "numeric_error_2_block",
+        "type": "chart",
+        "chartId": "numeric_error_2"
+      },
+      {
+        "id": "section_9",
+        "type": "markdown",
+        "body": "## 6. Multi-attribute generalization is fragile\n\nThe factorial experiment independently varies attributes in seven domains and fits joint reduced-rank readouts. This tests whether multiple outputs remain recoverable when attributes appear together, including combinations excluded from training. It is a stronger challenge than a single adjective varied in a fixed template.\n\nEven familiar-wording test results are mixed. Speed in the motion/thermal domain has rho 0.945 and MAE 0.051, whereas the colour domain has weak saturation and value ordering (rho 0.074 and 0.092). Shape ordering looks strong but calibration is poor: length rho is 0.941 with MAE 1.552; width rho is 0.907 with MAE 1.350. Those are errors on the constructed 0\u20131 scale, not centimetres.\n\nThe figure changes wording while holding the combination category fixed at combinations eligible for training, and always evaluates a held-out entity. The supporting table additionally displays withheld combinations and the joint challenge. This prevents attributing every failure to combination novelty. Under the joint new-entity, new-wording, new-combination challenge, pleasantness retains rho 0.894 but MAE is 0.859, and elasticity retains rho 0.949 but MAE is 1.319. Predictions can preserve an ordering while being unusable as calibrated coordinates.\n\nThe most difficult partitions contain only two, five or ten rows per output from one entity family. Extreme negative R\u00b2 values are unstable with such small target sets; MAE and exact counts are more informative. Predictive cross-property responses are observational readout diagnostics, not causal evidence that one property changes another inside the model.\n",
+        "sourceId": "run"
+      },
+      {
+        "id": "factorial_error_1_block",
+        "type": "chart",
+        "chartId": "factorial_error_1"
+      },
+      {
+        "id": "factorial_error_2_block",
+        "type": "chart",
+        "chartId": "factorial_error_2"
+      },
+      {
+        "id": "factorial_error_3_block",
+        "type": "chart",
+        "chartId": "factorial_error_3"
+      },
+      {
+        "id": "factorial_detail_block",
+        "type": "table",
+        "tableId": "factorial_detail"
+      },
+      {
+        "id": "section_10",
+        "type": "markdown",
+        "body": "## 7. Hue contains partial structure, not a demonstrated robust circle\n\nHue uses coupled sine/cosine outputs so that angles around the wrap point are treated as neighbours. At the validation-selected block 16 final-token site, test circular MAE is 56.3\u00b0 for numerical hue descriptions and 71.1\u00b0 for colour-word descriptions. On factorial colour cases it ranges from 70.5\u00b0 to 91.5\u00b0 across the entity/wording/combination partitions. A uniform random predicted angle would have expected absolute circular error 90\u00b0, but that is a reference calculation, not a fitted or significance-tested null for this dataset.\n\nThe separate neighbourhood diagnostic is also mixed. At that same selected site, the intended near hue is closer than the far hue in 19 of 24 numerical triplets (79.2%), but only 12 of 24 colour-word triplets (50%). Both sets contain two test families. This supports some numerical hue structure while falling short of a stable circular representation across forms of description.\n\nThere is a specific limitation in the subspace analysis: the six eligible training contrasts for hue are 0\u00b0/360\u00b0 invariance pairs. Their differences describe variation between equivalent descriptions, not directions that move through hue. A six-dimensional SVD fit to these contrasts cannot estimate the intrinsic dimensionality of hue, and its poor prediction should not be interpreted as evidence against hue information generally.\n",
+        "sourceId": "run"
+      },
+      {
+        "id": "hue_error_block",
+        "type": "chart",
+        "chartId": "hue_error"
+      },
+      {
+        "id": "hue_neighbors_block",
+        "type": "table",
+        "tableId": "hue_neighbors"
+      },
+      {
+        "id": "section_11",
+        "type": "markdown",
+        "body": "## 8. What can be said about dimensions and geometry\n\nPredictive rank, local direction alignment and intrinsic semantic dimensionality are different questions. Thirteen of the fourteen scalar controlled properties select contrast-SVD rank 16, the configured ceiling; elasticity selects eight. This means larger tested predictive subspaces were often useful within this search. It does not mean that those concepts have exactly sixteen dimensions. The contrast bank also mixes property-changing contrasts with nuisance or invariance contrasts, so its span is not a purified semantic subspace.\n\nMatched local directions vary across ranges and templates. For size, adjacent familiar-wording training directions can have negative cosine similarity; one inspected comparison is approximately \u22120.807. This example is a diagnostic, not a selected headline test statistic. A single global straight direction is therefore not established. Bootstrap subspace stability is a training diagnostic: repeated samples of a small set of families do not establish generalization to a broad population. Some local fits have six families and others only two; rank and sampling coverage must be read alongside overlap scores.\n\nJoint reduced-rank models select ranks one to three depending on the domain. These ranks reflect predictive compression and validation performance, not counts of psychological dimensions. In the colour model, sine/cosine outputs range from \u22121 to 1 while saturation/value use 0\u20131, so the joint squared-error objective also weights outputs unequally by scale. No causal patches or nonlinear exploratory models were executed in this profile. Neither causal necessity nor absence of nonlinear information can be inferred.\n",
+        "sourceId": "run"
+      },
+      {
+        "id": "section_12",
+        "type": "markdown",
+        "body": "## Relation to the original pilot\n\nThe original size pilot selected block 23. Its ridge test correlation was 0.735 for seen templates and 0.721 for held-out templates, with broad recorded intervals (about 0.268\u20130.950 and 0.269\u20130.938). V3 greatly broadens the diagnostic questions: multiple properties, binding, numerical values, hue and factorial combinations.\n\nIt would be misleading to interpret V3's larger familiar-template correlations as an improvement over that pilot. The data, label scales, models of evaluation and test sizes differ. They are not paired before/after measurements. The useful progression is methodological: V3 reveals which easy successes survive stronger controls, rather than supplying a single replacement score. Earlier pilot data, runs and caches were preserved; the recorded preservation check is a metadata audit, not a before/after content-hash proof.\n",
+        "sourceId": "run"
+      },
+      {
+        "id": "section_13",
+        "type": "markdown",
+        "body": "## Methodology, validation and reproducibility\n\nThe report reads the completed laptop CSV/JSON artifacts and joins question metadata by unique comparison ID. It does not call the model, refit probes or alter test selection. The companion script `analysis/v3_findings.py` regenerates the supporting tables. `provenance.json` records hashes of consumed result files; `datasets.json` contains the reviewed report data. Original `source_snapshot.json`, `model_selection.json`, `physical_model_selection.json`, fitted coefficients and run identity retain the experimental audit trail.\n\nProbe fitting separates entity groups. Regularization uses grouped training cross-validation with preprocessing fitted inside folds; layer/readout choices use validation entities and training templates/combinations. Scalar selection prioritizes ordering, while physical prediction uses squared error, which helps explain why strong rank scores need not yield good numerical calibration. Seven blocks, two readouts and multiple regularization/rank settings constitute a substantial search relative to the small validation sets. A single fixed split and validation reuse limit certainty even without test-label leakage.\n\nThis interpretation checks exact case/question coverage, one-to-one metadata joins, four A/B counterbalances for every matched comparison, physical training-range denominators, finite exported values and test-family counts. It also recomputes scalar ridge metrics from saved predictions and reconciles behavioral accuracy with the run summaries. Undefined correlations remain missing. No rows are treated as independent merely because their sentences differ. The report's visuals display all relevant properties rather than a favorable subset, separate ordering from error, and show matched formats and comparable error units.\n",
+        "sourceId": "run"
+      },
+      {
+        "id": "section_14",
+        "type": "markdown",
+        "body": "## Recommended next experiment\n\n1. **Broaden independent coverage first.** Add genuinely varied entity families, independently authored templates and multiple prespecified split seeds. More permutations of the current wording are less valuable than new linguistic constructions. Keep a final test bank untouched by development.\n2. **Use binding as the primary positive result to replicate.** Compare contextual probes with bag-of-words and order-sensitive text baselines on new assignments and held-out syntax. Report paired sign accuracy and calibrated MAE, with uncertainty clustered at the entity/template level.\n3. **Separate prediction objectives.** Select rank-focused and calibration-focused probes independently on validation data. Report both on the same final tests. Preserve unclipped predictions so offsets and scale failures remain visible.\n4. **Repair the geometry diagnostics before stronger claims.** Build hue-changing training contrasts; keep invariant contrasts as controls. Separate semantic from nuisance contrast banks. Examine rank curves beyond the current ceiling only with sufficient independent data, rather than interpreting a boundary optimum as a dimension count.\n5. **Strengthen numerical and behavioral controls.** Add a unit-aware parsing baseline; balance challenge roles; retain matched natural/A/B questions. Audit near-zero margins and use a stronger precision check for any conclusion dependent on a few answers.\n6. **Gate interventions on replicated predictive evidence.** Once a stable direction/subspace survives new templates, test targeted edits against random-direction, norm-matched and unrelated-property controls. Until then, use \u201cdecodable\u201d or \u201cpredictive,\u201d not \u201ccausal mechanism.\u201d\n",
+        "sourceId": "run"
+      },
+      {
+        "id": "section_15",
+        "type": "markdown",
+        "body": "## Further questions\n\nDoes the binding advantage persist with several independent sentence constructions rather than one held-out paraphrase? Is the paraphrase failure mainly an offset/scale shift that a validation-only calibration can correct, or does ordering itself fail? Can physical-value prediction beat a competent unit-aware baseline? Do independently constructed hue-changing contrasts yield a transferable circular subspace? Does any replicated direction selectively change comparative answers when intervened on?\n\n**Dissertation-ready conclusion:** In this bounded, synthetic screening experiment, contextual hidden states supported linear decoding of many explicitly stated qualities and distinguished entity\u2013property assignments beyond word-inventory baselines. However, template sensitivity, numerical calibration errors, mixed lexical transfer and weak multi-attribute generalization limit claims of stable, domain-general quality geometry. The findings motivate targeted replication and better-controlled geometric and causal tests; they do not establish universal semantic axes or causal mechanisms.\n",
+        "sourceId": "run"
+      }
+    ],
+    "charts": [
+      {
+        "id": "graded_order_1",
+        "title": "Graded test ordering by property and wording \u2014 Arousal to Mass",
+        "subtitle": "Ten rows and two entity families per property and wording; ordering can survive numerical miscalibration. Score: 1 = perfect order, 0 = no monotonic relationship.",
+        "type": "bar",
+        "dataset": "graded_order_1",
+        "sourceId": "graded_order_1_reviewed_source",
+        "encodings": {
+          "x": {
+            "field": "quality",
+            "type": "nominal",
+            "label": ""
+          },
+          "y": {
+            "field": "rho",
+            "type": "quantitative",
+            "label": "Ordering score (higher is better)"
+          },
+          "color": {
+            "field": "wording",
+            "type": "nominal",
+            "label": "Wording"
+          },
+          "tooltip": [
+            {
+              "field": "mae",
+              "type": "quantitative",
+              "label": "mae"
+            },
+            {
+              "field": "n_rows",
+              "type": "quantitative",
+              "label": "n rows"
+            },
+            {
+              "field": "n_groups",
+              "type": "quantitative",
+              "label": "n groups"
+            }
+          ]
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "groupMode": "grouped",
+          "categoryLabelPolicy": "wrap"
+        },
+        "labels": {
+          "values": "all"
+        },
+        "legend": {
+          "sort": "spec"
+        },
+        "referenceLines": [
+          {
+            "axis": "x",
+            "value": 1,
+            "label": "Perfect order",
+            "color": "gray",
+            "lineStyle": "dashed"
+          }
+        ]
+      },
+      {
+        "id": "graded_order_2",
+        "title": "Graded test ordering by property and wording \u2014 Pitch to Temperature",
+        "subtitle": "Ten rows and two entity families per property and wording; ordering can survive numerical miscalibration. Score: 1 = perfect order, 0 = no monotonic relationship.",
+        "type": "bar",
+        "dataset": "graded_order_2",
+        "sourceId": "graded_order_2_reviewed_source",
+        "encodings": {
+          "x": {
+            "field": "quality",
+            "type": "nominal",
+            "label": ""
+          },
+          "y": {
+            "field": "rho",
+            "type": "quantitative",
+            "label": "Ordering score (higher is better)"
+          },
+          "color": {
+            "field": "wording",
+            "type": "nominal",
+            "label": "Wording"
+          },
+          "tooltip": [
+            {
+              "field": "mae",
+              "type": "quantitative",
+              "label": "mae"
+            },
+            {
+              "field": "n_rows",
+              "type": "quantitative",
+              "label": "n rows"
+            },
+            {
+              "field": "n_groups",
+              "type": "quantitative",
+              "label": "n groups"
+            }
+          ]
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "groupMode": "grouped",
+          "categoryLabelPolicy": "wrap"
+        },
+        "labels": {
+          "values": "all"
+        },
+        "legend": {
+          "sort": "spec"
+        },
+        "referenceLines": [
+          {
+            "axis": "x",
+            "value": 1,
+            "label": "Perfect order",
+            "color": "gray",
+            "lineStyle": "dashed"
+          }
+        ]
+      },
+      {
+        "id": "graded_error_1",
+        "title": "Graded test error by property and wording \u2014 Arousal to Mass",
+        "subtitle": "Lower is better. Unconstrained predictions can exceed the target range. Dashed line: one 0.25 step on the design scale.",
+        "type": "bar",
+        "dataset": "graded_error_1",
+        "sourceId": "graded_error_1_reviewed_source",
+        "encodings": {
+          "x": {
+            "field": "quality",
+            "type": "nominal",
+            "label": ""
+          },
+          "y": {
+            "field": "mae",
+            "type": "quantitative",
+            "label": "Average error (lower is better)"
+          },
+          "color": {
+            "field": "wording",
+            "type": "nominal",
+            "label": "Wording"
+          },
+          "tooltip": [
+            {
+              "field": "rho",
+              "type": "quantitative",
+              "label": "rho"
+            },
+            {
+              "field": "n_rows",
+              "type": "quantitative",
+              "label": "n rows"
+            },
+            {
+              "field": "n_groups",
+              "type": "quantitative",
+              "label": "n groups"
+            }
+          ]
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "groupMode": "grouped",
+          "categoryLabelPolicy": "wrap"
+        },
+        "labels": {
+          "values": "all"
+        },
+        "legend": {
+          "sort": "spec"
+        },
+        "referenceLines": [
+          {
+            "axis": "x",
+            "value": 0.25,
+            "label": "One level",
+            "color": "gray",
+            "lineStyle": "dashed"
+          }
+        ]
+      },
+      {
+        "id": "graded_error_2",
+        "title": "Graded test error by property and wording \u2014 Pitch to Temperature",
+        "subtitle": "Lower is better. Unconstrained predictions can exceed the target range. Dashed line: one 0.25 step on the design scale.",
+        "type": "bar",
+        "dataset": "graded_error_2",
+        "sourceId": "graded_error_2_reviewed_source",
+        "encodings": {
+          "x": {
+            "field": "quality",
+            "type": "nominal",
+            "label": ""
+          },
+          "y": {
+            "field": "mae",
+            "type": "quantitative",
+            "label": "Average error (lower is better)"
+          },
+          "color": {
+            "field": "wording",
+            "type": "nominal",
+            "label": "Wording"
+          },
+          "tooltip": [
+            {
+              "field": "rho",
+              "type": "quantitative",
+              "label": "rho"
+            },
+            {
+              "field": "n_rows",
+              "type": "quantitative",
+              "label": "n rows"
+            },
+            {
+              "field": "n_groups",
+              "type": "quantitative",
+              "label": "n groups"
+            }
+          ]
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "groupMode": "grouped",
+          "categoryLabelPolicy": "wrap"
+        },
+        "labels": {
+          "values": "all"
+        },
+        "legend": {
+          "sort": "spec"
+        },
+        "referenceLines": [
+          {
+            "axis": "x",
+            "value": 0.25,
+            "label": "One level",
+            "color": "gray",
+            "lineStyle": "dashed"
+          }
+        ]
+      },
+      {
+        "id": "binding_error_1",
+        "title": "Binding test error by property and method \u2014 Arousal to Mass",
+        "subtitle": "Eight rows from one test entity family per property and wording; static averages cannot distinguish same-word assignments. Dashed line: static word-average error = 0.5.",
+        "type": "bar",
+        "dataset": "binding_error_1",
+        "sourceId": "binding_error_1_reviewed_source",
+        "encodings": {
+          "x": {
+            "field": "quality",
+            "type": "nominal",
+            "label": ""
+          },
+          "y": {
+            "field": "mae",
+            "type": "quantitative",
+            "label": "Average error (lower is better)"
+          },
+          "color": {
+            "field": "series",
+            "type": "nominal",
+            "label": "Series"
+          },
+          "tooltip": [
+            {
+              "field": "n_rows",
+              "type": "quantitative",
+              "label": "n rows"
+            },
+            {
+              "field": "n_groups",
+              "type": "quantitative",
+              "label": "n groups"
+            }
+          ]
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "groupMode": "grouped",
+          "categoryLabelPolicy": "wrap"
+        },
+        "labels": {
+          "values": "all"
+        },
+        "legend": {
+          "sort": "spec"
+        },
+        "referenceLines": [
+          {
+            "axis": "x",
+            "value": 0.5,
+            "label": "Word-only baseline",
+            "color": "gray",
+            "lineStyle": "dashed"
+          }
+        ]
+      },
+      {
+        "id": "binding_error_2",
+        "title": "Binding test error by property and method \u2014 Pitch to Temperature",
+        "subtitle": "Eight rows from one test entity family per property and wording; static averages cannot distinguish same-word assignments. Dashed line: static word-average error = 0.5.",
+        "type": "bar",
+        "dataset": "binding_error_2",
+        "sourceId": "binding_error_2_reviewed_source",
+        "encodings": {
+          "x": {
+            "field": "quality",
+            "type": "nominal",
+            "label": ""
+          },
+          "y": {
+            "field": "mae",
+            "type": "quantitative",
+            "label": "Average error (lower is better)"
+          },
+          "color": {
+            "field": "series",
+            "type": "nominal",
+            "label": "Series"
+          },
+          "tooltip": [
+            {
+              "field": "n_rows",
+              "type": "quantitative",
+              "label": "n rows"
+            },
+            {
+              "field": "n_groups",
+              "type": "quantitative",
+              "label": "n groups"
+            }
+          ]
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "groupMode": "grouped",
+          "categoryLabelPolicy": "wrap"
+        },
+        "labels": {
+          "values": "all"
+        },
+        "legend": {
+          "sort": "spec"
+        },
+        "referenceLines": [
+          {
+            "axis": "x",
+            "value": 0.5,
+            "label": "Word-only baseline",
+            "color": "gray",
+            "lineStyle": "dashed"
+          }
+        ]
+      },
+      {
+        "id": "nuisance",
+        "title": "Probe response to meaningful and invariant changes",
+        "subtitle": "Equal-weight mean over 14 properties. Invariant edits ideally produce zero change; these are distinct contrast families.",
+        "type": "bar",
+        "dataset": "nuisance",
+        "sourceId": "nuisance_reviewed_source",
+        "encodings": {
+          "x": {
+            "field": "kind",
+            "type": "nominal",
+            "label": ""
+          },
+          "y": {
+            "field": "mean_absolute_delta",
+            "type": "quantitative",
+            "label": "Change in predicted level"
+          },
+          "color": {
+            "field": "template_id",
+            "type": "nominal",
+            "label": "Template Id"
+          },
+          "tooltip": [
+            {
+              "field": "properties",
+              "type": "quantitative",
+              "label": "properties"
+            },
+            {
+              "field": "total_pairs",
+              "type": "quantitative",
+              "label": "total pairs"
+            },
+            {
+              "field": "groups_per_property",
+              "type": "quantitative",
+              "label": "groups per property"
+            }
+          ]
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "groupMode": "grouped",
+          "categoryLabelPolicy": "wrap"
+        },
+        "labels": {
+          "values": "all"
+        },
+        "legend": {
+          "sort": "spec"
+        },
+        "referenceLines": []
+      },
+      {
+        "id": "lexical_order_1",
+        "title": "Lexical test ordering by property and wording \u2014 Arousal to Mass",
+        "subtitle": "Only three to seven independent test concepts per property; labels are provisional authored ratings. Score: 1 = perfect order, 0 = no monotonic relationship.",
+        "type": "bar",
+        "dataset": "lexical_order_1",
+        "sourceId": "lexical_order_1_reviewed_source",
+        "encodings": {
+          "x": {
+            "field": "quality",
+            "type": "nominal",
+            "label": ""
+          },
+          "y": {
+            "field": "rho",
+            "type": "quantitative",
+            "label": "Ordering score (higher is better)"
+          },
+          "color": {
+            "field": "wording",
+            "type": "nominal",
+            "label": "Wording"
+          },
+          "tooltip": [
+            {
+              "field": "n_rows",
+              "type": "quantitative",
+              "label": "n rows"
+            },
+            {
+              "field": "n_groups",
+              "type": "quantitative",
+              "label": "n groups"
+            }
+          ]
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "groupMode": "grouped",
+          "categoryLabelPolicy": "wrap"
+        },
+        "labels": {
+          "values": "all"
+        },
+        "legend": {
+          "sort": "spec"
+        },
+        "referenceLines": [
+          {
+            "axis": "x",
+            "value": 1,
+            "label": "Perfect order",
+            "color": "gray",
+            "lineStyle": "dashed"
+          },
+          {
+            "axis": "x",
+            "value": -1,
+            "label": "Reversed order",
+            "color": "gray",
+            "lineStyle": "dashed"
+          }
+        ]
+      },
+      {
+        "id": "lexical_order_2",
+        "title": "Lexical test ordering by property and wording \u2014 Pitch to Temperature",
+        "subtitle": "Only three to seven independent test concepts per property; labels are provisional authored ratings. Score: 1 = perfect order, 0 = no monotonic relationship.",
+        "type": "bar",
+        "dataset": "lexical_order_2",
+        "sourceId": "lexical_order_2_reviewed_source",
+        "encodings": {
+          "x": {
+            "field": "quality",
+            "type": "nominal",
+            "label": ""
+          },
+          "y": {
+            "field": "rho",
+            "type": "quantitative",
+            "label": "Ordering score (higher is better)"
+          },
+          "color": {
+            "field": "wording",
+            "type": "nominal",
+            "label": "Wording"
+          },
+          "tooltip": [
+            {
+              "field": "n_rows",
+              "type": "quantitative",
+              "label": "n rows"
+            },
+            {
+              "field": "n_groups",
+              "type": "quantitative",
+              "label": "n groups"
+            }
+          ]
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "groupMode": "grouped",
+          "categoryLabelPolicy": "wrap"
+        },
+        "labels": {
+          "values": "all"
+        },
+        "legend": {
+          "sort": "spec"
+        },
+        "referenceLines": [
+          {
+            "axis": "x",
+            "value": 1,
+            "label": "Perfect order",
+            "color": "gray",
+            "lineStyle": "dashed"
+          },
+          {
+            "axis": "x",
+            "value": -1,
+            "label": "Reversed order",
+            "color": "gray",
+            "lineStyle": "dashed"
+          }
+        ]
+      },
+      {
+        "id": "answer_format_plain",
+        "title": "Matched test accuracy: familiar wording",
+        "subtitle": "Four underlying comparisons per property from one family; each A/B score averages four counterbalances.",
+        "type": "bar",
+        "dataset": "answer_format_plain",
+        "sourceId": "answer_format_plain_reviewed_source",
+        "encodings": {
+          "x": {
+            "field": "quality_id",
+            "type": "nominal",
+            "label": ""
+          },
+          "y": {
+            "field": "accuracy",
+            "type": "quantitative",
+            "label": "Correct answers (%)"
+          },
+          "color": {
+            "field": "series",
+            "type": "nominal",
+            "label": "Series"
+          },
+          "tooltip": [
+            {
+              "field": "template_id",
+              "type": "nominal",
+              "label": "template id"
+            },
+            {
+              "field": "n_comparisons",
+              "type": "quantitative",
+              "label": "n comparisons"
+            },
+            {
+              "field": "n_groups",
+              "type": "quantitative",
+              "label": "n groups"
+            },
+            {
+              "field": "format",
+              "type": "nominal",
+              "label": "format"
+            }
+          ]
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "groupMode": "grouped",
+          "categoryLabelPolicy": "wrap"
+        },
+        "labels": {
+          "values": "all"
+        },
+        "legend": {
+          "sort": "spec"
+        },
+        "referenceLines": [
+          {
+            "axis": "x",
+            "value": 0.5,
+            "label": "50% guess",
+            "color": "gray",
+            "lineStyle": "dashed"
+          },
+          {
+            "axis": "x",
+            "value": 1,
+            "label": "100%",
+            "color": "gray",
+            "lineStyle": "dashed"
+          }
+        ],
+        "valueFormat": "percent"
+      },
+      {
+        "id": "answer_format_paraphrase",
+        "title": "Matched test accuracy: held-out paraphrase",
+        "subtitle": "Four underlying comparisons per property from one family; each A/B score averages four counterbalances.",
+        "type": "bar",
+        "dataset": "answer_format_paraphrase",
+        "sourceId": "answer_format_paraphrase_reviewed_source",
+        "encodings": {
+          "x": {
+            "field": "quality_id",
+            "type": "nominal",
+            "label": ""
+          },
+          "y": {
+            "field": "accuracy",
+            "type": "quantitative",
+            "label": "Correct answers (%)"
+          },
+          "color": {
+            "field": "series",
+            "type": "nominal",
+            "label": "Series"
+          },
+          "tooltip": [
+            {
+              "field": "template_id",
+              "type": "nominal",
+              "label": "template id"
+            },
+            {
+              "field": "n_comparisons",
+              "type": "quantitative",
+              "label": "n comparisons"
+            },
+            {
+              "field": "n_groups",
+              "type": "quantitative",
+              "label": "n groups"
+            },
+            {
+              "field": "format",
+              "type": "nominal",
+              "label": "format"
+            }
+          ]
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "groupMode": "grouped",
+          "categoryLabelPolicy": "wrap"
+        },
+        "labels": {
+          "values": "all"
+        },
+        "legend": {
+          "sort": "spec"
+        },
+        "referenceLines": [
+          {
+            "axis": "x",
+            "value": 0.5,
+            "label": "50% guess",
+            "color": "gray",
+            "lineStyle": "dashed"
+          },
+          {
+            "axis": "x",
+            "value": 1,
+            "label": "100%",
+            "color": "gray",
+            "lineStyle": "dashed"
+          }
+        ],
+        "valueFormat": "percent"
+      },
+      {
+        "id": "numeric_error_1",
+        "title": "Physical prediction error by property and method \u2014 Brightness to Mass",
+        "subtitle": "One test family per property, 9\u201322 cases; challenge roles differ across properties. Lower is better.",
+        "type": "bar",
+        "dataset": "numeric_error_1",
+        "sourceId": "numeric_error_1_reviewed_source",
+        "encodings": {
+          "x": {
+            "field": "quality",
+            "type": "nominal",
+            "label": ""
+          },
+          "y": {
+            "field": "range_normalized_mae",
+            "type": "quantitative",
+            "label": "Error as % of training range (lower is better)"
+          },
+          "color": {
+            "field": "method",
+            "type": "nominal",
+            "label": "Method"
+          },
+          "tooltip": [
+            {
+              "field": "n",
+              "type": "quantitative",
+              "label": "n"
+            },
+            {
+              "field": "n_groups",
+              "type": "quantitative",
+              "label": "n groups"
+            },
+            {
+              "field": "mae",
+              "type": "quantitative",
+              "label": "mae"
+            }
+          ]
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "groupMode": "grouped",
+          "categoryLabelPolicy": "wrap"
+        },
+        "labels": {
+          "values": "all"
+        },
+        "legend": {
+          "sort": "spec"
+        },
+        "referenceLines": [],
+        "valueFormat": "percent"
+      },
+      {
+        "id": "numeric_error_2",
+        "title": "Physical prediction error by property and method \u2014 Pitch to Temperature",
+        "subtitle": "One test family per property, 9\u201322 cases; challenge roles differ across properties. Lower is better.",
+        "type": "bar",
+        "dataset": "numeric_error_2",
+        "sourceId": "numeric_error_2_reviewed_source",
+        "encodings": {
+          "x": {
+            "field": "quality",
+            "type": "nominal",
+            "label": ""
+          },
+          "y": {
+            "field": "range_normalized_mae",
+            "type": "quantitative",
+            "label": "Error as % of training range (lower is better)"
+          },
+          "color": {
+            "field": "method",
+            "type": "nominal",
+            "label": "Method"
+          },
+          "tooltip": [
+            {
+              "field": "n",
+              "type": "quantitative",
+              "label": "n"
+            },
+            {
+              "field": "n_groups",
+              "type": "quantitative",
+              "label": "n groups"
+            },
+            {
+              "field": "mae",
+              "type": "quantitative",
+              "label": "mae"
+            }
+          ]
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "groupMode": "grouped",
+          "categoryLabelPolicy": "wrap"
+        },
+        "labels": {
+          "values": "all"
+        },
+        "legend": {
+          "sort": "spec"
+        },
+        "referenceLines": [],
+        "valueFormat": "percent"
+      },
+      {
+        "id": "factorial_error_1",
+        "title": "Joint probe error by output and wording \u2014 affect and colour",
+        "subtitle": "Held-out entity, with training-eligible combinations in both series; one test family per domain. Dashed line: one 0.25 step on the design scale.",
+        "type": "bar",
+        "dataset": "factorial_error_1",
+        "sourceId": "factorial_error_1_reviewed_source",
+        "encodings": {
+          "x": {
+            "field": "quality",
+            "type": "nominal",
+            "label": ""
+          },
+          "y": {
+            "field": "mae",
+            "type": "quantitative",
+            "label": "Average error (lower is better)"
+          },
+          "color": {
+            "field": "wording",
+            "type": "nominal",
+            "label": "Wording"
+          },
+          "tooltip": [
+            {
+              "field": "domain",
+              "type": "nominal",
+              "label": "domain"
+            },
+            {
+              "field": "rho",
+              "type": "quantitative",
+              "label": "rho"
+            },
+            {
+              "field": "n_rows",
+              "type": "quantitative",
+              "label": "n rows"
+            },
+            {
+              "field": "n_groups",
+              "type": "quantitative",
+              "label": "n groups"
+            },
+            {
+              "field": "rank",
+              "type": "quantitative",
+              "label": "rank"
+            }
+          ]
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "groupMode": "grouped",
+          "categoryLabelPolicy": "wrap"
+        },
+        "labels": {
+          "values": "all"
+        },
+        "legend": {
+          "sort": "spec"
+        },
+        "referenceLines": [
+          {
+            "axis": "x",
+            "value": 0.25,
+            "label": "One level",
+            "color": "gray",
+            "lineStyle": "dashed"
+          }
+        ]
+      },
+      {
+        "id": "factorial_error_2",
+        "title": "Joint probe error by output and wording \u2014 extent, motion and sound",
+        "subtitle": "Held-out entity, with training-eligible combinations in both series; one test family per domain. Dashed line: one 0.25 step on the design scale.",
+        "type": "bar",
+        "dataset": "factorial_error_2",
+        "sourceId": "factorial_error_2_reviewed_source",
+        "encodings": {
+          "x": {
+            "field": "quality",
+            "type": "nominal",
+            "label": ""
+          },
+          "y": {
+            "field": "mae",
+            "type": "quantitative",
+            "label": "Average error (lower is better)"
+          },
+          "color": {
+            "field": "wording",
+            "type": "nominal",
+            "label": "Wording"
+          },
+          "tooltip": [
+            {
+              "field": "domain",
+              "type": "nominal",
+              "label": "domain"
+            },
+            {
+              "field": "rho",
+              "type": "quantitative",
+              "label": "rho"
+            },
+            {
+              "field": "n_rows",
+              "type": "quantitative",
+              "label": "n rows"
+            },
+            {
+              "field": "n_groups",
+              "type": "quantitative",
+              "label": "n groups"
+            },
+            {
+              "field": "rank",
+              "type": "quantitative",
+              "label": "rank"
+            }
+          ]
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "groupMode": "grouped",
+          "categoryLabelPolicy": "wrap"
+        },
+        "labels": {
+          "values": "all"
+        },
+        "legend": {
+          "sort": "spec"
+        },
+        "referenceLines": [
+          {
+            "axis": "x",
+            "value": 0.25,
+            "label": "One level",
+            "color": "gray",
+            "lineStyle": "dashed"
+          }
+        ]
+      },
+      {
+        "id": "factorial_error_3",
+        "title": "Joint probe error by output and wording \u2014 shape and surface",
+        "subtitle": "Held-out entity, with training-eligible combinations in both series; one test family per domain. Dashed line: one 0.25 step on the design scale.",
+        "type": "bar",
+        "dataset": "factorial_error_3",
+        "sourceId": "factorial_error_3_reviewed_source",
+        "encodings": {
+          "x": {
+            "field": "quality",
+            "type": "nominal",
+            "label": ""
+          },
+          "y": {
+            "field": "mae",
+            "type": "quantitative",
+            "label": "Average error (lower is better)"
+          },
+          "color": {
+            "field": "wording",
+            "type": "nominal",
+            "label": "Wording"
+          },
+          "tooltip": [
+            {
+              "field": "domain",
+              "type": "nominal",
+              "label": "domain"
+            },
+            {
+              "field": "rho",
+              "type": "quantitative",
+              "label": "rho"
+            },
+            {
+              "field": "n_rows",
+              "type": "quantitative",
+              "label": "n rows"
+            },
+            {
+              "field": "n_groups",
+              "type": "quantitative",
+              "label": "n groups"
+            },
+            {
+              "field": "rank",
+              "type": "quantitative",
+              "label": "rank"
+            }
+          ]
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "groupMode": "grouped",
+          "categoryLabelPolicy": "wrap"
+        },
+        "labels": {
+          "values": "all"
+        },
+        "legend": {
+          "sort": "spec"
+        },
+        "referenceLines": [
+          {
+            "axis": "x",
+            "value": 0.25,
+            "label": "One level",
+            "color": "gray",
+            "lineStyle": "dashed"
+          }
+        ]
+      },
+      {
+        "id": "hue_error",
+        "title": "Circular hue prediction error across test conditions",
+        "subtitle": "All displayed conditions use block 16, final-token ridge selected on validation; lower is better. 90\u00b0 is the expected error of a uniform random angle, not a tested null.",
+        "type": "bar",
+        "dataset": "hue_error",
+        "sourceId": "hue_error_reviewed_source",
+        "encodings": {
+          "x": {
+            "field": "condition",
+            "type": "nominal",
+            "label": ""
+          },
+          "y": {
+            "field": "circular_mae_degrees",
+            "type": "quantitative",
+            "label": "Average angular error (degrees; lower is better)"
+          },
+          "tooltip": [
+            {
+              "field": "n_rows",
+              "type": "quantitative",
+              "label": "n rows"
+            },
+            {
+              "field": "n_groups",
+              "type": "quantitative",
+              "label": "n groups"
+            }
+          ]
+        },
+        "settings": {
+          "orientation": "horizontal",
+          "groupMode": "grouped",
+          "categoryLabelPolicy": "wrap"
+        },
+        "labels": {
+          "values": "all"
+        },
+        "legend": {
+          "sort": "spec"
+        },
+        "referenceLines": [
+          {
+            "axis": "x",
+            "value": 90,
+            "label": "Uniform guess",
+            "color": "gray",
+            "lineStyle": "dashed"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "id": "factorial_detail",
+        "title": "All factorial test partitions",
+        "dataset": "factorial_detail",
+        "sourceId": "factorial_detail_source",
+        "defaultSort": {
+          "field": "domain",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "domain",
+            "label": "Domain"
+          },
+          {
+            "field": "quality",
+            "label": "Quality"
+          },
+          {
+            "field": "partition",
+            "label": "Partition"
+          },
+          {
+            "field": "rank",
+            "label": "Rank"
+          },
+          {
+            "field": "n_rows",
+            "label": "N Rows"
+          },
+          {
+            "field": "n_groups",
+            "label": "N Groups"
+          },
+          {
+            "field": "rho",
+            "label": "Rho"
+          },
+          {
+            "field": "mae",
+            "label": "Mae"
+          }
+        ]
+      },
+      {
+        "id": "hue_neighbors",
+        "title": "Hue neighbourhood checks at the selected site",
+        "dataset": "hue_neighbors",
+        "sourceId": "hue_neighbors_source",
+        "defaultSort": {
+          "field": "template_id",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "template_id",
+            "label": "Template Id"
+          },
+          {
+            "field": "n_triplets",
+            "label": "N Triplets"
+          },
+          {
+            "field": "n_groups",
+            "label": "N Groups"
+          },
+          {
+            "field": "fraction_near_closer",
+            "label": "Fraction Near Closer"
+          }
+        ]
+      },
+      {
+        "id": "coverage",
+        "title": "Independent entity coverage by family and split",
+        "dataset": "coverage",
+        "sourceId": "coverage_source",
+        "defaultSort": {
+          "field": "family",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "family",
+            "label": "Family"
+          },
+          {
+            "field": "split",
+            "label": "Split"
+          },
+          {
+            "field": "rows",
+            "label": "Rows"
+          },
+          {
+            "field": "entity_groups",
+            "label": "Entity Groups"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "run",
+        "label": "Completed laptop run and reproducible interpretation",
+        "path": "runs/quality_suite_v3_laptop-88fad55b46b0",
+        "query": {
+          "description": "Primary artifacts: linear_metrics.csv, linear_predictions.csv, paired_contrasts.csv, behavior_scores.csv, numeric_challenges.csv, multioutput_metrics.csv, circular_neighborhoods.csv and model selections. Reproduction and input hashes: reports/quality_suite_v3_findings/provenance.json; derivations: analysis/v3_findings.py. All evidence is synthetic screening evidence from one pinned model."
+        }
+      },
+      {
+        "id": "graded_order_source",
+        "label": "graded.csv",
+        "path": "reports/quality_suite_v3_findings/graded.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_graded_order\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_graded_order"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection. Ten rows and two entity families per property and wording; ordering can survive numerical miscalibration."
+        }
+      },
+      {
+        "id": "graded_error_source",
+        "label": "graded.csv",
+        "path": "reports/quality_suite_v3_findings/graded.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_graded_error\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_graded_error"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection. Lower is better. Unconstrained predictions can exceed the target range."
+        }
+      },
+      {
+        "id": "binding_error_source",
+        "label": "binding.csv",
+        "path": "reports/quality_suite_v3_findings/binding.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_binding_error\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_binding_error"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection. Eight rows from one test entity family per property and wording; static averages cannot distinguish same-word assignments."
+        }
+      },
+      {
+        "id": "nuisance_source",
+        "label": "paired.csv",
+        "path": "reports/quality_suite_v3_findings/paired.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_nuisance\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_nuisance"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection. Equal-weight mean over 14 properties. Invariant edits ideally produce zero change; these are distinct contrast families."
+        }
+      },
+      {
+        "id": "lexical_order_source",
+        "label": "lexical.csv",
+        "path": "reports/quality_suite_v3_findings/lexical.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_lexical_order\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_lexical_order"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection. Only three to seven independent test concepts per property; labels are provisional authored ratings."
+        }
+      },
+      {
+        "id": "answer_format_plain_source",
+        "label": "matched_behavior.csv",
+        "path": "reports/quality_suite_v3_findings/matched_behavior.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_answer_format_plain\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_answer_format_plain"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection. Four underlying comparisons per property from one family; each A/B score averages four counterbalances."
+        }
+      },
+      {
+        "id": "answer_format_paraphrase_source",
+        "label": "matched_behavior.csv",
+        "path": "reports/quality_suite_v3_findings/matched_behavior.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_answer_format_paraphrase\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_answer_format_paraphrase"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection. Four underlying comparisons per property from one family; each A/B score averages four counterbalances."
+        }
+      },
+      {
+        "id": "numeric_error_source",
+        "label": "numeric_overall.csv",
+        "path": "reports/quality_suite_v3_findings/numeric_overall.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_numeric_error\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_numeric_error"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection. One test family per property, 9\u201322 cases; challenge roles differ across properties. Lower is better."
+        }
+      },
+      {
+        "id": "factorial_error_source",
+        "label": "factorial.csv",
+        "path": "reports/quality_suite_v3_findings/factorial.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_factorial_error\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_factorial_error"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection. Held-out entity, with training-eligible combinations in both series; one test family per domain."
+        }
+      },
+      {
+        "id": "factorial_detail_source",
+        "label": "factorial.csv",
+        "path": "reports/quality_suite_v3_findings/factorial.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_factorial_detail\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_factorial_detail"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "hue_error_source",
+        "label": "hue.csv",
+        "path": "reports/quality_suite_v3_findings/hue.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_hue_error\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_hue_error"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection. All displayed conditions use block 16, final-token ridge selected on validation; lower is better."
+        }
+      },
+      {
+        "id": "hue_neighbors_source",
+        "label": "hue_neighborhood.csv",
+        "path": "reports/quality_suite_v3_findings/hue_neighborhood.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_hue_neighbors\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_hue_neighbors"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "graded_order_1_reviewed_source",
+        "label": "graded.csv",
+        "path": "reports/quality_suite_v3_findings/graded.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_graded_order_1\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_graded_order_1"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "graded_order_2_reviewed_source",
+        "label": "graded.csv",
+        "path": "reports/quality_suite_v3_findings/graded.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_graded_order_2\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_graded_order_2"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "graded_error_1_reviewed_source",
+        "label": "graded.csv",
+        "path": "reports/quality_suite_v3_findings/graded.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_graded_error_1\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_graded_error_1"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "graded_error_2_reviewed_source",
+        "label": "graded.csv",
+        "path": "reports/quality_suite_v3_findings/graded.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_graded_error_2\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_graded_error_2"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "binding_error_1_reviewed_source",
+        "label": "binding.csv",
+        "path": "reports/quality_suite_v3_findings/binding.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_binding_error_1\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_binding_error_1"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "binding_error_2_reviewed_source",
+        "label": "binding.csv",
+        "path": "reports/quality_suite_v3_findings/binding.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_binding_error_2\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_binding_error_2"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "nuisance_reviewed_source",
+        "label": "paired.csv",
+        "path": "reports/quality_suite_v3_findings/paired.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_nuisance\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_nuisance"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "lexical_order_1_reviewed_source",
+        "label": "lexical.csv",
+        "path": "reports/quality_suite_v3_findings/lexical.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_lexical_order_1\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_lexical_order_1"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "lexical_order_2_reviewed_source",
+        "label": "lexical.csv",
+        "path": "reports/quality_suite_v3_findings/lexical.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_lexical_order_2\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_lexical_order_2"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "answer_format_plain_reviewed_source",
+        "label": "matched_behavior.csv",
+        "path": "reports/quality_suite_v3_findings/matched_behavior.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_answer_format_plain\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_answer_format_plain"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "answer_format_paraphrase_reviewed_source",
+        "label": "matched_behavior.csv",
+        "path": "reports/quality_suite_v3_findings/matched_behavior.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_answer_format_paraphrase\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_answer_format_paraphrase"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "numeric_error_1_reviewed_source",
+        "label": "numeric_overall.csv",
+        "path": "reports/quality_suite_v3_findings/numeric_overall.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_numeric_error_1\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_numeric_error_1"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "numeric_error_2_reviewed_source",
+        "label": "numeric_overall.csv",
+        "path": "reports/quality_suite_v3_findings/numeric_overall.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_numeric_error_2\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_numeric_error_2"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "factorial_error_1_reviewed_source",
+        "label": "factorial.csv",
+        "path": "reports/quality_suite_v3_findings/factorial.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_factorial_error_1\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_factorial_error_1"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "factorial_error_2_reviewed_source",
+        "label": "factorial.csv",
+        "path": "reports/quality_suite_v3_findings/factorial.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_factorial_error_2\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_factorial_error_2"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "factorial_error_3_reviewed_source",
+        "label": "factorial.csv",
+        "path": "reports/quality_suite_v3_findings/factorial.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_factorial_error_3\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_factorial_error_3"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "hue_error_reviewed_source",
+        "label": "hue.csv",
+        "path": "reports/quality_suite_v3_findings/hue.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_hue_error\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_hue_error"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      },
+      {
+        "id": "coverage_source",
+        "label": "counts.csv",
+        "path": "reports/quality_suite_v3_findings/counts.csv",
+        "query": {
+          "sql": "SELECT * FROM \"derived_coverage\"",
+          "language": "sql",
+          "engine": "sqlite",
+          "tables_used": [
+            "derived_coverage"
+          ],
+          "description": "Reads the complete derived table, materialized by analysis/v3_report.py from the reviewed CSV. No top-N sampling or test-based selection."
+        }
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "status": "ready",
+    "datasets": {
+      "factorial_detail": [
+        {
+          "domain": "affect",
+          "quality": "arousal",
+          "partition": "combination+entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": -0.316227766,
+          "mae": 0.2372552338
+        },
+        {
+          "domain": "affect",
+          "quality": "danger",
+          "partition": "combination+entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": -0.9486832981,
+          "mae": 0.2389903418
+        },
+        {
+          "domain": "affect",
+          "quality": "pleasantness",
+          "partition": "combination+entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": 0.894427191,
+          "mae": 0.858516982
+        },
+        {
+          "domain": "affect",
+          "quality": "arousal",
+          "partition": "combination+entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": -0.316227766,
+          "mae": 0.2278498823
+        },
+        {
+          "domain": "affect",
+          "quality": "danger",
+          "partition": "combination+entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": -0.9486832981,
+          "mae": 0.2299022336
+        },
+        {
+          "domain": "affect",
+          "quality": "pleasantness",
+          "partition": "combination+entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": 0.894427191,
+          "mae": 0.3441015919
+        },
+        {
+          "domain": "affect",
+          "quality": "arousal",
+          "partition": "entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": 0.3502727132,
+          "mae": 0.2231812201
+        },
+        {
+          "domain": "affect",
+          "quality": "danger",
+          "partition": "entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": -0.071850813,
+          "mae": 0.2249519386
+        },
+        {
+          "domain": "affect",
+          "quality": "pleasantness",
+          "partition": "entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": 0.9409439378,
+          "mae": 0.8579857682
+        },
+        {
+          "domain": "affect",
+          "quality": "arousal",
+          "partition": "entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": 0.3412913616,
+          "mae": 0.1787784586
+        },
+        {
+          "domain": "affect",
+          "quality": "danger",
+          "partition": "entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": 0.2694405486,
+          "mae": 0.1797048386
+        },
+        {
+          "domain": "affect",
+          "quality": "pleasantness",
+          "partition": "entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": 0.9409439378,
+          "mae": 0.3381094194
+        },
+        {
+          "domain": "colour",
+          "quality": "saturation",
+          "partition": "combination+entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 10,
+          "n_groups": 1.0,
+          "rho": -0.2375751896,
+          "mae": 0.5062530953
+        },
+        {
+          "domain": "colour",
+          "quality": "value",
+          "partition": "combination+entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 10,
+          "n_groups": 1.0,
+          "rho": -0.5971484496,
+          "mae": 0.5178238221
+        },
+        {
+          "domain": "colour",
+          "quality": "saturation",
+          "partition": "combination+entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 10,
+          "n_groups": 1.0,
+          "rho": -0.4045199175,
+          "mae": 0.402667848
+        },
+        {
+          "domain": "colour",
+          "quality": "value",
+          "partition": "combination+entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 10,
+          "n_groups": 1.0,
+          "rho": -0.2311542386,
+          "mae": 0.4028083344
+        },
+        {
+          "domain": "colour",
+          "quality": "saturation",
+          "partition": "entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 44,
+          "n_groups": 1.0,
+          "rho": 0.0229458183,
+          "mae": 0.4525709259
+        },
+        {
+          "domain": "colour",
+          "quality": "value",
+          "partition": "entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 44,
+          "n_groups": 1.0,
+          "rho": -0.2604014038,
+          "mae": 0.4631190965
+        },
+        {
+          "domain": "colour",
+          "quality": "saturation",
+          "partition": "entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 44,
+          "n_groups": 1.0,
+          "rho": 0.0739199163,
+          "mae": 0.3985868986
+        },
+        {
+          "domain": "colour",
+          "quality": "value",
+          "partition": "entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 44,
+          "n_groups": 1.0,
+          "rho": 0.0920074995,
+          "mae": 0.4027844598
+        },
+        {
+          "domain": "extent_mass",
+          "quality": "mass",
+          "partition": "combination+entity_test+template|factorial|reordered",
+          "rank": 2,
+          "n_rows": 2,
+          "n_groups": 1.0,
+          "rho": null,
+          "mae": 0.2200677097
+        },
+        {
+          "domain": "extent_mass",
+          "quality": "size",
+          "partition": "combination+entity_test+template|factorial|reordered",
+          "rank": 2,
+          "n_rows": 2,
+          "n_groups": 1.0,
+          "rho": null,
+          "mae": 1.5317040682
+        },
+        {
+          "domain": "extent_mass",
+          "quality": "mass",
+          "partition": "combination+entity_test|factorial|numeric",
+          "rank": 2,
+          "n_rows": 2,
+          "n_groups": 1.0,
+          "rho": null,
+          "mae": 0.2439050078
+        },
+        {
+          "domain": "extent_mass",
+          "quality": "size",
+          "partition": "combination+entity_test|factorial|numeric",
+          "rank": 2,
+          "n_rows": 2,
+          "n_groups": 1.0,
+          "rho": null,
+          "mae": 0.0398454964
+        },
+        {
+          "domain": "extent_mass",
+          "quality": "mass",
+          "partition": "entity_test+template|factorial|reordered",
+          "rank": 2,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rho": 0.6614378278,
+          "mae": 0.152816253
+        },
+        {
+          "domain": "extent_mass",
+          "quality": "size",
+          "partition": "entity_test+template|factorial|reordered",
+          "rank": 2,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rho": 0.0,
+          "mae": 1.3572540283
+        },
+        {
+          "domain": "extent_mass",
+          "quality": "mass",
+          "partition": "entity_test|factorial|numeric",
+          "rank": 2,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rho": 0.9449111825,
+          "mae": 0.2424874433
+        },
+        {
+          "domain": "extent_mass",
+          "quality": "size",
+          "partition": "entity_test|factorial|numeric",
+          "rank": 2,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rho": 0.9449111825,
+          "mae": 0.1054773884
+        },
+        {
+          "domain": "motion_thermal",
+          "quality": "speed",
+          "partition": "combination+entity_test+template|factorial|reordered",
+          "rank": 2,
+          "n_rows": 2,
+          "n_groups": 1.0,
+          "rho": null,
+          "mae": 0.4914198518
+        },
+        {
+          "domain": "motion_thermal",
+          "quality": "temperature",
+          "partition": "combination+entity_test+template|factorial|reordered",
+          "rank": 2,
+          "n_rows": 2,
+          "n_groups": 1.0,
+          "rho": null,
+          "mae": 0.3885115087
+        },
+        {
+          "domain": "motion_thermal",
+          "quality": "speed",
+          "partition": "combination+entity_test|factorial|numeric",
+          "rank": 2,
+          "n_rows": 2,
+          "n_groups": 1.0,
+          "rho": null,
+          "mae": 0.0703894496
+        },
+        {
+          "domain": "motion_thermal",
+          "quality": "temperature",
+          "partition": "combination+entity_test|factorial|numeric",
+          "rank": 2,
+          "n_rows": 2,
+          "n_groups": 1.0,
+          "rho": null,
+          "mae": 0.2273498923
+        },
+        {
+          "domain": "motion_thermal",
+          "quality": "speed",
+          "partition": "entity_test+template|factorial|reordered",
+          "rank": 2,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rho": 0.9449111825,
+          "mae": 0.627898659
+        },
+        {
+          "domain": "motion_thermal",
+          "quality": "temperature",
+          "partition": "entity_test+template|factorial|reordered",
+          "rank": 2,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rho": 0.6614378278,
+          "mae": 0.3848195417
+        },
+        {
+          "domain": "motion_thermal",
+          "quality": "speed",
+          "partition": "entity_test|factorial|numeric",
+          "rank": 2,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rho": 0.9449111825,
+          "mae": 0.0509030414
+        },
+        {
+          "domain": "motion_thermal",
+          "quality": "temperature",
+          "partition": "entity_test|factorial|numeric",
+          "rank": 2,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rho": 0.9449111825,
+          "mae": 0.1717074726
+        },
+        {
+          "domain": "shape",
+          "quality": "height",
+          "partition": "combination+entity_test+template|factorial|reordered",
+          "rank": 3,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": 0.0,
+          "mae": 3.0923299789
+        },
+        {
+          "domain": "shape",
+          "quality": "length",
+          "partition": "combination+entity_test+template|factorial|reordered",
+          "rank": 3,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": -0.4472135955,
+          "mae": 0.6269526958
+        },
+        {
+          "domain": "shape",
+          "quality": "width",
+          "partition": "combination+entity_test+template|factorial|reordered",
+          "rank": 3,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": 0.790569415,
+          "mae": 2.3624754906
+        },
+        {
+          "domain": "shape",
+          "quality": "height",
+          "partition": "combination+entity_test|factorial|numeric",
+          "rank": 3,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": 0.9486832981,
+          "mae": 0.5130900383
+        },
+        {
+          "domain": "shape",
+          "quality": "length",
+          "partition": "combination+entity_test|factorial|numeric",
+          "rank": 3,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": 0.894427191,
+          "mae": 1.5565453053
+        },
+        {
+          "domain": "shape",
+          "quality": "width",
+          "partition": "combination+entity_test|factorial|numeric",
+          "rank": 3,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": 0.632455532,
+          "mae": 1.3847604513
+        },
+        {
+          "domain": "shape",
+          "quality": "height",
+          "partition": "entity_test+template|factorial|reordered",
+          "rank": 3,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": 0.4849929875,
+          "mae": 3.0882796808
+        },
+        {
+          "domain": "shape",
+          "quality": "length",
+          "partition": "entity_test+template|factorial|reordered",
+          "rank": 3,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": 0.1008154219,
+          "mae": 0.5994545221
+        },
+        {
+          "domain": "shape",
+          "quality": "width",
+          "partition": "entity_test+template|factorial|reordered",
+          "rank": 3,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": 0.6466573167,
+          "mae": 2.2970862497
+        },
+        {
+          "domain": "shape",
+          "quality": "height",
+          "partition": "entity_test|factorial|numeric",
+          "rank": 3,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": 0.9430419202,
+          "mae": 0.5004576878
+        },
+        {
+          "domain": "shape",
+          "quality": "length",
+          "partition": "entity_test|factorial|numeric",
+          "rank": 3,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": 0.9409439378,
+          "mae": 1.5516969887
+        },
+        {
+          "domain": "shape",
+          "quality": "width",
+          "partition": "entity_test|factorial|numeric",
+          "rank": 3,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": 0.9071165137,
+          "mae": 1.3496537913
+        },
+        {
+          "domain": "sound",
+          "quality": "loudness",
+          "partition": "combination+entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 2,
+          "n_groups": 1.0,
+          "rho": null,
+          "mae": 0.3075116772
+        },
+        {
+          "domain": "sound",
+          "quality": "pitch",
+          "partition": "combination+entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 2,
+          "n_groups": 1.0,
+          "rho": null,
+          "mae": 0.5752390286
+        },
+        {
+          "domain": "sound",
+          "quality": "loudness",
+          "partition": "combination+entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 2,
+          "n_groups": 1.0,
+          "rho": null,
+          "mae": 0.2624022508
+        },
+        {
+          "domain": "sound",
+          "quality": "pitch",
+          "partition": "combination+entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 2,
+          "n_groups": 1.0,
+          "rho": null,
+          "mae": 0.4676264017
+        },
+        {
+          "domain": "sound",
+          "quality": "loudness",
+          "partition": "entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rho": 0.755928946,
+          "mae": 0.3133919611
+        },
+        {
+          "domain": "sound",
+          "quality": "pitch",
+          "partition": "entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rho": 0.377964473,
+          "mae": 0.7500263227
+        },
+        {
+          "domain": "sound",
+          "quality": "loudness",
+          "partition": "entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rho": 0.4724555913,
+          "mae": 0.1886714737
+        },
+        {
+          "domain": "sound",
+          "quality": "pitch",
+          "partition": "entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rho": 0.9449111825,
+          "mae": 0.3645787785
+        },
+        {
+          "domain": "surface",
+          "quality": "elasticity",
+          "partition": "combination+entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": 0.9486832981,
+          "mae": 1.3186563013
+        },
+        {
+          "domain": "surface",
+          "quality": "hardness",
+          "partition": "combination+entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": 0.316227766,
+          "mae": 0.2005292907
+        },
+        {
+          "domain": "surface",
+          "quality": "roughness",
+          "partition": "combination+entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": -0.4472135955,
+          "mae": 0.414464741
+        },
+        {
+          "domain": "surface",
+          "quality": "elasticity",
+          "partition": "combination+entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": 0.9486832981,
+          "mae": 0.181732674
+        },
+        {
+          "domain": "surface",
+          "quality": "hardness",
+          "partition": "combination+entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": 0.316227766,
+          "mae": 0.2000101676
+        },
+        {
+          "domain": "surface",
+          "quality": "roughness",
+          "partition": "combination+entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 5,
+          "n_groups": 1.0,
+          "rho": -0.4472135955,
+          "mae": 0.1457963897
+        },
+        {
+          "domain": "surface",
+          "quality": "elasticity",
+          "partition": "entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": 0.925079217,
+          "mae": 1.3254292181
+        },
+        {
+          "domain": "surface",
+          "quality": "hardness",
+          "partition": "entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": 0.2784219002,
+          "mae": 0.1600812134
+        },
+        {
+          "domain": "surface",
+          "quality": "roughness",
+          "partition": "entity_test+template|factorial|reordered",
+          "rank": 1,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": 0.2352359844,
+          "mae": 0.4165935256
+        },
+        {
+          "domain": "surface",
+          "quality": "elasticity",
+          "partition": "entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": 0.9430419202,
+          "mae": 0.1821158228
+        },
+        {
+          "domain": "surface",
+          "quality": "hardness",
+          "partition": "entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": -0.0449067581,
+          "mae": 0.159249751
+        },
+        {
+          "domain": "surface",
+          "quality": "roughness",
+          "partition": "entity_test|factorial|numeric",
+          "rank": 1,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rho": 0.4368668283,
+          "mae": 0.1810269169
+        }
+      ],
+      "hue_neighbors": [
+        {
+          "template_id": "numeric",
+          "n_triplets": 24,
+          "n_groups": 2,
+          "fraction_near_closer": 0.7916666667
+        },
+        {
+          "template_id": "plain",
+          "n_triplets": 24,
+          "n_groups": 2,
+          "fraction_near_closer": 0.5
+        }
+      ],
+      "graded_order_1": [
+        {
+          "quality": "Arousal",
+          "wording": "Familiar",
+          "rho": 0.9847319278,
+          "mae": 0.0568463266,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Arousal",
+          "wording": "Reworded",
+          "rho": 0.7877855423,
+          "mae": 0.9995494008,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Brightness",
+          "wording": "Familiar",
+          "rho": 0.9847319278,
+          "mae": 0.0925675422,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Brightness",
+          "wording": "Reworded",
+          "rho": 0.8862587351,
+          "mae": 0.1578976452,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Danger",
+          "wording": "Familiar",
+          "rho": 0.9354953314,
+          "mae": 0.1110883057,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Danger",
+          "wording": "Reworded",
+          "rho": 0.9354953314,
+          "mae": 0.2009368449,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Elasticity",
+          "wording": "Familiar",
+          "rho": 0.9354953314,
+          "mae": 0.363590613,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Elasticity",
+          "wording": "Reworded",
+          "rho": 0.8124038405,
+          "mae": 0.2331582606,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Hardness",
+          "wording": "Familiar",
+          "rho": 0.9354953314,
+          "mae": 0.115835312,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Hardness",
+          "wording": "Reworded",
+          "rho": 0.1477097892,
+          "mae": 0.4245008141,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Loudness",
+          "wording": "Familiar",
+          "rho": 0.9847319278,
+          "mae": 0.1130944848,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Loudness",
+          "wording": "Reworded",
+          "rho": 0.9108770332,
+          "mae": 0.2211803615,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Mass",
+          "wording": "Familiar",
+          "rho": 0.9601136296,
+          "mae": 0.1042982012,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Mass",
+          "wording": "Reworded",
+          "rho": 0.9847319278,
+          "mae": 0.2150377452,
+          "n_rows": 10,
+          "n_groups": 2
+        }
+      ],
+      "graded_order_2": [
+        {
+          "quality": "Pitch",
+          "wording": "Familiar",
+          "rho": 0.9354953314,
+          "mae": 0.1573424816,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Pitch",
+          "wording": "Reworded",
+          "rho": 0.3200378765,
+          "mae": 0.3117819786,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Pleasantness",
+          "wording": "Familiar",
+          "rho": 0.9847319278,
+          "mae": 0.0836935133,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Pleasantness",
+          "wording": "Reworded",
+          "rho": 0.9847319278,
+          "mae": 0.2121956676,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Roughness",
+          "wording": "Familiar",
+          "rho": 0.9847319278,
+          "mae": 0.0859312534,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Roughness",
+          "wording": "Reworded",
+          "rho": 0.8616404369,
+          "mae": 0.2428806335,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Size",
+          "wording": "Familiar",
+          "rho": 0.9847319278,
+          "mae": 0.0890573442,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Size",
+          "wording": "Reworded",
+          "rho": 0.2954195784,
+          "mae": 0.3560917199,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Speed",
+          "wording": "Familiar",
+          "rho": 0.9847319278,
+          "mae": 0.1170593232,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Speed",
+          "wording": "Reworded",
+          "rho": 0.8862587351,
+          "mae": 0.1610882968,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Sweetness",
+          "wording": "Familiar",
+          "rho": 0.9601136296,
+          "mae": 0.1073160052,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Sweetness",
+          "wording": "Reworded",
+          "rho": 0.7139306477,
+          "mae": 0.3280859858,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Temperature",
+          "wording": "Familiar",
+          "rho": 0.9354953314,
+          "mae": 0.091621694,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Temperature",
+          "wording": "Reworded",
+          "rho": 0.5662208585,
+          "mae": 0.357426095,
+          "n_rows": 10,
+          "n_groups": 2
+        }
+      ],
+      "graded_error_1": [
+        {
+          "quality": "Arousal",
+          "wording": "Familiar",
+          "rho": 0.9847319278,
+          "mae": 0.0568463266,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Arousal",
+          "wording": "Reworded",
+          "rho": 0.7877855423,
+          "mae": 0.9995494008,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Brightness",
+          "wording": "Familiar",
+          "rho": 0.9847319278,
+          "mae": 0.0925675422,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Brightness",
+          "wording": "Reworded",
+          "rho": 0.8862587351,
+          "mae": 0.1578976452,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Danger",
+          "wording": "Familiar",
+          "rho": 0.9354953314,
+          "mae": 0.1110883057,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Danger",
+          "wording": "Reworded",
+          "rho": 0.9354953314,
+          "mae": 0.2009368449,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Elasticity",
+          "wording": "Familiar",
+          "rho": 0.9354953314,
+          "mae": 0.363590613,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Elasticity",
+          "wording": "Reworded",
+          "rho": 0.8124038405,
+          "mae": 0.2331582606,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Hardness",
+          "wording": "Familiar",
+          "rho": 0.9354953314,
+          "mae": 0.115835312,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Hardness",
+          "wording": "Reworded",
+          "rho": 0.1477097892,
+          "mae": 0.4245008141,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Loudness",
+          "wording": "Familiar",
+          "rho": 0.9847319278,
+          "mae": 0.1130944848,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Loudness",
+          "wording": "Reworded",
+          "rho": 0.9108770332,
+          "mae": 0.2211803615,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Mass",
+          "wording": "Familiar",
+          "rho": 0.9601136296,
+          "mae": 0.1042982012,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Mass",
+          "wording": "Reworded",
+          "rho": 0.9847319278,
+          "mae": 0.2150377452,
+          "n_rows": 10,
+          "n_groups": 2
+        }
+      ],
+      "graded_error_2": [
+        {
+          "quality": "Pitch",
+          "wording": "Familiar",
+          "rho": 0.9354953314,
+          "mae": 0.1573424816,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Pitch",
+          "wording": "Reworded",
+          "rho": 0.3200378765,
+          "mae": 0.3117819786,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Pleasantness",
+          "wording": "Familiar",
+          "rho": 0.9847319278,
+          "mae": 0.0836935133,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Pleasantness",
+          "wording": "Reworded",
+          "rho": 0.9847319278,
+          "mae": 0.2121956676,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Roughness",
+          "wording": "Familiar",
+          "rho": 0.9847319278,
+          "mae": 0.0859312534,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Roughness",
+          "wording": "Reworded",
+          "rho": 0.8616404369,
+          "mae": 0.2428806335,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Size",
+          "wording": "Familiar",
+          "rho": 0.9847319278,
+          "mae": 0.0890573442,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Size",
+          "wording": "Reworded",
+          "rho": 0.2954195784,
+          "mae": 0.3560917199,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Speed",
+          "wording": "Familiar",
+          "rho": 0.9847319278,
+          "mae": 0.1170593232,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Speed",
+          "wording": "Reworded",
+          "rho": 0.8862587351,
+          "mae": 0.1610882968,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Sweetness",
+          "wording": "Familiar",
+          "rho": 0.9601136296,
+          "mae": 0.1073160052,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Sweetness",
+          "wording": "Reworded",
+          "rho": 0.7139306477,
+          "mae": 0.3280859858,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Temperature",
+          "wording": "Familiar",
+          "rho": 0.9354953314,
+          "mae": 0.091621694,
+          "n_rows": 10,
+          "n_groups": 2
+        },
+        {
+          "quality": "Temperature",
+          "wording": "Reworded",
+          "rho": 0.5662208585,
+          "mae": 0.357426095,
+          "n_rows": 10,
+          "n_groups": 2
+        }
+      ],
+      "binding_error_1": [
+        {
+          "quality": "Arousal",
+          "series": "Familiar",
+          "mae": 0.140305426,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Arousal",
+          "series": "Reworded",
+          "mae": 0.6864518821,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Brightness",
+          "series": "Familiar",
+          "mae": 0.1547728628,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Brightness",
+          "series": "Reworded",
+          "mae": 0.1637073308,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Danger",
+          "series": "Familiar",
+          "mae": 0.1259843037,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Danger",
+          "series": "Reworded",
+          "mae": 0.3353549503,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Elasticity",
+          "series": "Familiar",
+          "mae": 0.2003475837,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Elasticity",
+          "series": "Reworded",
+          "mae": 0.4513705485,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Hardness",
+          "series": "Familiar",
+          "mae": 0.0801819898,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Hardness",
+          "series": "Reworded",
+          "mae": 0.3767359257,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Loudness",
+          "series": "Familiar",
+          "mae": 0.1790730394,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Loudness",
+          "series": "Reworded",
+          "mae": 0.2785383463,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Mass",
+          "series": "Familiar",
+          "mae": 0.1438449845,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Mass",
+          "series": "Reworded",
+          "mae": 0.2082104459,
+          "n_rows": 8,
+          "n_groups": 1
+        }
+      ],
+      "binding_error_2": [
+        {
+          "quality": "Pitch",
+          "series": "Familiar",
+          "mae": 0.212748494,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Pitch",
+          "series": "Reworded",
+          "mae": 0.3687426373,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Pleasantness",
+          "series": "Familiar",
+          "mae": 0.09217906,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Pleasantness",
+          "series": "Reworded",
+          "mae": 0.2806792893,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Roughness",
+          "series": "Familiar",
+          "mae": 0.0899366736,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Roughness",
+          "series": "Reworded",
+          "mae": 0.3082494773,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Size",
+          "series": "Familiar",
+          "mae": 0.0767198242,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Size",
+          "series": "Reworded",
+          "mae": 0.5399540477,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Speed",
+          "series": "Familiar",
+          "mae": 0.0781818777,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Speed",
+          "series": "Reworded",
+          "mae": 0.2481900156,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Sweetness",
+          "series": "Familiar",
+          "mae": 0.1794747189,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Sweetness",
+          "series": "Reworded",
+          "mae": 0.2495757453,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Temperature",
+          "series": "Familiar",
+          "mae": 0.1232138425,
+          "n_rows": 8,
+          "n_groups": 1
+        },
+        {
+          "quality": "Temperature",
+          "series": "Reworded",
+          "mae": 0.4690718688,
+          "n_rows": 8,
+          "n_groups": 1
+        }
+      ],
+      "nuisance": [
+        {
+          "kind": "Genuine level increase",
+          "template_id": "Familiar",
+          "mean_absolute_delta": 0.2005545263,
+          "properties": 14,
+          "total_pairs": 112,
+          "groups_per_property": 2
+        },
+        {
+          "kind": "Genuine level increase",
+          "template_id": "Reworded",
+          "mean_absolute_delta": 0.1229714323,
+          "properties": 14,
+          "total_pairs": 112,
+          "groups_per_property": 2
+        },
+        {
+          "kind": "Clause reordering",
+          "template_id": "Familiar",
+          "mean_absolute_delta": 0.1375083274,
+          "properties": 14,
+          "total_pairs": 56,
+          "groups_per_property": 1
+        },
+        {
+          "kind": "Clause reordering",
+          "template_id": "Reworded",
+          "mean_absolute_delta": 0.2410259593,
+          "properties": 14,
+          "total_pairs": 56,
+          "groups_per_property": 1
+        },
+        {
+          "kind": "Irrelevant edit",
+          "template_id": "Familiar",
+          "mean_absolute_delta": 0.0635947032,
+          "properties": 14,
+          "total_pairs": 28,
+          "groups_per_property": 2
+        },
+        {
+          "kind": "Irrelevant edit",
+          "template_id": "Reworded",
+          "mean_absolute_delta": 0.1435419279,
+          "properties": 14,
+          "total_pairs": 28,
+          "groups_per_property": 2
+        }
+      ],
+      "lexical_order_1": [
+        {
+          "quality": "Arousal",
+          "wording": "Familiar",
+          "rho": 0.8827348295,
+          "n_rows": 6,
+          "n_groups": 6
+        },
+        {
+          "quality": "Arousal",
+          "wording": "Reworded",
+          "rho": 0.9710083125,
+          "n_rows": 6,
+          "n_groups": 6
+        },
+        {
+          "quality": "Brightness",
+          "wording": "Familiar",
+          "rho": 0.5773502692,
+          "n_rows": 5,
+          "n_groups": 5
+        },
+        {
+          "quality": "Brightness",
+          "wording": "Reworded",
+          "rho": 0.5773502692,
+          "n_rows": 5,
+          "n_groups": 5
+        },
+        {
+          "quality": "Danger",
+          "wording": "Familiar",
+          "rho": 0.632455532,
+          "n_rows": 5,
+          "n_groups": 5
+        },
+        {
+          "quality": "Danger",
+          "wording": "Reworded",
+          "rho": 0.790569415,
+          "n_rows": 5,
+          "n_groups": 5
+        },
+        {
+          "quality": "Elasticity",
+          "wording": "Familiar",
+          "rho": 0.8827348295,
+          "n_rows": 6,
+          "n_groups": 6
+        },
+        {
+          "quality": "Elasticity",
+          "wording": "Reworded",
+          "rho": 0.7061878636,
+          "n_rows": 6,
+          "n_groups": 6
+        },
+        {
+          "quality": "Hardness",
+          "wording": "Familiar",
+          "rho": 0.158113883,
+          "n_rows": 5,
+          "n_groups": 5
+        },
+        {
+          "quality": "Hardness",
+          "wording": "Reworded",
+          "rho": -0.158113883,
+          "n_rows": 5,
+          "n_groups": 5
+        },
+        {
+          "quality": "Loudness",
+          "wording": "Familiar",
+          "rho": -0.632455532,
+          "n_rows": 4,
+          "n_groups": 4
+        },
+        {
+          "quality": "Loudness",
+          "wording": "Reworded",
+          "rho": -0.7378647874,
+          "n_rows": 4,
+          "n_groups": 4
+        },
+        {
+          "quality": "Mass",
+          "wording": "Familiar",
+          "rho": 1.0,
+          "n_rows": 3,
+          "n_groups": 3
+        },
+        {
+          "quality": "Mass",
+          "wording": "Reworded",
+          "rho": 1.0,
+          "n_rows": 3,
+          "n_groups": 3
+        }
+      ],
+      "lexical_order_2": [
+        {
+          "quality": "Pitch",
+          "wording": "Familiar",
+          "rho": -0.6668859289,
+          "n_rows": 5,
+          "n_groups": 5
+        },
+        {
+          "quality": "Pitch",
+          "wording": "Reworded",
+          "rho": -0.6155870113,
+          "n_rows": 5,
+          "n_groups": 5
+        },
+        {
+          "quality": "Pleasantness",
+          "wording": "Familiar",
+          "rho": 0.9486832981,
+          "n_rows": 5,
+          "n_groups": 5
+        },
+        {
+          "quality": "Pleasantness",
+          "wording": "Reworded",
+          "rho": -0.158113883,
+          "n_rows": 5,
+          "n_groups": 5
+        },
+        {
+          "quality": "Roughness",
+          "wording": "Familiar",
+          "rho": 0.6668859289,
+          "n_rows": 5,
+          "n_groups": 5
+        },
+        {
+          "quality": "Roughness",
+          "wording": "Reworded",
+          "rho": 0.6668859289,
+          "n_rows": 5,
+          "n_groups": 5
+        },
+        {
+          "quality": "Size",
+          "wording": "Familiar",
+          "rho": 0.8660254038,
+          "n_rows": 3,
+          "n_groups": 3
+        },
+        {
+          "quality": "Size",
+          "wording": "Reworded",
+          "rho": 0.8660254038,
+          "n_rows": 3,
+          "n_groups": 3
+        },
+        {
+          "quality": "Speed",
+          "wording": "Familiar",
+          "rho": -0.7745966692,
+          "n_rows": 4,
+          "n_groups": 4
+        },
+        {
+          "quality": "Speed",
+          "wording": "Reworded",
+          "rho": 0.2581988897,
+          "n_rows": 4,
+          "n_groups": 4
+        },
+        {
+          "quality": "Sweetness",
+          "wording": "Familiar",
+          "rho": 0.6546536707,
+          "n_rows": 7,
+          "n_groups": 7
+        },
+        {
+          "quality": "Sweetness",
+          "wording": "Reworded",
+          "rho": 0.5091750772,
+          "n_rows": 7,
+          "n_groups": 7
+        },
+        {
+          "quality": "Temperature",
+          "wording": "Familiar",
+          "rho": 0.894427191,
+          "n_rows": 4,
+          "n_groups": 4
+        },
+        {
+          "quality": "Temperature",
+          "wording": "Reworded",
+          "rho": 0.894427191,
+          "n_rows": 4,
+          "n_groups": 4
+        }
+      ],
+      "answer_format_plain": [
+        {
+          "quality_id": "Danger",
+          "template_id": "plain",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "natural_accuracy",
+          "accuracy": 0.5,
+          "series": "Natural"
+        },
+        {
+          "quality_id": "Danger",
+          "template_id": "plain",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "ab_accuracy",
+          "accuracy": 0.625,
+          "series": "A/B"
+        },
+        {
+          "quality_id": "Mass",
+          "template_id": "plain",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "natural_accuracy",
+          "accuracy": 1.0,
+          "series": "Natural"
+        },
+        {
+          "quality_id": "Mass",
+          "template_id": "plain",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "ab_accuracy",
+          "accuracy": 0.75,
+          "series": "A/B"
+        },
+        {
+          "quality_id": "Pitch",
+          "template_id": "plain",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "natural_accuracy",
+          "accuracy": 1.0,
+          "series": "Natural"
+        },
+        {
+          "quality_id": "Pitch",
+          "template_id": "plain",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "ab_accuracy",
+          "accuracy": 0.5,
+          "series": "A/B"
+        },
+        {
+          "quality_id": "Pleasantness",
+          "template_id": "plain",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "natural_accuracy",
+          "accuracy": 0.75,
+          "series": "Natural"
+        },
+        {
+          "quality_id": "Pleasantness",
+          "template_id": "plain",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "ab_accuracy",
+          "accuracy": 0.5,
+          "series": "A/B"
+        },
+        {
+          "quality_id": "Size",
+          "template_id": "plain",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "natural_accuracy",
+          "accuracy": 1.0,
+          "series": "Natural"
+        },
+        {
+          "quality_id": "Size",
+          "template_id": "plain",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "ab_accuracy",
+          "accuracy": 0.6875,
+          "series": "A/B"
+        },
+        {
+          "quality_id": "Temperature",
+          "template_id": "plain",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "natural_accuracy",
+          "accuracy": 1.0,
+          "series": "Natural"
+        },
+        {
+          "quality_id": "Temperature",
+          "template_id": "plain",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "ab_accuracy",
+          "accuracy": 0.75,
+          "series": "A/B"
+        }
+      ],
+      "answer_format_paraphrase": [
+        {
+          "quality_id": "Danger",
+          "template_id": "paraphrase",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "natural_accuracy",
+          "accuracy": 0.5,
+          "series": "Natural"
+        },
+        {
+          "quality_id": "Danger",
+          "template_id": "paraphrase",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "ab_accuracy",
+          "accuracy": 0.5625,
+          "series": "A/B"
+        },
+        {
+          "quality_id": "Mass",
+          "template_id": "paraphrase",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "natural_accuracy",
+          "accuracy": 1.0,
+          "series": "Natural"
+        },
+        {
+          "quality_id": "Mass",
+          "template_id": "paraphrase",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "ab_accuracy",
+          "accuracy": 0.6875,
+          "series": "A/B"
+        },
+        {
+          "quality_id": "Pitch",
+          "template_id": "paraphrase",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "natural_accuracy",
+          "accuracy": 1.0,
+          "series": "Natural"
+        },
+        {
+          "quality_id": "Pitch",
+          "template_id": "paraphrase",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "ab_accuracy",
+          "accuracy": 0.4375,
+          "series": "A/B"
+        },
+        {
+          "quality_id": "Pleasantness",
+          "template_id": "paraphrase",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "natural_accuracy",
+          "accuracy": 0.5,
+          "series": "Natural"
+        },
+        {
+          "quality_id": "Pleasantness",
+          "template_id": "paraphrase",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "ab_accuracy",
+          "accuracy": 0.5625,
+          "series": "A/B"
+        },
+        {
+          "quality_id": "Size",
+          "template_id": "paraphrase",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "natural_accuracy",
+          "accuracy": 0.5,
+          "series": "Natural"
+        },
+        {
+          "quality_id": "Size",
+          "template_id": "paraphrase",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "ab_accuracy",
+          "accuracy": 0.5,
+          "series": "A/B"
+        },
+        {
+          "quality_id": "Temperature",
+          "template_id": "paraphrase",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "natural_accuracy",
+          "accuracy": 1.0,
+          "series": "Natural"
+        },
+        {
+          "quality_id": "Temperature",
+          "template_id": "paraphrase",
+          "n_comparisons": 4,
+          "n_groups": 1,
+          "format": "ab_accuracy",
+          "accuracy": 0.8125,
+          "series": "A/B"
+        }
+      ],
+      "numeric_error_1": [
+        {
+          "quality": "Brightness",
+          "method": "Hidden-state probe",
+          "n": 11,
+          "n_groups": 1,
+          "mae": 4343.4601773855,
+          "range_normalized_mae": 0.4343894567
+        },
+        {
+          "quality": "Brightness",
+          "method": "Number-text baseline",
+          "n": 11,
+          "n_groups": 1,
+          "mae": 16.4402674864,
+          "range_normalized_mae": 0.0016441912
+        },
+        {
+          "quality": "Elasticity",
+          "method": "Hidden-state probe",
+          "n": 9,
+          "n_groups": 1,
+          "mae": 37.1139551799,
+          "range_normalized_mae": 0.3711395518
+        },
+        {
+          "quality": "Elasticity",
+          "method": "Number-text baseline",
+          "n": 9,
+          "n_groups": 1,
+          "mae": 0.1778807958,
+          "range_normalized_mae": 0.001778808
+        },
+        {
+          "quality": "Loudness",
+          "method": "Hidden-state probe",
+          "n": 9,
+          "n_groups": 1,
+          "mae": 12.5429551866,
+          "range_normalized_mae": 0.1567869398
+        },
+        {
+          "quality": "Loudness",
+          "method": "Number-text baseline",
+          "n": 9,
+          "n_groups": 1,
+          "mae": 0.050977243,
+          "range_normalized_mae": 0.0006372155
+        },
+        {
+          "quality": "Mass",
+          "method": "Hidden-state probe",
+          "n": 22,
+          "n_groups": 1,
+          "mae": 6477.6991354563,
+          "range_normalized_mae": 0.647834697
+        },
+        {
+          "quality": "Mass",
+          "method": "Number-text baseline",
+          "n": 22,
+          "n_groups": 1,
+          "mae": 2104.5786526867,
+          "range_normalized_mae": 0.2104789132
+        }
+      ],
+      "numeric_error_2": [
+        {
+          "quality": "Pitch",
+          "method": "Hidden-state probe",
+          "n": 22,
+          "n_groups": 1,
+          "mae": 758.7262083528,
+          "range_normalized_mae": 0.4598340657
+        },
+        {
+          "quality": "Pitch",
+          "method": "Number-text baseline",
+          "n": 22,
+          "n_groups": 1,
+          "mae": 377.6043186271,
+          "range_normalized_mae": 0.2288511022
+        },
+        {
+          "quality": "Size",
+          "method": "Hidden-state probe",
+          "n": 22,
+          "n_groups": 1,
+          "mae": 46.5691870461,
+          "range_normalized_mae": 0.3125448795
+        },
+        {
+          "quality": "Size",
+          "method": "Number-text baseline",
+          "n": 22,
+          "n_groups": 1,
+          "mae": 27.1194319565,
+          "range_normalized_mae": 0.1820096104
+        },
+        {
+          "quality": "Speed",
+          "method": "Hidden-state probe",
+          "n": 18,
+          "n_groups": 1,
+          "mae": 24.2299540838,
+          "range_normalized_mae": 0.2422995408
+        },
+        {
+          "quality": "Speed",
+          "method": "Number-text baseline",
+          "n": 18,
+          "n_groups": 1,
+          "mae": 64.852622144,
+          "range_normalized_mae": 0.6485262214
+        },
+        {
+          "quality": "Temperature",
+          "method": "Hidden-state probe",
+          "n": 22,
+          "n_groups": 1,
+          "mae": 25.4696311517,
+          "range_normalized_mae": 0.3183703894
+        },
+        {
+          "quality": "Temperature",
+          "method": "Number-text baseline",
+          "n": 22,
+          "n_groups": 1,
+          "mae": 31.21518074,
+          "range_normalized_mae": 0.3901897593
+        }
+      ],
+      "factorial_error_1": [
+        {
+          "domain": "affect",
+          "quality": "Affect \u00b7 Arousal",
+          "wording": "Familiar",
+          "mae": 0.1787784586,
+          "rho": 0.3412913616,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 1
+        },
+        {
+          "domain": "affect",
+          "quality": "Affect \u00b7 Arousal",
+          "wording": "Reworded",
+          "mae": 0.2231812201,
+          "rho": 0.3502727132,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 1
+        },
+        {
+          "domain": "affect",
+          "quality": "Affect \u00b7 Danger",
+          "wording": "Familiar",
+          "mae": 0.1797048386,
+          "rho": 0.2694405486,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 1
+        },
+        {
+          "domain": "affect",
+          "quality": "Affect \u00b7 Danger",
+          "wording": "Reworded",
+          "mae": 0.2249519386,
+          "rho": -0.071850813,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 1
+        },
+        {
+          "domain": "affect",
+          "quality": "Affect \u00b7 Pleasantness",
+          "wording": "Familiar",
+          "mae": 0.3381094194,
+          "rho": 0.9409439378,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 1
+        },
+        {
+          "domain": "affect",
+          "quality": "Affect \u00b7 Pleasantness",
+          "wording": "Reworded",
+          "mae": 0.8579857682,
+          "rho": 0.9409439378,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 1
+        },
+        {
+          "domain": "colour",
+          "quality": "Colour \u00b7 Saturation",
+          "wording": "Familiar",
+          "mae": 0.3985868986,
+          "rho": 0.0739199163,
+          "n_rows": 44,
+          "n_groups": 1.0,
+          "rank": 1
+        },
+        {
+          "domain": "colour",
+          "quality": "Colour \u00b7 Saturation",
+          "wording": "Reworded",
+          "mae": 0.4525709259,
+          "rho": 0.0229458183,
+          "n_rows": 44,
+          "n_groups": 1.0,
+          "rank": 1
+        },
+        {
+          "domain": "colour",
+          "quality": "Colour \u00b7 Value",
+          "wording": "Familiar",
+          "mae": 0.4027844598,
+          "rho": 0.0920074995,
+          "n_rows": 44,
+          "n_groups": 1.0,
+          "rank": 1
+        },
+        {
+          "domain": "colour",
+          "quality": "Colour \u00b7 Value",
+          "wording": "Reworded",
+          "mae": 0.4631190965,
+          "rho": -0.2604014038,
+          "n_rows": 44,
+          "n_groups": 1.0,
+          "rank": 1
+        }
+      ],
+      "factorial_error_2": [
+        {
+          "domain": "extent_mass",
+          "quality": "Extent Mass \u00b7 Mass",
+          "wording": "Familiar",
+          "mae": 0.2424874433,
+          "rho": 0.9449111825,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rank": 2
+        },
+        {
+          "domain": "extent_mass",
+          "quality": "Extent Mass \u00b7 Mass",
+          "wording": "Reworded",
+          "mae": 0.152816253,
+          "rho": 0.6614378278,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rank": 2
+        },
+        {
+          "domain": "extent_mass",
+          "quality": "Extent Mass \u00b7 Size",
+          "wording": "Familiar",
+          "mae": 0.1054773884,
+          "rho": 0.9449111825,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rank": 2
+        },
+        {
+          "domain": "extent_mass",
+          "quality": "Extent Mass \u00b7 Size",
+          "wording": "Reworded",
+          "mae": 1.3572540283,
+          "rho": 0.0,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rank": 2
+        },
+        {
+          "domain": "motion_thermal",
+          "quality": "Motion Thermal \u00b7 Speed",
+          "wording": "Familiar",
+          "mae": 0.0509030414,
+          "rho": 0.9449111825,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rank": 2
+        },
+        {
+          "domain": "motion_thermal",
+          "quality": "Motion Thermal \u00b7 Speed",
+          "wording": "Reworded",
+          "mae": 0.627898659,
+          "rho": 0.9449111825,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rank": 2
+        },
+        {
+          "domain": "motion_thermal",
+          "quality": "Motion Thermal \u00b7 Temperature",
+          "wording": "Familiar",
+          "mae": 0.1717074726,
+          "rho": 0.9449111825,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rank": 2
+        },
+        {
+          "domain": "motion_thermal",
+          "quality": "Motion Thermal \u00b7 Temperature",
+          "wording": "Reworded",
+          "mae": 0.3848195417,
+          "rho": 0.6614378278,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rank": 2
+        },
+        {
+          "domain": "sound",
+          "quality": "Sound \u00b7 Loudness",
+          "wording": "Familiar",
+          "mae": 0.1886714737,
+          "rho": 0.4724555913,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rank": 1
+        },
+        {
+          "domain": "sound",
+          "quality": "Sound \u00b7 Loudness",
+          "wording": "Reworded",
+          "mae": 0.3133919611,
+          "rho": 0.755928946,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rank": 1
+        },
+        {
+          "domain": "sound",
+          "quality": "Sound \u00b7 Pitch",
+          "wording": "Familiar",
+          "mae": 0.3645787785,
+          "rho": 0.9449111825,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rank": 1
+        },
+        {
+          "domain": "sound",
+          "quality": "Sound \u00b7 Pitch",
+          "wording": "Reworded",
+          "mae": 0.7500263227,
+          "rho": 0.377964473,
+          "n_rows": 7,
+          "n_groups": 1.0,
+          "rank": 1
+        }
+      ],
+      "factorial_error_3": [
+        {
+          "domain": "shape",
+          "quality": "Shape \u00b7 Height",
+          "wording": "Familiar",
+          "mae": 0.5004576878,
+          "rho": 0.9430419202,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 3
+        },
+        {
+          "domain": "shape",
+          "quality": "Shape \u00b7 Height",
+          "wording": "Reworded",
+          "mae": 3.0882796808,
+          "rho": 0.4849929875,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 3
+        },
+        {
+          "domain": "shape",
+          "quality": "Shape \u00b7 Length",
+          "wording": "Familiar",
+          "mae": 1.5516969887,
+          "rho": 0.9409439378,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 3
+        },
+        {
+          "domain": "shape",
+          "quality": "Shape \u00b7 Length",
+          "wording": "Reworded",
+          "mae": 0.5994545221,
+          "rho": 0.1008154219,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 3
+        },
+        {
+          "domain": "shape",
+          "quality": "Shape \u00b7 Width",
+          "wording": "Familiar",
+          "mae": 1.3496537913,
+          "rho": 0.9071165137,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 3
+        },
+        {
+          "domain": "shape",
+          "quality": "Shape \u00b7 Width",
+          "wording": "Reworded",
+          "mae": 2.2970862497,
+          "rho": 0.6466573167,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 3
+        },
+        {
+          "domain": "surface",
+          "quality": "Surface \u00b7 Elasticity",
+          "wording": "Familiar",
+          "mae": 0.1821158228,
+          "rho": 0.9430419202,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 1
+        },
+        {
+          "domain": "surface",
+          "quality": "Surface \u00b7 Elasticity",
+          "wording": "Reworded",
+          "mae": 1.3254292181,
+          "rho": 0.925079217,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 1
+        },
+        {
+          "domain": "surface",
+          "quality": "Surface \u00b7 Hardness",
+          "wording": "Familiar",
+          "mae": 0.159249751,
+          "rho": -0.0449067581,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 1
+        },
+        {
+          "domain": "surface",
+          "quality": "Surface \u00b7 Hardness",
+          "wording": "Reworded",
+          "mae": 0.1600812134,
+          "rho": 0.2784219002,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 1
+        },
+        {
+          "domain": "surface",
+          "quality": "Surface \u00b7 Roughness",
+          "wording": "Familiar",
+          "mae": 0.1810269169,
+          "rho": 0.4368668283,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 1
+        },
+        {
+          "domain": "surface",
+          "quality": "Surface \u00b7 Roughness",
+          "wording": "Reworded",
+          "mae": 0.4165935256,
+          "rho": 0.2352359844,
+          "n_rows": 22,
+          "n_groups": 1.0,
+          "rank": 1
+        }
+      ],
+      "hue_error": [
+        {
+          "condition": "New wording + new mix",
+          "circular_mae_degrees": 83.2283996766,
+          "n_rows": 10,
+          "n_groups": 1
+        },
+        {
+          "condition": "Known wording + new mix",
+          "circular_mae_degrees": 81.6572311355,
+          "n_rows": 10,
+          "n_groups": 1
+        },
+        {
+          "condition": "New wording + known mix",
+          "circular_mae_degrees": 91.4833104366,
+          "n_rows": 44,
+          "n_groups": 1
+        },
+        {
+          "condition": "Known wording + known mix",
+          "circular_mae_degrees": 70.4606135941,
+          "n_rows": 44,
+          "n_groups": 1
+        },
+        {
+          "condition": "Hue / numbers",
+          "circular_mae_degrees": 56.303635609,
+          "n_rows": 26,
+          "n_groups": 2
+        },
+        {
+          "condition": "Hue / words",
+          "circular_mae_degrees": 71.0965250889,
+          "n_rows": 24,
+          "n_groups": 2
+        }
+      ],
+      "coverage": [
+        {
+          "family": "binding",
+          "split": "test",
+          "rows": 224,
+          "entity_groups": 1
+        },
+        {
+          "family": "binding",
+          "split": "train",
+          "rows": 448,
+          "entity_groups": 2
+        },
+        {
+          "family": "binding",
+          "split": "validation",
+          "rows": 224,
+          "entity_groups": 1
+        },
+        {
+          "family": "controls",
+          "split": "test",
+          "rows": 168,
+          "entity_groups": 2
+        },
+        {
+          "family": "controls",
+          "split": "train",
+          "rows": 504,
+          "entity_groups": 6
+        },
+        {
+          "family": "controls",
+          "split": "validation",
+          "rows": 168,
+          "entity_groups": 2
+        },
+        {
+          "family": "factorial",
+          "split": "test",
+          "rows": 324,
+          "entity_groups": 1
+        },
+        {
+          "family": "factorial",
+          "split": "train",
+          "rows": 648,
+          "entity_groups": 2
+        },
+        {
+          "family": "factorial",
+          "split": "validation",
+          "rows": 324,
+          "entity_groups": 1
+        },
+        {
+          "family": "graded",
+          "split": "test",
+          "rows": 360,
+          "entity_groups": 2
+        },
+        {
+          "family": "graded",
+          "split": "train",
+          "rows": 1080,
+          "entity_groups": 6
+        },
+        {
+          "family": "graded",
+          "split": "validation",
+          "rows": 360,
+          "entity_groups": 2
+        },
+        {
+          "family": "hue",
+          "split": "test",
+          "rows": 50,
+          "entity_groups": 2
+        },
+        {
+          "family": "hue",
+          "split": "train",
+          "rows": 150,
+          "entity_groups": 6
+        },
+        {
+          "family": "hue",
+          "split": "validation",
+          "rows": 50,
+          "entity_groups": 2
+        },
+        {
+          "family": "lexical",
+          "split": "test",
+          "rows": 134,
+          "entity_groups": 67
+        },
+        {
+          "family": "lexical",
+          "split": "train",
+          "rows": 416,
+          "entity_groups": 201
+        },
+        {
+          "family": "lexical",
+          "split": "validation",
+          "rows": 150,
+          "entity_groups": 74
+        },
+        {
+          "family": "numeric",
+          "split": "test",
+          "rows": 135,
+          "entity_groups": 1
+        },
+        {
+          "family": "numeric",
+          "split": "train",
+          "rows": 270,
+          "entity_groups": 2
+        },
+        {
+          "family": "numeric",
+          "split": "validation",
+          "rows": 135,
+          "entity_groups": 1
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+quality,method,n_pairs,n_groups,mean_absolute_delta
+mass__value,numeric_literal,11,1,4189.591461914552
+mass__value,physical_ridge,11,1,1182.0526344992898
+pitch__value,numeric_literal,11,1,753.151071142668
+pitch__value,physical_ridge,11,1,175.64105224609375
+size__value,numeric_literal,11,1,54.07345333978887
+size__value,physical_ridge,11,1,20.18102264404297
+speed__value,numeric_literal,9,1,129.68472468381813
+speed__value,physical_ridge,9,1,10.720284144083658
+temperature__value,numeric_literal,11,1,61.81751141790057
+temperature__value,physical_ridge,11,1,7.0724429217251865

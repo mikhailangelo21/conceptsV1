@@ -1,0 +1,7 @@
+quality,partition,readout,block,n_rows,n_groups,method,rho,mae,r2,ridge_alpha,circular_mae_degrees,mean_resultant_cosine,family,wording
+hue,combination+entity_test+template|factorial|reordered,final,16,10,1,ridge,,,,,83.22839967663518,0.0724440356125664,factorial,reordered
+hue,combination+entity_test|factorial|numeric,final,16,10,1,ridge,,,,,81.6572311355362,0.1303769217926672,factorial,numeric
+hue,entity_test+template|factorial|reordered,final,16,44,1,ridge,,,,,91.48331043655747,-0.014333287106817,factorial,reordered
+hue,entity_test|factorial|numeric,final,16,44,1,ridge,,,,,70.46061359409445,0.2918606313460862,factorial,numeric
+hue,entity_test|hue|numeric,final,16,26,2,ridge,,,,,56.30363560895054,0.454220507125922,hue,numeric
+hue,entity_test|hue|plain,final,16,24,2,ridge,,,,,71.09652508885274,0.2609733932521546,hue,plain

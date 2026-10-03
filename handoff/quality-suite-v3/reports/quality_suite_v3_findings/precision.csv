@@ -1,0 +1,7 @@
+entity_split,format,n,sign_flips,max_disagreement
+test,AB,192,2,0.0293606519699096
+test,natural_continuation,160,2,0.017397403717041
+train,AB,384,7,0.0299778580665588
+train,natural_continuation,480,1,0.0159084796905517
+validation,AB,192,2,0.0283863544464111
+validation,natural_continuation,160,1,0.0159509181976318

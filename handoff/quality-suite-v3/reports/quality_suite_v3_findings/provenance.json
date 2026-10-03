@@ -1,0 +1,16 @@
+{
+  "run": "quality_suite_v3_laptop-88fad55b46b0",
+  "input_sha256": {
+    "linear_metrics.csv": "146a25f1a857e851c5e3590d9c1023068c9f9f814440ba85df583a66df3b46e4",
+    "paired_contrasts.csv": "0d2393d32c8473f3c34eade570a00d64274f3ceeeca671a44d8f076381af1b4e",
+    "behavior_scores.csv": "017bfbd8ada4846df602a507fb8762272319cdfdc004c56aeb3b0437342246da",
+    "numeric_challenges.csv": "a7a35803f98cfd77fe19de8e88361377e6024b44f1739ae9a1f6ce6481b50dcd",
+    "unit_invariance.csv": "a5111c5502ee19e9849abe06a039ed43f5b239e7721f1b5666ab2e7078c5c0c9",
+    "multioutput_metrics.csv": "5f07b2ade61d386f66ad54c97f81bac3a9d1c52b80cc275a26422d7ff041b709",
+    "circular_neighborhoods.csv": "4f86fc8421e4e6a93016fec857a44101a56af2663ce593cde3e55d2acf56df88",
+    "linear_predictions.csv": "b39b1aa79a60cda005cf29629034f9a127d792c1469b2af44950cbccdccdf595",
+    "behavior_summary.csv": "158d35510cfe70dd5e81b8a361cb25fc384e24fb9263bb5656e69447d83f87d6"
+  },
+  "analysis_sha256": "f4e161a529f0af509c9b6b9ef751bbeebde096e3a19abb23587075c32bae6f68",
+  "scope": "CPU-only analysis; original run artifacts not changed"
+}

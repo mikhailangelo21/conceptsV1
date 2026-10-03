@@ -1,0 +1,25 @@
+{
+  "schema_version": "sae_scope_v1",
+  "suite_config": "configs/quality_suite_v3.json",
+  "source_v3_run": "runs/quality_suite_v3_laptop-88fad55b46b0",
+  "model_revision": "ea980cb0a6c2ae4b936e82123acc929f1cec04c1",
+  "sae_variant": "top100",
+  "sae_repos": {
+    "top100": "Qwen/SAE-Res-Qwen3-1.7B-Base-W32K-L0_100",
+    "top50": "Qwen/SAE-Res-Qwen3-1.7B-Base-W32K-L0_50"
+  },
+  "sae_revisions": {
+    "top100": "2756a49850d1d0288a18e561783deae0d810791e",
+    "top50": "ce1a79d9c5163932d65c417380e53230e1086370"
+  },
+  "feature_width": 32768,
+  "hidden_size": 2048,
+  "layers": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+  "trace_count": 128,
+  "encoding_backend": "cpu",
+  "encoding_dtype": "float32",
+  "encoding_batch_size": 8,
+  "chunk_rows": 128,
+  "max_model_minutes": 60,
+  "max_encoding_minutes": 60
+}

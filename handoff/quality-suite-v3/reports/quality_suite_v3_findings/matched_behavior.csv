@@ -1,0 +1,13 @@
+quality_id,template_id,n_comparisons,n_groups,natural_accuracy,ab_accuracy
+danger,paraphrase,4,1,0.5,0.5625
+danger,plain,4,1,0.5,0.625
+mass,paraphrase,4,1,1.0,0.6875
+mass,plain,4,1,1.0,0.75
+pitch,paraphrase,4,1,1.0,0.4375
+pitch,plain,4,1,1.0,0.5
+pleasantness,paraphrase,4,1,0.5,0.5625
+pleasantness,plain,4,1,0.75,0.5
+size,paraphrase,4,1,0.5,0.5
+size,plain,4,1,1.0,0.6875
+temperature,paraphrase,4,1,1.0,0.8125
+temperature,plain,4,1,1.0,0.75

@@ -1,0 +1,363 @@
+{
+  "arousal": {
+    "kind": "constructed_ordinal_design_code",
+    "levels": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "note": "Only specified_values in numeric text are physical quantities; ordinal gaps are not psychological distances.",
+    "physical_unit": "scale points",
+    "physical_values": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "brightness": {
+    "kind": "constructed_ordinal_design_code",
+    "levels": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "note": "Only specified_values in numeric text are physical quantities; ordinal gaps are not psychological distances.",
+    "physical_unit": "candela per square metre",
+    "physical_values": [
+      1,
+      10,
+      100,
+      1000,
+      10000
+    ]
+  },
+  "brightness__value": {
+    "kind": "stated_numeric_challenge",
+    "source_quality": "brightness",
+    "unit": "candela per square metre"
+  },
+  "danger": {
+    "kind": "constructed_ordinal_design_code",
+    "levels": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "note": "Only specified_values in numeric text are physical quantities; ordinal gaps are not psychological distances.",
+    "physical_unit": "scale points",
+    "physical_values": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "elasticity": {
+    "kind": "constructed_ordinal_design_code",
+    "levels": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "note": "Only specified_values in numeric text are physical quantities; ordinal gaps are not psychological distances.",
+    "physical_unit": "percent",
+    "physical_values": [
+      0,
+      25,
+      50,
+      75,
+      100
+    ]
+  },
+  "elasticity__value": {
+    "kind": "stated_numeric_challenge",
+    "source_quality": "elasticity",
+    "unit": "percent"
+  },
+  "hardness": {
+    "kind": "constructed_ordinal_design_code",
+    "levels": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "note": "Only specified_values in numeric text are physical quantities; ordinal gaps are not psychological distances.",
+    "physical_unit": "scale points",
+    "physical_values": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "height": {
+    "kind": "constructed_factorial_code",
+    "levels": [
+      0,
+      0.5,
+      1
+    ],
+    "physical_unit": "cm"
+  },
+  "hue_cos": {
+    "coupled_with": "hue_sin",
+    "geometry": "HSV hue",
+    "kind": "circular_coordinate"
+  },
+  "hue_sin": {
+    "coupled_with": "hue_cos",
+    "geometry": "HSV hue",
+    "kind": "circular_coordinate"
+  },
+  "length": {
+    "kind": "constructed_factorial_code",
+    "levels": [
+      0,
+      0.5,
+      1
+    ],
+    "physical_unit": "cm"
+  },
+  "loudness": {
+    "kind": "constructed_ordinal_design_code",
+    "levels": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "note": "Only specified_values in numeric text are physical quantities; ordinal gaps are not psychological distances.",
+    "physical_unit": "dB SPL",
+    "physical_values": [
+      20,
+      40,
+      60,
+      80,
+      100
+    ]
+  },
+  "loudness__value": {
+    "kind": "stated_numeric_challenge",
+    "source_quality": "loudness",
+    "unit": "dB SPL"
+  },
+  "mass": {
+    "kind": "constructed_ordinal_design_code",
+    "levels": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "note": "Only specified_values in numeric text are physical quantities; ordinal gaps are not psychological distances.",
+    "physical_unit": "g",
+    "physical_values": [
+      1,
+      10,
+      100,
+      1000,
+      10000
+    ]
+  },
+  "mass__value": {
+    "kind": "stated_numeric_challenge",
+    "source_quality": "mass",
+    "unit": "g"
+  },
+  "pitch": {
+    "kind": "constructed_ordinal_design_code",
+    "levels": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "note": "Only specified_values in numeric text are physical quantities; ordinal gaps are not psychological distances.",
+    "physical_unit": "Hz",
+    "physical_values": [
+      110,
+      220,
+      440,
+      880,
+      1760
+    ]
+  },
+  "pitch__value": {
+    "kind": "stated_numeric_challenge",
+    "source_quality": "pitch",
+    "unit": "Hz"
+  },
+  "pleasantness": {
+    "kind": "constructed_ordinal_design_code",
+    "levels": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "note": "Only specified_values in numeric text are physical quantities; ordinal gaps are not psychological distances.",
+    "physical_unit": "scale points",
+    "physical_values": [
+      -2,
+      -1,
+      0,
+      1,
+      2
+    ]
+  },
+  "roughness": {
+    "kind": "constructed_ordinal_design_code",
+    "levels": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "note": "Only specified_values in numeric text are physical quantities; ordinal gaps are not psychological distances.",
+    "physical_unit": "scale points",
+    "physical_values": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "saturation": {
+    "kind": "constructed_factorial_code",
+    "levels": [
+      0,
+      0.5,
+      1
+    ],
+    "physical_unit": "percent"
+  },
+  "size": {
+    "kind": "constructed_ordinal_design_code",
+    "levels": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "note": "Only specified_values in numeric text are physical quantities; ordinal gaps are not psychological distances.",
+    "physical_unit": "cm",
+    "physical_values": [
+      1,
+      5,
+      15,
+      50,
+      150
+    ]
+  },
+  "size__value": {
+    "kind": "stated_numeric_challenge",
+    "source_quality": "size",
+    "unit": "cm"
+  },
+  "speed": {
+    "kind": "constructed_ordinal_design_code",
+    "levels": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "note": "Only specified_values in numeric text are physical quantities; ordinal gaps are not psychological distances.",
+    "physical_unit": "metres per second",
+    "physical_values": [
+      0,
+      1,
+      5,
+      20,
+      100
+    ]
+  },
+  "speed__value": {
+    "kind": "stated_numeric_challenge",
+    "source_quality": "speed",
+    "unit": "metres per second"
+  },
+  "sweetness": {
+    "kind": "constructed_ordinal_design_code",
+    "levels": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "note": "Only specified_values in numeric text are physical quantities; ordinal gaps are not psychological distances.",
+    "physical_unit": "scale points",
+    "physical_values": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "temperature": {
+    "kind": "constructed_ordinal_design_code",
+    "levels": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ],
+    "note": "Only specified_values in numeric text are physical quantities; ordinal gaps are not psychological distances.",
+    "physical_unit": "degrees Celsius",
+    "physical_values": [
+      0,
+      10,
+      20,
+      40,
+      80
+    ]
+  },
+  "temperature__value": {
+    "kind": "stated_numeric_challenge",
+    "source_quality": "temperature",
+    "unit": "degrees Celsius"
+  },
+  "value": {
+    "kind": "constructed_factorial_code",
+    "levels": [
+      0,
+      0.5,
+      1
+    ],
+    "physical_unit": "percent"
+  },
+  "width": {
+    "kind": "constructed_factorial_code",
+    "levels": [
+      0,
+      0.5,
+      1
+    ],
+    "physical_unit": "cm"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "scalar_partitions_recomputed": 564,
+  "maximum_mae_roundtrip_difference": 2.220446049250313e-16,
+  "behavioral_rows_reconciled": 1888,
+  "matched_base_comparisons": 48,
+  "test_single_token_sign_flips": 4,
+  "checks": [
+    "profile coverage",
+    "unique IDs",
+    "one-to-one metadata joins",
+    "four A/B variants per matched comparison",
+    "positive training ranges",
+    "scalar MAE and nonconstant Spearman recomputation",
+    "all behavioral summary denominators and accuracies"
+  ]
+}

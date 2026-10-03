@@ -1,0 +1,28 @@
+{
+  "schema_version": "quality_geometry_v1.0",
+  "base_config": "configs/quality_suite_v3.json",
+  "source_run": "runs/quality_suite_v3_laptop-88fad55b46b0",
+  "model_id": "Qwen/Qwen3-1.7B-Base",
+  "model_revision": "ea980cb0a6c2ae4b936e82123acc929f1cec04c1",
+  "backend": "mps",
+  "seed": 20261002,
+  "max_model_minutes": 60,
+  "cpu_threads": 4,
+  "ridge_alphas": [0.1, 1, 10, 100, 1000],
+  "metric": {
+    "chunk_rows": 2048,
+    "mode": "auto",
+    "rcond": 1e-10,
+    "ridge_relative": 0.0001,
+    "smoke_sample_rows": 8192
+  },
+  "output_pairs": {"prefix": "Answer:", "leading_space": " ", "random_pairs": 512},
+  "site_verification": {
+    "n_train_examples": 8,
+    "cached_residual_atol": 0.002,
+    "converted_state_atol": 0.002,
+    "native_logits_atol": 0.0625,
+    "native_logits_rtol": 0.001
+  },
+  "steering": {"enabled": false, "measurement_reviewed": false}
+}

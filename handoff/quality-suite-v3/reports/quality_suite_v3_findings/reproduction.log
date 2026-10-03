@@ -1,0 +1,188 @@
+{
+  "graded_ridge_mean_rho": {
+    "numeric": 0.9231861823449954,
+    "paraphrase": 0.7209644471646631,
+    "plain": 0.963630529381062
+  },
+  "graded_ridge_mean_mae": {
+    "numeric": 0.2036598820239305,
+    "paraphrase": 0.31584367496626714,
+    "plain": 0.12066731431654518
+  },
+  "precision_sign_flips": 15,
+  "matched_behavior": {
+    "natural_accuracy": {
+      "paraphrase": 0.75,
+      "plain": 0.875
+    },
+    "ab_accuracy": {
+      "paraphrase": 0.59375,
+      "plain": 0.6354166666666666
+    }
+  },
+  "training_physical_ranges": {
+    "brightness": 9999,
+    "elasticity": 100,
+    "loudness": 80,
+    "mass": 9999,
+    "pitch": 1650,
+    "size": 149,
+    "speed": 100,
+    "temperature": 80
+  },
+  "hue_neighborhood": [
+    {
+      "template_id": "numeric",
+      "n_triplets": 24,
+      "n_groups": 2,
+      "fraction_near_closer": 0.7916666667
+    },
+    {
+      "template_id": "plain",
+      "n_triplets": 24,
+      "n_groups": 2,
+      "fraction_near_closer": 0.5
+    }
+  ],
+  "numeric_overall": [
+    {
+      "quality": "brightness",
+      "method": "numeric_literal",
+      "n": 11,
+      "n_groups": 1,
+      "mae": 16.4402674864,
+      "range_normalized_mae": 0.0016441912
+    },
+    {
+      "quality": "brightness",
+      "method": "physical_ridge",
+      "n": 11,
+      "n_groups": 1,
+      "mae": 4343.4601773855,
+      "range_normalized_mae": 0.4343894567
+    },
+    {
+      "quality": "elasticity",
+      "method": "numeric_literal",
+      "n": 9,
+      "n_groups": 1,
+      "mae": 0.1778807958,
+      "range_normalized_mae": 0.001778808
+    },
+    {
+      "quality": "elasticity",
+      "method": "physical_ridge",
+      "n": 9,
+      "n_groups": 1,
+      "mae": 37.1139551799,
+      "range_normalized_mae": 0.3711395518
+    },
+    {
+      "quality": "loudness",
+      "method": "numeric_literal",
+      "n": 9,
+      "n_groups": 1,
+      "mae": 0.050977243,
+      "range_normalized_mae": 0.0006372155
+    },
+    {
+      "quality": "loudness",
+      "method": "physical_ridge",
+      "n": 9,
+      "n_groups": 1,
+      "mae": 12.5429551866,
+      "range_normalized_mae": 0.1567869398
+    },
+    {
+      "quality": "mass",
+      "method": "numeric_literal",
+      "n": 22,
+      "n_groups": 1,
+      "mae": 2104.5786526867,
+      "range_normalized_mae": 0.2104789132
+    },
+    {
+      "quality": "mass",
+      "method": "physical_ridge",
+      "n": 22,
+      "n_groups": 1,
+      "mae": 6477.6991354563,
+      "range_normalized_mae": 0.647834697
+    },
+    {
+      "quality": "pitch",
+      "method": "numeric_literal",
+      "n": 22,
+      "n_groups": 1,
+      "mae": 377.6043186271,
+      "range_normalized_mae": 0.2288511022
+    },
+    {
+      "quality": "pitch",
+      "method": "physical_ridge",
+      "n": 22,
+      "n_groups": 1,
+      "mae": 758.7262083528,
+      "range_normalized_mae": 0.4598340657
+    },
+    {
+      "quality": "size",
+      "method": "numeric_literal",
+      "n": 22,
+      "n_groups": 1,
+      "mae": 27.1194319565,
+      "range_normalized_mae": 0.1820096104
+    },
+    {
+      "quality": "size",
+      "method": "physical_ridge",
+      "n": 22,
+      "n_groups": 1,
+      "mae": 46.5691870461,
+      "range_normalized_mae": 0.3125448795
+    },
+    {
+      "quality": "speed",
+      "method": "numeric_literal",
+      "n": 18,
+      "n_groups": 1,
+      "mae": 64.852622144,
+      "range_normalized_mae": 0.6485262214
+    },
+    {
+      "quality": "speed",
+      "method": "physical_ridge",
+      "n": 18,
+      "n_groups": 1,
+      "mae": 24.2299540838,
+      "range_normalized_mae": 0.2422995408
+    },
+    {
+      "quality": "temperature",
+      "method": "numeric_literal",
+      "n": 22,
+      "n_groups": 1,
+      "mae": 31.21518074,
+      "range_normalized_mae": 0.3901897593
+    },
+    {
+      "quality": "temperature",
+      "method": "physical_ridge",
+      "n": 22,
+      "n_groups": 1,
+      "mae": 25.4696311517,
+      "range_normalized_mae": 0.3183703894
+    }
+  ],
+  "paired_kinds": [
+    "adjacent_increase",
+    "binding_increase",
+    "clause_order_invariant",
+    "distractor_direction_invariant",
+    "distractor_high_invariant",
+    "distractor_low_invariant",
+    "factorial_one_axis_increase",
+    "full_range_increase",
+    "irrelevant_invariant"
+  ]
+}

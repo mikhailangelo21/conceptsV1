@@ -1,0 +1,1979 @@
+{
+  "schema": "quality-suite-v3-handoff-1",
+  "description": "Copied research evidence; paths are relative to this folder and SHA-256 values verify content.",
+  "file_count": 276,
+  "total_bytes": 79180350,
+  "exclusions": [
+    "Pretrained Qwen model weights and Hugging Face download cache",
+    "External activation shard cache; indexes and identity records are included",
+    "Per-question behavior_shards because behavior_scores.csv retains the scored rows",
+    "static_embeddings.npz because it is a 36 MiB feature cache, not a result table",
+    "Virtual environment and operating-system files"
+  ],
+  "files": [
+    {
+      "path": "pyproject.toml",
+      "role": "project setup",
+      "bytes": 664,
+      "sha256": "95b7418b8acdbfb05f7fbb6f602a0369c308d2d786b5fa34441d56c7cfdccafc",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/pyproject.toml"
+    },
+    {
+      "path": "requirements-lock.txt",
+      "role": "project setup",
+      "bytes": 892,
+      "sha256": "effcc00777060e0546a2c533ac116fbe19be3ffd29f76f27ab38ca27d5c03fe4",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/requirements-lock.txt"
+    },
+    {
+      "path": "populate_quality_suite.py",
+      "role": "project setup",
+      "bytes": 80164,
+      "sha256": "06c78fc3fd083019cf5909c21e058bff82cea8bddb5b106728c3c386e92732ca",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/populate_quality_suite.py"
+    },
+    {
+      "path": "source_material/project_README.md",
+      "role": "original project overview",
+      "bytes": 13260,
+      "sha256": "3d673b18df6b12cbd28b245ca08f7524a7c0f780ac6909765bfd728af113144c",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/README.md"
+    },
+    {
+      "path": "configs/extended.yaml",
+      "role": "V3 and legacy test configuration",
+      "bytes": 608,
+      "sha256": "f54fc11c621b00194dc562154234647e401c762df9dc87027d6b849c9f4f2243",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/configs/extended.yaml"
+    },
+    {
+      "path": "configs/pilot_m2.yaml",
+      "role": "V3 and legacy test configuration",
+      "bytes": 594,
+      "sha256": "535a08e33be06fac8301cb4d59ae0b47c34f0e05537c8775829cc7e9f9e8493a",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/configs/pilot_m2.yaml"
+    },
+    {
+      "path": "configs/quality_suite_v3.json",
+      "role": "V3 and legacy test configuration",
+      "bytes": 1472,
+      "sha256": "59afe43e6b372820e8c056b1ce6cebf3d3d40007eaec0631b249fd4c062aea4b",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/configs/quality_suite_v3.json"
+    },
+    {
+      "path": "configs/small_06b.yaml",
+      "role": "V3 and legacy test configuration",
+      "bytes": 595,
+      "sha256": "6f9629c71173fea0e62cf2ce55ad53f02d40a5850d8d0361bb10e1f8b8baee43",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/configs/small_06b.yaml"
+    },
+    {
+      "path": "configs/smoke.yaml",
+      "role": "V3 and legacy test configuration",
+      "bytes": 574,
+      "sha256": "584980fdb781ce16b70847dccc0631f8350d1283008d7e7a453ef781fd598492",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/configs/smoke.yaml"
+    },
+    {
+      "path": "configs/v2.yaml",
+      "role": "V3 and legacy test configuration",
+      "bytes": 833,
+      "sha256": "2a45834a07a0903e019f4a32711f6b40965171d6f2319fa33ca9f1a10847fbc6",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/configs/v2.yaml"
+    },
+    {
+      "path": "docs/CODEX_QUALITY_SUITE_V3.md",
+      "role": "design and implementation documentation",
+      "bytes": 5721,
+      "sha256": "5663334c9201651662f6a32b07915d2f96fdfb39567cdaa19e6ac032490cf105",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/docs/CODEX_QUALITY_SUITE_V3.md"
+    },
+    {
+      "path": "docs/IMPLEMENTATION.md",
+      "role": "design and implementation documentation",
+      "bytes": 412,
+      "sha256": "56ee4b9bed32e93a0dc8007fe4d4e438c21f0068671be3f3ba07e87be8c7a1aa",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/docs/IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/QUALITY_SUITE_V3.md",
+      "role": "design and implementation documentation",
+      "bytes": 10144,
+      "sha256": "5f86d57a649df380901d9de3634efb0ad2e60db904d5b0b280f96e8267df79b3",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/docs/QUALITY_SUITE_V3.md"
+    },
+    {
+      "path": "docs/REFERENCES.md",
+      "role": "design and implementation documentation",
+      "bytes": 1155,
+      "sha256": "b5c1d0e9309a39101f13b772ebf2a5cb1158b79d8e878470a9c9a1a4392e5c71",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/docs/REFERENCES.md"
+    },
+    {
+      "path": "docs/V3_INTEGRATION.md",
+      "role": "design and implementation documentation",
+      "bytes": 6634,
+      "sha256": "b32acf77f05700a01b501d078fafb4fc258409870d7490239181c2037f536b3d",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/docs/V3_INTEGRATION.md"
+    },
+    {
+      "path": "docs/VERIFICATION.md",
+      "role": "design and implementation documentation",
+      "bytes": 2271,
+      "sha256": "4d67d99d88085b8658ef3e3aad6085bb7652261cac22f2167d1df980a724e75c",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/docs/VERIFICATION.md"
+    },
+    {
+      "path": "source_material/codex-llm-quality-dimensions.md",
+      "role": "historical user-supplied specification",
+      "bytes": 30562,
+      "sha256": "4a1b1011f915dd15ce5306ea04b2ae612f96781d3ac8b0fc27d412a3ba805b8c",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/codex-llm-quality-dimensions.md"
+    },
+    {
+      "path": "source_material/codex-pilot-refinement-v2.md",
+      "role": "historical user-supplied specification",
+      "bytes": 18582,
+      "sha256": "bb19230125879ef30cfc32af6a5d58d34d1d5c63ef5156f6ce639f53a80fd388",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/codex-pilot-refinement-v2.md"
+    },
+    {
+      "path": "data/quality_suite_v3/README.md",
+      "role": "complete versioned fixture bank",
+      "bytes": 4421,
+      "sha256": "d06e05b2b7a5578c413115e0049da78db3b1d7924260eef22f35428b2aa3446a",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/README.md"
+    },
+    {
+      "path": "data/quality_suite_v3/cases/binding.jsonl",
+      "role": "complete versioned fixture bank",
+      "bytes": 3830784,
+      "sha256": "45440c2e6e7f6f174c807eda6d1c7e126fbc4a56549ff74ced68fba639b9b258",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/cases/binding.jsonl"
+    },
+    {
+      "path": "data/quality_suite_v3/cases/controls.jsonl",
+      "role": "complete versioned fixture bank",
+      "bytes": 4674200,
+      "sha256": "52bef8779a45e6c68e732f5bd567a6d437b2bca9d4b2a74ebf8cdc0f414743d1",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/cases/controls.jsonl"
+    },
+    {
+      "path": "data/quality_suite_v3/cases/factorial.jsonl",
+      "role": "complete versioned fixture bank",
+      "bytes": 6921944,
+      "sha256": "7ec94e09a806f9dcffb81419f84191e242ad780bd6e1b46cf9682b9f2533f630",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/cases/factorial.jsonl"
+    },
+    {
+      "path": "data/quality_suite_v3/cases/graded.jsonl",
+      "role": "complete versioned fixture bank",
+      "bytes": 4341200,
+      "sha256": "e07af8f94fdbcec55b61576dc2e9fefbc441f327b7b1d31435f2b7a351485880",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/cases/graded.jsonl"
+    },
+    {
+      "path": "data/quality_suite_v3/cases/hue.jsonl",
+      "role": "complete versioned fixture bank",
+      "bytes": 812024,
+      "sha256": "f0ab9906c0ed4b28e4cdd7473240906aa00c4688bc5c11adbd0a053138ef3df4",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/cases/hue.jsonl"
+    },
+    {
+      "path": "data/quality_suite_v3/cases/lexical.jsonl",
+      "role": "complete versioned fixture bank",
+      "bytes": 491662,
+      "sha256": "a684b6dd5a7848bd888fdd4110fc17a0d2d9ab0bf9bb2b201f7c60e216be1545",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/cases/lexical.jsonl"
+    },
+    {
+      "path": "data/quality_suite_v3/cases/numeric.jsonl",
+      "role": "complete versioned fixture bank",
+      "bytes": 2293580,
+      "sha256": "c3297904d11d12c39f15baecfb0094304c21dacc0e3f279db1c55a175097f620",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/cases/numeric.jsonl"
+    },
+    {
+      "path": "data/quality_suite_v3/comparisons.jsonl",
+      "role": "complete versioned fixture bank",
+      "bytes": 14005760,
+      "sha256": "8daf3392f31b40904ba3887d0bf8ee238e1915392d1b768572ae36d4b4a78d5b",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/comparisons.jsonl"
+    },
+    {
+      "path": "data/quality_suite_v3/concepts.csv",
+      "role": "complete versioned fixture bank",
+      "bytes": 30393,
+      "sha256": "75e7654184dfe55c6c7e907107488a51bb1441abb21af757e7e7afc230e30b5d",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/concepts.csv"
+    },
+    {
+      "path": "data/quality_suite_v3/contrasts.csv",
+      "role": "complete versioned fixture bank",
+      "bytes": 5353606,
+      "sha256": "f6cc3994f26efb0cc6e1745279b0689ffd8729b51b1def0195e81c6e52c9a937",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/contrasts.csv"
+    },
+    {
+      "path": "data/quality_suite_v3/entities.csv",
+      "role": "complete versioned fixture bank",
+      "bytes": 683,
+      "sha256": "b42e04ae5a1f901bf19d9433441de3f0ac6724ca7e45a04626aa3315aa90d830",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/entities.csv"
+    },
+    {
+      "path": "data/quality_suite_v3/factorial_domains.json",
+      "role": "complete versioned fixture bank",
+      "bytes": 1626,
+      "sha256": "3671b33d4b782c286b809b4c11b2a73323500816a3df7595a4bdbd94e536956d",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/factorial_domains.json"
+    },
+    {
+      "path": "data/quality_suite_v3/hue_triplets.csv",
+      "role": "complete versioned fixture bank",
+      "bytes": 158127,
+      "sha256": "34e5c5769865c3db09225bb6056412e44af3599be6114e8bfe79a55a25677794",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/hue_triplets.csv"
+    },
+    {
+      "path": "data/quality_suite_v3/human_ratings_template.csv",
+      "role": "complete versioned fixture bank",
+      "bytes": 10627,
+      "sha256": "099b2f48bc1fcbd12de50577305129bf857ee5379601b4cffa671f4c80174ea9",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/human_ratings_template.csv"
+    },
+    {
+      "path": "data/quality_suite_v3/manifest.json",
+      "role": "complete versioned fixture bank",
+      "bytes": 5192,
+      "sha256": "022197da9af525f57912292ea2d54a01cad84b3604a7bb7a0364eda4cb49b75b",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/manifest.json"
+    },
+    {
+      "path": "data/quality_suite_v3/profiles/extended.json",
+      "role": "complete versioned fixture bank",
+      "bytes": 2656833,
+      "sha256": "0ec1336b1cca80dc403a677cd7db8097a0c3b3404b76694422d306f455d14705",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/profiles/extended.json"
+    },
+    {
+      "path": "data/quality_suite_v3/profiles/laptop.json",
+      "role": "complete versioned fixture bank",
+      "bytes": 538947,
+      "sha256": "a2de6865a916c986ad102944a35a57e34e43729c0cf7812e9dd347c77b6c7e49",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/profiles/laptop.json"
+    },
+    {
+      "path": "data/quality_suite_v3/profiles/smoke.json",
+      "role": "complete versioned fixture bank",
+      "bytes": 20057,
+      "sha256": "d1b32afee7a21150bb27b9a4d77d6014c5bc645bd459937bf95490122b1c1473",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/profiles/smoke.json"
+    },
+    {
+      "path": "data/quality_suite_v3/qualities.json",
+      "role": "complete versioned fixture bank",
+      "bytes": 23408,
+      "sha256": "90b70009df2f5df517ef097f773c77b21a9208dd9207e37b87988db2ad985d18",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/qualities.json"
+    },
+    {
+      "path": "data/quality_suite_v3/quality_labels.csv",
+      "role": "complete versioned fixture bank",
+      "bytes": 65933,
+      "sha256": "7205ee4baa78231853f119b2cbfe9b35d7b64b17625afc4027954b5730724f96",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/quality_labels.csv"
+    },
+    {
+      "path": "data/quality_suite_v3/target_registry.json",
+      "role": "complete versioned fixture bank",
+      "bytes": 7260,
+      "sha256": "b370abff68072b351b31d8d7d4d1824246bb18ddb7969acb2842ba1395dcc6b0",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/quality_suite_v3/target_registry.json"
+    },
+    {
+      "path": "data/concepts.csv",
+      "role": "original pilot inputs and offline test fixture",
+      "bytes": 13071,
+      "sha256": "66d6e5e2f86c685b36999fd5ce86881d1e5cdd12875b409d17ea0e0972f5361b",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/concepts.csv"
+    },
+    {
+      "path": "data/pairs.csv",
+      "role": "original pilot inputs and offline test fixture",
+      "bytes": 7213,
+      "sha256": "57ea7d872be47f491c651c468699844f05b7e6d5dbdd14d543376cead3f3fa7b",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/pairs.csv"
+    },
+    {
+      "path": "data/references.csv",
+      "role": "original pilot inputs and offline test fixture",
+      "bytes": 207,
+      "sha256": "56b1e324b6b72465f712f0c95063fd8ae39f51d0a9148d4f45df7e270879ee01",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/data/references.csv"
+    },
+    {
+      "path": "src/quality_dimensions/__init__.py",
+      "role": "analysis and inference implementation",
+      "bytes": 63,
+      "sha256": "5adaafe4b0c31cd5eaa45c05f5e20703943953211fbbe5870ab8805ffbcf94eb",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/__init__.py"
+    },
+    {
+      "path": "src/quality_dimensions/analysis.py",
+      "role": "analysis and inference implementation",
+      "bytes": 7987,
+      "sha256": "e804ba23f1a6f8a7e7be8ac62c592139e7300b44584c52c982570e546050c1a6",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/analysis.py"
+    },
+    {
+      "path": "src/quality_dimensions/audit.py",
+      "role": "analysis and inference implementation",
+      "bytes": 17160,
+      "sha256": "940ed664a343835f893a963f599ba2bf3c11fda051c5a479b00bd17a46b4fb79",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/audit.py"
+    },
+    {
+      "path": "src/quality_dimensions/cache.py",
+      "role": "analysis and inference implementation",
+      "bytes": 1836,
+      "sha256": "10a2e0e7b541aae2ff8a79cdc2ad0798855de60e5240c4f1771247bb03ede550",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/cache.py"
+    },
+    {
+      "path": "src/quality_dimensions/cli.py",
+      "role": "analysis and inference implementation",
+      "bytes": 4871,
+      "sha256": "017d2c7a849bacac0132e2cab659ffc7b2094ab3a23853270e721e37df942637",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/cli.py"
+    },
+    {
+      "path": "src/quality_dimensions/data.py",
+      "role": "analysis and inference implementation",
+      "bytes": 5926,
+      "sha256": "401135f4d242e14f9137fee085d74d6bd67c367fb4c4fc81a7ce827e702ba58e",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/data.py"
+    },
+    {
+      "path": "src/quality_dimensions/hooks.py",
+      "role": "analysis and inference implementation",
+      "bytes": 5735,
+      "sha256": "9d15667583540bfa414d6f2e5e8abc6636c157b8b44379609c84718ccf344cf8",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/hooks.py"
+    },
+    {
+      "path": "src/quality_dimensions/interventions.py",
+      "role": "analysis and inference implementation",
+      "bytes": 5700,
+      "sha256": "b374ae783606c9b1538b626dd25d077bbae897fc4993357afdbe6f41c3c8a198",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/interventions.py"
+    },
+    {
+      "path": "src/quality_dimensions/model.py",
+      "role": "analysis and inference implementation",
+      "bytes": 8710,
+      "sha256": "5c4b7efb98230016cfa28ff247c7a4d17b9b801a944d8762bb7dbac1971d9a05",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/model.py"
+    },
+    {
+      "path": "src/quality_dimensions/nuisance.py",
+      "role": "analysis and inference implementation",
+      "bytes": 5369,
+      "sha256": "17c47c04e00bf7597333fac02fd79fe452d9f4fd6744c404c4ee333b6c0827c9",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/nuisance.py"
+    },
+    {
+      "path": "src/quality_dimensions/paired.py",
+      "role": "analysis and inference implementation",
+      "bytes": 2644,
+      "sha256": "0da3c22c00f3b549ca5418eb327faeb479da67e3fc9c25f851138e36a6c757b2",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/paired.py"
+    },
+    {
+      "path": "src/quality_dimensions/pipeline.py",
+      "role": "analysis and inference implementation",
+      "bytes": 13755,
+      "sha256": "d5b7a1481f15edbe41ce4c1cba5cfbaf9e3ba4282a03e2ffb0461ef6670842aa",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/pipeline.py"
+    },
+    {
+      "path": "src/quality_dimensions/probes.py",
+      "role": "analysis and inference implementation",
+      "bytes": 4941,
+      "sha256": "f7f4042caf16dc207f9226c0e5957d66b2e6e659facee8aa11d81273a40a71d1",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/probes.py"
+    },
+    {
+      "path": "src/quality_dimensions/prompts.py",
+      "role": "analysis and inference implementation",
+      "bytes": 5711,
+      "sha256": "551cae17be842b1142d443d08fd1405956433adf5388217f8af173a881abf673",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/prompts.py"
+    },
+    {
+      "path": "src/quality_dimensions/protection.py",
+      "role": "analysis and inference implementation",
+      "bytes": 1135,
+      "sha256": "8726f5c07bc152497f305d9add21bc2dc9f81b0ae2d11747f0db73fdb6be6401",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/protection.py"
+    },
+    {
+      "path": "src/quality_dimensions/report.py",
+      "role": "analysis and inference implementation",
+      "bytes": 17756,
+      "sha256": "c02675b4178a4affd2e6278e9d9a867c40eac10fe62adfae725f5a2a393f3d73",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/report.py"
+    },
+    {
+      "path": "src/quality_dimensions/scoring.py",
+      "role": "analysis and inference implementation",
+      "bytes": 5414,
+      "sha256": "cb2950707e0e144f38dc0b8facc65ad4898e11050b49f48fd87227c01c9574ae",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/scoring.py"
+    },
+    {
+      "path": "src/quality_dimensions/suite_analysis.py",
+      "role": "analysis and inference implementation",
+      "bytes": 17075,
+      "sha256": "ff747ccb270ea63c6fd1dbf384d2b47911056a5cd73a5581b9318d1f543d1bff",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/suite_analysis.py"
+    },
+    {
+      "path": "src/quality_dimensions/suite_cache.py",
+      "role": "analysis and inference implementation",
+      "bytes": 2099,
+      "sha256": "ef05cd751ab1852105f291bedf1e69f1e3af200d66bc07eda567cd114028938f",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/suite_cache.py"
+    },
+    {
+      "path": "src/quality_dimensions/suite_causal.py",
+      "role": "analysis and inference implementation",
+      "bytes": 6027,
+      "sha256": "4757a0984f58ab0a943b4ecfb45bfcc36c7be5356b393ca56f98e36638237b84",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/suite_causal.py"
+    },
+    {
+      "path": "src/quality_dimensions/suite_data.py",
+      "role": "analysis and inference implementation",
+      "bytes": 14503,
+      "sha256": "5b651d1f6c5fa4d324bb58e6f195cd61b09eae730b9e237c27a68f4e9e8329fb",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/suite_data.py"
+    },
+    {
+      "path": "src/quality_dimensions/suite_diagnostics.py",
+      "role": "analysis and inference implementation",
+      "bytes": 14403,
+      "sha256": "a0b0912ae0aaf144e8dd7466c4f18b59a1f240070c5f4ef3b81c121242a639c5",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/suite_diagnostics.py"
+    },
+    {
+      "path": "src/quality_dimensions/suite_exploration.py",
+      "role": "analysis and inference implementation",
+      "bytes": 3591,
+      "sha256": "91079432c9aed84c542e5d886cd392d4845aa683baaacc7f2ae0e49d6037c7ed",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/suite_exploration.py"
+    },
+    {
+      "path": "src/quality_dimensions/suite_pipeline.py",
+      "role": "analysis and inference implementation",
+      "bytes": 17670,
+      "sha256": "f4cd3abb1099ef4543de4af45fcf78170880e7f6e8672a7b9761c031d31441f2",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/suite_pipeline.py"
+    },
+    {
+      "path": "src/quality_dimensions/suite_report.py",
+      "role": "analysis and inference implementation",
+      "bytes": 10859,
+      "sha256": "d0504b0578f78728d9905b7d47d9ab747867aedfe4c182a144c022efbf643c2e",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/suite_report.py"
+    },
+    {
+      "path": "src/quality_dimensions/util.py",
+      "role": "analysis and inference implementation",
+      "bytes": 1500,
+      "sha256": "0f964edd9fc0c8eb50e2e731fa8f83055856f560bc0453b308121391bc7b7d4b",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/util.py"
+    },
+    {
+      "path": "src/quality_dimensions/v2config.py",
+      "role": "analysis and inference implementation",
+      "bytes": 695,
+      "sha256": "b0768939592dc68304f7132b3d4fdecf7783ce08e108cff992285d044bb815a2",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/src/quality_dimensions/v2config.py"
+    },
+    {
+      "path": "tests/conftest.py",
+      "role": "software verification",
+      "bytes": 649,
+      "sha256": "1327748423bf8b77e9de8de5832b102a93a307d1b065a300b0cea0b79a538b0d",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/tests/conftest.py"
+    },
+    {
+      "path": "tests/test_cache.py",
+      "role": "software verification",
+      "bytes": 1074,
+      "sha256": "b2d739bd958406709607587e71e160fdd134a37192f92e41aa70ca65ce161cd3",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/tests/test_cache.py"
+    },
+    {
+      "path": "tests/test_cached_tokenizer.py",
+      "role": "software verification",
+      "bytes": 1160,
+      "sha256": "ce9edf00869768fbe14b358e7d30429bc56d4e34a30131ccf37684a3a831dd14",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/tests/test_cached_tokenizer.py"
+    },
+    {
+      "path": "tests/test_cli.py",
+      "role": "software verification",
+      "bytes": 443,
+      "sha256": "eef23d33e58ae2e4158bed7793fe0533d7faccd1ba111b24de1bf7dea0588549",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/tests/test_cli.py"
+    },
+    {
+      "path": "tests/test_design.py",
+      "role": "software verification",
+      "bytes": 4204,
+      "sha256": "9fef2abc0ca2d977e3b326d33e7db15e86a8c2d11a57784339462bdc02998275",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/tests/test_design.py"
+    },
+    {
+      "path": "tests/test_hooks.py",
+      "role": "software verification",
+      "bytes": 4071,
+      "sha256": "1ed865c2c7fab9f97f5a3f3249bcf4ca00bf982b62982f6471cf8c9b11f036ee",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/tests/test_hooks.py"
+    },
+    {
+      "path": "tests/test_import.py",
+      "role": "software verification",
+      "bytes": 1082,
+      "sha256": "e056f816a5fb9148ef5135853a4f55c33fae4f6e008a24dc3692be065eddb3ed",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/tests/test_import.py"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "role": "software verification",
+      "bytes": 1171,
+      "sha256": "e3ea635a899cf770f9bdc5c353af36726ef21f3dca85b6b5a72f886e134b53df",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/tests/test_integration.py"
+    },
+    {
+      "path": "tests/test_suite_v3.py",
+      "role": "software verification",
+      "bytes": 6674,
+      "sha256": "8473b1e6a609d41eddaf6ca51d7972ccdc8a77995f8ba820db2979a35ed0b0fe",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/tests/test_suite_v3.py"
+    },
+    {
+      "path": "tests/test_workflow.py",
+      "role": "software verification",
+      "bytes": 4120,
+      "sha256": "cdd5ed69a36937c06f86a5d105ea99727f98ca68108dc8c15351b30ca9c2102b",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/tests/test_workflow.py"
+    },
+    {
+      "path": "analysis/v3_findings.py",
+      "role": "reproduction and handoff script",
+      "bytes": 8785,
+      "sha256": "f4e161a529f0af509c9b6b9ef751bbeebde096e3a19abb23587075c32bae6f68",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/analysis/v3_findings.py"
+    },
+    {
+      "path": "analysis/v3_report.py",
+      "role": "reproduction and handoff script",
+      "bytes": 15817,
+      "sha256": "fde23af400492e498654fc92dd5175d686b4eb2a96540e559298703df294114e",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/analysis/v3_report.py"
+    },
+    {
+      "path": "analysis/build_v3_handoff.py",
+      "role": "reproduction and handoff script",
+      "bytes": 6356,
+      "sha256": "98a8ca4c6caf7573670c2a687b07c52e56d5b2d075a4f3a5dedc782c4c652bdd",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/analysis/build_v3_handoff.py"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/README.md",
+      "role": "interpreted findings and figures",
+      "bytes": 3038,
+      "sha256": "944d64f2d42216ea529ea15728d7a8661a6d404807ec3396ebae94d69d879faa",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/README.md"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/analysis_summary.json",
+      "role": "interpreted findings and figures",
+      "bytes": 40688,
+      "sha256": "b84d33171b67580e5593cc912e1bd4a0638f1108ac04e5ca1cfa15cdcfaa8874",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/analysis_summary.json"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/artifact.json",
+      "role": "interpreted findings and figures",
+      "bytes": 142432,
+      "sha256": "3d85c7efbf3c5c994d931c86dc297e4fc2fafc1e17f78e511418312ee7f79525",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/artifact.json"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/behavior.csv",
+      "role": "interpreted findings and figures",
+      "bytes": 2434,
+      "sha256": "108e0b36c0dbd434fcf0ec6aef1130e7603f3295855b00b7a41742e6c7509abb",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/behavior.csv"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/binding.csv",
+      "role": "interpreted findings and figures",
+      "bytes": 10370,
+      "sha256": "7bccc9c5eb0ee5caeb2ce03c976d1fd6788a9d624e77d941c3254d9ac343645a",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/binding.csv"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/chart_map.json",
+      "role": "interpreted findings and figures",
+      "bytes": 10170,
+      "sha256": "5c09fd8eaa7ccf55231148e7c467de6830dc66aef02fe9be96869f12b33e32b8",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/chart_map.json"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/counts.csv",
+      "role": "interpreted findings and figures",
+      "bytes": 477,
+      "sha256": "312d7c645cdfd907c7b06efd2de7be5d207de2fab9ea51fcf561d8078e830a29",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/counts.csv"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/datasets.json",
+      "role": "interpreted findings and figures",
+      "bytes": 250657,
+      "sha256": "c376aedb6757056ae368351a963a09f2e8d89bb3835eeaf2fc02dd15a4595a1f",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/datasets.json"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/factorial.csv",
+      "role": "interpreted findings and figures",
+      "bytes": 8811,
+      "sha256": "fa597bdd591ece7b11258859b93bdfa7249bc4e8a60356f0870b8b05d87d8cc9",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/factorial.csv"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/findings.md",
+      "role": "interpreted findings and figures",
+      "bytes": 22774,
+      "sha256": "3fba7893aabdacf882c0ffabbd65db8a304e8cf3a80270fa0759dc10847c0667",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/findings.md"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/graded.csv",
+      "role": "interpreted findings and figures",
+      "bytes": 15075,
+      "sha256": "66c8b7f14249bee58cfe040056a8766f07a9a6c001a11f06d430d1ed79235d03",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/graded.csv"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/hue.csv",
+      "role": "interpreted findings and figures",
+      "bytes": 834,
+      "sha256": "797529df40992e6390775f78505596ca06b4d596fc72e0c931a11a4781471b8e",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/hue.csv"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/hue_neighborhood.csv",
+      "role": "interpreted findings and figures",
+      "bytes": 100,
+      "sha256": "a403c0634b534d2446fec91cea37a5d18cc87f27219e3b5251897a571d7d9683",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/hue_neighborhood.csv"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/lexical.csv",
+      "role": "interpreted findings and figures",
+      "bytes": 3958,
+      "sha256": "f866956925d9b2152206c8bd05f53c0b87fea2338122dd7f4178f5a53b07ed93",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/lexical.csv"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/matched_behavior.csv",
+      "role": "interpreted findings and figures",
+      "bytes": 440,
+      "sha256": "41f6a8a115389a43c1fd9b3a3ff907ffe2ccbcb49fb69d2622e9760d319fc749",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/matched_behavior.csv"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/numeric.csv",
+      "role": "interpreted findings and figures",
+      "bytes": 3376,
+      "sha256": "e6c85578331f041c94c94f765e8270852b57f4f68c84bc4795002bbda76b434f",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/numeric.csv"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/numeric_overall.csv",
+      "role": "interpreted findings and figures",
+      "bytes": 1118,
+      "sha256": "765887c8a0f4a2de5191b168da837648e90cabf748e6c75cfed94d2b07ab0538",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/numeric_overall.csv"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/paired.csv",
+      "role": "interpreted findings and figures",
+      "bytes": 32544,
+      "sha256": "da222bf4a7d0a0e82c7b6cbb983605f5dd89fe97223a9adf7004dc90ebb76320",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/paired.csv"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/precision.csv",
+      "role": "interpreted findings and figures",
+      "bytes": 315,
+      "sha256": "eb340032085399136267d51482dd62d26868c188bcb2ece52e5df65c7745edf2",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/precision.csv"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/provenance.json",
+      "role": "interpreted findings and figures",
+      "bytes": 1105,
+      "sha256": "1ec9165bbbbef313ecd57fbe0d9c78c6adf521b16d70abaafef527e4aa1b70f3",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/provenance.json"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/report.html",
+      "role": "interpreted findings and figures",
+      "bytes": 1356819,
+      "sha256": "9f7ce686b5c0be4b6fe249faac771f8161f7de5a7126793ea82e47a2e2233846",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/report.html"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/reproduction.log",
+      "role": "interpreted findings and figures",
+      "bytes": 4233,
+      "sha256": "00a7f67a07cfaba96c56ef9e628304c030d7f26c7c55dabc92514676bd207aad",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/reproduction.log"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/units.csv",
+      "role": "interpreted findings and figures",
+      "bytes": 577,
+      "sha256": "484d97dc376a6deca4762dd46c7d516c12e7ce93436d142fffb17414c347a624",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/units.csv"
+    },
+    {
+      "path": "reports/quality_suite_v3_findings/validation.json",
+      "role": "interpreted findings and figures",
+      "bytes": 521,
+      "sha256": "05990ead96beff7df306f0f88928d1a3f01489cd4fb4e27e564e7d90c5480355",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/reports/quality_suite_v3_findings/validation.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/activation_cache.json",
+      "role": "primary V3 result",
+      "bytes": 1210,
+      "sha256": "72e93d5b40397a015b6c551a590e02900eeca7e68e4cee98de19f8a35cc94e19",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/activation_cache.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/activation_files.json",
+      "role": "primary V3 result",
+      "bytes": 11458156,
+      "sha256": "265f0a0e89f4ec1dae2e220f566a95a06c869fc80758188e9437603cecbe8dd5",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/activation_files.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/activation_index.json",
+      "role": "primary V3 result",
+      "bytes": 2106492,
+      "sha256": "eb5ab85b97db6f1c67316dcd6dd46f6788b3622ed426afaff5ec3da5d2b49f51",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/activation_index.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/adjacent_direction_alignment.csv",
+      "role": "primary V3 result",
+      "bytes": 9304,
+      "sha256": "9cd523554e7f717783b0c502033201f147eb8aa1e95ade03b81d0e38e35d2744",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/adjacent_direction_alignment.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/analysis_complete.json",
+      "role": "primary V3 result",
+      "bytes": 1648,
+      "sha256": "7aa64c93c194688dd2a9dd5640546372161dbe926fe2882d80c52ba07b75ae4b",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/analysis_complete.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/answer_bias.csv",
+      "role": "primary V3 result",
+      "bytes": 9734,
+      "sha256": "a35255a8447d68c21076d2a699b1b8b3594a564ce1850540bb4391724f783c50",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/answer_bias.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/behavior_complete.json",
+      "role": "primary V3 result",
+      "bytes": 97,
+      "sha256": "01bba416314d82372649d94b2e7127a0a9055e16383827dbbf57421d1ae7b9d0",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/behavior_complete.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/behavior_scores.csv",
+      "role": "primary V3 result",
+      "bytes": 642568,
+      "sha256": "017bfbd8ada4846df602a507fb8762272319cdfdc004c56aeb3b0437342246da",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/behavior_scores.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/behavior_summary.csv",
+      "role": "primary V3 result",
+      "bytes": 11029,
+      "sha256": "158d35510cfe70dd5e81b8a361cb25fc384e24fb9263bb5656e69447d83f87d6",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/behavior_summary.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/causal_gate.json",
+      "role": "primary V3 result",
+      "bytes": 187,
+      "sha256": "0a0138d87c7208408416968d8ac706f524ef86f297c6f02f8d9b51812e334ba5",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/causal_gate.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/circular_neighborhoods.csv",
+      "role": "primary V3 result",
+      "bytes": 363893,
+      "sha256": "4f86fc8421e4e6a93016fec857a44101a56af2663ce593cde3e55d2acf56df88",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/circular_neighborhoods.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/comparison_to_original_pilot.json",
+      "role": "primary V3 result",
+      "bytes": 386,
+      "sha256": "a4d5fddd6106f2d982a77967fba52fc7f0789e974050816e96aea01cb27df19b",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/comparison_to_original_pilot.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/config.json",
+      "role": "primary V3 result",
+      "bytes": 1694,
+      "sha256": "cb7e580d47e715356a76770e36f5fb8b80f5ea8dc08023a0db1bff9c04997c24",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/config.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/diagnostic_coverage.json",
+      "role": "primary V3 result",
+      "bytes": 362,
+      "sha256": "6f0e69367fd0070b4956fb5871f51f6b1eab71ce5fb1c155d2a393707871ddb9",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/diagnostic_coverage.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/environment.json",
+      "role": "primary V3 result",
+      "bytes": 488,
+      "sha256": "df8757ac2ceff42b16f3a6f2a6b98f53a2585f6b9f9386818f9cc7a7b17d38f5",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/environment.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/extraction_complete.json",
+      "role": "primary V3 result",
+      "bytes": 114,
+      "sha256": "8f30b886a2020383806ee313bdb3399a67f8903396a92b6d8f5f4773fc707fa2",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/extraction_complete.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/factorial_selectivity.csv",
+      "role": "primary V3 result",
+      "bytes": 996906,
+      "sha256": "fe661b33aabe79a1f05475fbb330252084e1f622d499ac0ec82ec7401a99deab",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/factorial_selectivity.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/identity.json",
+      "role": "primary V3 result",
+      "bytes": 447,
+      "sha256": "b7db6652e651534cba4aefb2e64e464aafbc708bf2d6f89ee117120e13ce96a4",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/identity.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/independent_counts_by_family.json",
+      "role": "primary V3 result",
+      "bytes": 979,
+      "sha256": "4edcf036c3431cef98198431832533d7a873d357fdcab4f421c865a5f4911d59",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/independent_counts_by_family.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/label_provenance.json",
+      "role": "primary V3 result",
+      "bytes": 259,
+      "sha256": "be2e87b023c72f8d9ba1ef1c0acc3c3107910c7eded55f19da06da305cd33ce5",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/label_provenance.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/linear_metrics.csv",
+      "role": "primary V3 result",
+      "bytes": 393832,
+      "sha256": "146a25f1a857e851c5e3590d9c1023068c9f9f814440ba85df583a66df3b46e4",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/linear_metrics.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/linear_predictions.csv",
+      "role": "primary V3 result",
+      "bytes": 747190,
+      "sha256": "b39b1aa79a60cda005cf29629034f9a127d792c1469b2af44950cbccdccdf595",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/linear_predictions.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/linear_search.json",
+      "role": "primary V3 result",
+      "bytes": 80140,
+      "sha256": "bdb13f9e3a0f6978b1736b31957596368a2711e102045ba436749caa5f9b8966",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/linear_search.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/local_subspace_stability.json",
+      "role": "primary V3 result",
+      "bytes": 46488,
+      "sha256": "0ed19389983e5e0467c9e786cc6550f385428ff41f3a9b8cea89e324ce34d4c6",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/local_subspace_stability.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/matched_local_alignment.csv",
+      "role": "primary V3 result",
+      "bytes": 59448,
+      "sha256": "51fdd30864102218252765f118d285d018a6ec9932e922bd6bafb83b0ba13a48",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/matched_local_alignment.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/model.json",
+      "role": "primary V3 result",
+      "bytes": 7853,
+      "sha256": "67d1e7fefa6f3c7bb14145093030770b3526a6816d52535e584611c40e1b2071",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/model.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/model_selection.json",
+      "role": "primary V3 result",
+      "bytes": 34409,
+      "sha256": "e5daf3a38b5ab7ab45481c7ad6ed24d1ebd09fb0e2f6a1f74bd5e2fbacb5c3e9",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/model_selection.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/multioutput_metrics.csv",
+      "role": "primary V3 result",
+      "bytes": 26434,
+      "sha256": "5f07b2ade61d386f66ad54c97f81bac3a9d1c52b80cc275a26422d7ff041b709",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/multioutput_metrics.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/multioutput_selection.json",
+      "role": "primary V3 result",
+      "bytes": 53934,
+      "sha256": "7f2c9f1777f7bade6e190caf7b1f4a5980c37bb37c7b4db72f6321c58eba4698",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/multioutput_selection.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/nonlinear.json",
+      "role": "primary V3 result",
+      "bytes": 61,
+      "sha256": "4473ca7fa76ca741f63ce743d839136a5bd9d4f6f4437d16255dd06f8ace7c7a",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/nonlinear.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/numeric_challenges.csv",
+      "role": "primary V3 result",
+      "bytes": 140413,
+      "sha256": "a7a35803f98cfd77fe19de8e88361377e6024b44f1739ae9a1f6ce6481b50dcd",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/numeric_challenges.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/original_pilot_reference.json",
+      "role": "primary V3 result",
+      "bytes": 2259,
+      "sha256": "bed5061462349cb8262bd1ea0c1537d6f79bc37670b3aa748b9784e91a6995bd",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/original_pilot_reference.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/paired_contrasts.csv",
+      "role": "primary V3 result",
+      "bytes": 1643475,
+      "sha256": "0d2393d32c8473f3c34eade570a00d64274f3ceeeca671a44d8f076381af1b4e",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/paired_contrasts.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/paired_summary.csv",
+      "role": "primary V3 result",
+      "bytes": 133856,
+      "sha256": "6015081bb86514b91a775fc7a333aecef96419d68fcea34fdc8fb194520c3880",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/paired_summary.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/physical_model_selection.json",
+      "role": "primary V3 result",
+      "bytes": 15802,
+      "sha256": "1c911b3e63e2fbe0aa0612e260088f6eae71b8d28723258adae9c1b90f69e159",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/physical_model_selection.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/plan.json",
+      "role": "primary V3 result",
+      "bytes": 766,
+      "sha256": "59c6b295e5d2cf9f0c00a7da6465b91e1c00fc94c1924490c7507a764b0f1976",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/plan.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/preservation_audit.json",
+      "role": "primary V3 result",
+      "bytes": 459,
+      "sha256": "2808318a5d775c078f86cdea3a7339fab78ecec645d3dfbc37f6c6e5472651ac",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/preservation_audit.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/profile.json",
+      "role": "primary V3 result",
+      "bytes": 538946,
+      "sha256": "cda027d414ba5d22478eb0ab2d3245bac40b046c002b2995a7c473835cd49528",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/profile.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/report.md",
+      "role": "primary V3 result",
+      "bytes": 25095,
+      "sha256": "861ead1e02ea79244ccfca954a308fdbc8e77d7a7c1f61f5c4e8da118aa10008",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/report.md"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/resources.json",
+      "role": "primary V3 result",
+      "bytes": 151,
+      "sha256": "2c5f1692219513f4cc9b307bacfd8f913a4cd8b0dfeb0692361f4d368450d1bb",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/resources.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/source_snapshot.json",
+      "role": "primary V3 result",
+      "bytes": 204558,
+      "sha256": "9e697dd93ddba61318c539a2bb8f1f5c7d9d30558460bc5a891bb9ec7443b777",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/source_snapshot.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/state.json",
+      "role": "primary V3 result",
+      "bytes": 230,
+      "sha256": "e0c0c536c331b4066e0a6554433886a9b7610d3f36058f6742b48cb6307753f5",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/state.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/unit_invariance.csv",
+      "role": "primary V3 result",
+      "bytes": 36138,
+      "sha256": "a5111c5502ee19e9849abe06a039ed43f5b239e7721f1b5666ab2e7078c5c0c9",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/unit_invariance.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/arousal.npz",
+      "role": "primary V3 result",
+      "bytes": 162933,
+      "sha256": "a91b6c1bf9445e3ee69f90e3d5ed67768ebf3c633d9e066070a1a79055dedd63",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/arousal.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/brightness.npz",
+      "role": "primary V3 result",
+      "bytes": 163197,
+      "sha256": "45ae84e45c46a8a81de7e90bd5cecd3cead3be2b9c156f265009241d93169608",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/brightness.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/danger.npz",
+      "role": "primary V3 result",
+      "bytes": 163001,
+      "sha256": "683c2edb058f90725f6dff0702ab4fbad58c56f067b2fb71de46705e147ae243",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/danger.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/elasticity.npz",
+      "role": "primary V3 result",
+      "bytes": 102402,
+      "sha256": "01212570a722c6b441a5af24b0cccdcc8ccbf7913e1fb183a4f2ee8803288424",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/elasticity.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/hardness.npz",
+      "role": "primary V3 result",
+      "bytes": 163237,
+      "sha256": "d4208358bbd3bd2bff416ba3b43b8e26c06058f3cd90cbe3d7b4736ba2ae17ba",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/hardness.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/height.npz",
+      "role": "primary V3 result",
+      "bytes": 85005,
+      "sha256": "71f0ec62e4ccd879e9524d15ea012a866b0aa29224c98895cc080476323f3cff",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/height.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/hue.npz",
+      "role": "primary V3 result",
+      "bytes": 87481,
+      "sha256": "8253483bfa4e65b9ed99147441740742dd3d82364f85cc476d35016eb2582fd8",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/hue.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/length.npz",
+      "role": "primary V3 result",
+      "bytes": 160366,
+      "sha256": "2b345b7242d82d37fdff364f5940831bb3fad8888660749a7580ac7c8b656412",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/length.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__arousal.npz",
+      "role": "primary V3 result",
+      "bytes": 39414,
+      "sha256": "4552f3996fe563f32d894af612975c8b5b511dd8c1ff3ac597aac4b5e4932735",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__arousal.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__brightness.npz",
+      "role": "primary V3 result",
+      "bytes": 39710,
+      "sha256": "2164a65b8eddf4e2dc525dc70ac02c7dbb6056ec2dab4417a46835cb47f959d1",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__brightness.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__danger.npz",
+      "role": "primary V3 result",
+      "bytes": 39350,
+      "sha256": "9d6bf171ea5d9036723956635adaf9dbfe6702e49a973ff24ad34950f4ec8280",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__danger.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__elasticity.npz",
+      "role": "primary V3 result",
+      "bytes": 38855,
+      "sha256": "0cf5f8d71a6fba08ca1928a0e2928b6d823a27d9f83367cd813170d766c43c13",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__elasticity.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__hardness.npz",
+      "role": "primary V3 result",
+      "bytes": 39226,
+      "sha256": "262709716fb95544971f0d2aec57ec5d9f46606c85c771bf769dc1b059299a86",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__hardness.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__loudness.npz",
+      "role": "primary V3 result",
+      "bytes": 39690,
+      "sha256": "a2a3499ad789e23b4d9e7488b53dcc5b752971c3496d2ff6df264759d614c13c",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__loudness.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__mass.npz",
+      "role": "primary V3 result",
+      "bytes": 39490,
+      "sha256": "2586235db76ef80ac61343d30052a5145b6d6ea089d505ca3c0f0a31988bff81",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__mass.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__pitch.npz",
+      "role": "primary V3 result",
+      "bytes": 39729,
+      "sha256": "3b32de9d42a5b8ea571269549a3c644ef5e72eec864b3e490a49a9a3b4737813",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__pitch.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__pleasantness.npz",
+      "role": "primary V3 result",
+      "bytes": 39053,
+      "sha256": "8c8f563a116a53086e07b5120addccfb1cda38bf9a54e67f64081526a1aa45ad",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__pleasantness.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__roughness.npz",
+      "role": "primary V3 result",
+      "bytes": 40138,
+      "sha256": "a3547e12562cf261cd1c1838f8d942d7401bbc4f2da15fe79380644611b44b0c",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__roughness.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__size.npz",
+      "role": "primary V3 result",
+      "bytes": 40241,
+      "sha256": "d6d55b994a84e3f20937123088cc28f8a3d67cd6c0eeca6f40c529908d4d750e",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__size.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__speed.npz",
+      "role": "primary V3 result",
+      "bytes": 39962,
+      "sha256": "2c047614586554ac9be26536e33ca52fb49242dea079dee7fb43d6db85eb843d",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__speed.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__sweetness.npz",
+      "role": "primary V3 result",
+      "bytes": 39785,
+      "sha256": "c829738cc2770f819f31894ac0fd44b9a4116f23f6d6ef500f667ee2114326f6",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__sweetness.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__temperature.npz",
+      "role": "primary V3 result",
+      "bytes": 39912,
+      "sha256": "ed3c5996a669bc1b2dfb34217ca5eaefa516dfe0e92a5b5d8eef21c517bfab24",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/lexical__temperature.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/loudness.npz",
+      "role": "primary V3 result",
+      "bytes": 162928,
+      "sha256": "57d9eac3ae9a5fa9e322c50b72bc9e3c1a54102e65df3b8cf6cea0ee3219cb1f",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/loudness.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/mass.npz",
+      "role": "primary V3 result",
+      "bytes": 163025,
+      "sha256": "8f4c2a12b9a49e8855ad504358150f5d88dfc05ceac21adba29429ae9ec8b5cb",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/mass.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/pitch.npz",
+      "role": "primary V3 result",
+      "bytes": 163241,
+      "sha256": "534f56fb8d464d12f98b87d0d52395457e1fafcd4a471de012f00f79a6ce4ff3",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/pitch.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/pleasantness.npz",
+      "role": "primary V3 result",
+      "bytes": 163394,
+      "sha256": "bafe348e5ab745e94c2e12898fa406bbfc91c66f380e92a9191e9785102fa834",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/pleasantness.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/roughness.npz",
+      "role": "primary V3 result",
+      "bytes": 163073,
+      "sha256": "4080f72231e9c41365b814081d0aa2612e0b72d4b29241ac9046eeae6f4c885a",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/roughness.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/saturation.npz",
+      "role": "primary V3 result",
+      "bytes": 161913,
+      "sha256": "c8fcf302ded20446758aaded3497fe8217fe1a6f7039492e5e5435e6b392f899",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/saturation.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/size.npz",
+      "role": "primary V3 result",
+      "bytes": 162996,
+      "sha256": "349902a98667add5b6d6c440368438b8a57d4dccec06051a6badc4fb292dea77",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/size.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/speed.npz",
+      "role": "primary V3 result",
+      "bytes": 163095,
+      "sha256": "1287465d121c5a291038bfa9445be4f48353b683fec36f4a410f0a73a746522f",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/speed.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/sweetness.npz",
+      "role": "primary V3 result",
+      "bytes": 162146,
+      "sha256": "e62a020e71704498fd73670e0eb8eba28071d81deae5f811f1bcf5a6121937bb",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/sweetness.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/temperature.npz",
+      "role": "primary V3 result",
+      "bytes": 162928,
+      "sha256": "cdc943dadfee7c1a644f4efe4e3268397cd228b2032680fce2cbdadd4b12900f",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/temperature.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/value.npz",
+      "role": "primary V3 result",
+      "bytes": 161858,
+      "sha256": "c8314b9391c04706567bc9ea620beb0b550d5ad7da4b3ce2a8c2668d2de8c52f",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/value.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/fits/width.npz",
+      "role": "primary V3 result",
+      "bytes": 100411,
+      "sha256": "822c0bcaa75e30e9da7f67d501abdac54f40c2d2f11cb61bec80bfebed06934b",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/fits/width.npz"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/plots/behavior_accuracy.png",
+      "role": "primary V3 result",
+      "bytes": 101454,
+      "sha256": "f09c70eea66aff137acbe07b6660e595e2340b20236bf4f71526601f9c093f1f",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/plots/behavior_accuracy.png"
+    },
+    {
+      "path": "runs/quality_suite_v3_laptop-88fad55b46b0/plots/heldout_linear_rho.png",
+      "role": "primary V3 result",
+      "bytes": 228917,
+      "sha256": "e2596116ca8780208185569f19d57535f20758137c20860fad37512b0126d49e",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_laptop-88fad55b46b0/plots/heldout_linear_rho.png"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/activation_cache.json",
+      "role": "integration smoke check",
+      "bytes": 1210,
+      "sha256": "72e93d5b40397a015b6c551a590e02900eeca7e68e4cee98de19f8a35cc94e19",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/activation_cache.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/activation_index.json",
+      "role": "integration smoke check",
+      "bytes": 86310,
+      "sha256": "cd2184b5c9a34b6a4308919584f9f10687a42e961b9ec2d70e537ae152653c15",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/activation_index.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/adjacent_direction_alignment.csv",
+      "role": "integration smoke check",
+      "bytes": 655,
+      "sha256": "c21a371dadf112060642a14a7bdade575408a20680676342090c4b3034b15063",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/adjacent_direction_alignment.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/analysis_complete.json",
+      "role": "integration smoke check",
+      "bytes": 458,
+      "sha256": "2bd0e4ea67c8efe0d51c6733cf14b0b4b859f196aa315df3dd0bf087a259783f",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/analysis_complete.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/answer_bias.csv",
+      "role": "integration smoke check",
+      "bytes": 702,
+      "sha256": "26343e93ac3ed5320caf074d3567151d14cf29c042c61ca01a8aa17212ba3fdf",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/answer_bias.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/behavior_complete.json",
+      "role": "integration smoke check",
+      "bytes": 95,
+      "sha256": "e1244fc416cf46e928ddad8fe331e2a8389edff20d62be5b9aa7800d314f58f0",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/behavior_complete.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/behavior_scores.csv",
+      "role": "integration smoke check",
+      "bytes": 17257,
+      "sha256": "01548459a256d57fe01c0864b99f73f92ecb0debbc54e54b40b8a22cb6f6fc18",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/behavior_scores.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/behavior_summary.csv",
+      "role": "integration smoke check",
+      "bytes": 940,
+      "sha256": "8c6ad91432109153761a31204ad039d5eab94a3e8df12f390339097fd6a04f19",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/behavior_summary.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/causal_gate.json",
+      "role": "integration smoke check",
+      "bytes": 187,
+      "sha256": "0a0138d87c7208408416968d8ac706f524ef86f297c6f02f8d9b51812e334ba5",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/causal_gate.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/chart_contracts.json",
+      "role": "integration smoke check",
+      "bytes": 984,
+      "sha256": "c6caf153de3573678601bf4a287c9de3209178fb5b62058cc1ff3a2e89be1ded",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/chart_contracts.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/circular_neighborhoods.csv",
+      "role": "integration smoke check",
+      "bytes": 73689,
+      "sha256": "e085b1b7a208530cf115bc04859ad3d73b13909a7c42f11b662c577f0a42b251",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/circular_neighborhoods.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/comparison_to_original_pilot.json",
+      "role": "integration smoke check",
+      "bytes": 386,
+      "sha256": "a4d5fddd6106f2d982a77967fba52fc7f0789e974050816e96aea01cb27df19b",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/comparison_to_original_pilot.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/config.json",
+      "role": "integration smoke check",
+      "bytes": 1693,
+      "sha256": "61ad6bbbbe0df12017d10933d7c1ff931f36b14af2d4dacef8e5efcf31866fc8",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/config.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/diagnostic_coverage.json",
+      "role": "integration smoke check",
+      "bytes": 266,
+      "sha256": "638057c871de928773c0dd881f14c87ce32d9b4fa4886ff4b7abdac678e5d485",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/diagnostic_coverage.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/environment.json",
+      "role": "integration smoke check",
+      "bytes": 488,
+      "sha256": "6dbfecc643ba9fea80f1558601fccb8ccf36977724db09b3428a687be854e182",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/environment.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/extraction_complete.json",
+      "role": "integration smoke check",
+      "bytes": 112,
+      "sha256": "6ba399c03b8e6c0a66ec61630ec38f9a46fc0439ede1d81b682a2879af4908f1",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/extraction_complete.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/factorial_selectivity.csv",
+      "role": "integration smoke check",
+      "bytes": 32969,
+      "sha256": "72f73b199a47645031468b78b0500e77944dcd8b47455a822843379243732560",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/factorial_selectivity.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/identity.json",
+      "role": "integration smoke check",
+      "bytes": 446,
+      "sha256": "9429bb8c46a08dc4aed1543c6a42e765d9b333d1ebad2d646b87f1a8cadff666",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/identity.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/label_provenance.json",
+      "role": "integration smoke check",
+      "bytes": 154,
+      "sha256": "a4e8f022fef7fd191ef365fa3a26173400d9cd546f1721de6ef828da07c2285d",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/label_provenance.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/linear_metrics.csv",
+      "role": "integration smoke check",
+      "bytes": 33707,
+      "sha256": "3792e54c30e4aa99d32bc1cf91fbbe53b226696df5ec2a886e2864ec93ae57ca",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/linear_metrics.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/linear_predictions.csv",
+      "role": "integration smoke check",
+      "bytes": 27373,
+      "sha256": "101f7b4b4789c0f36ee0885f4877cfc5eaf957e680bd42bca9893e16e12c4012",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/linear_predictions.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/linear_search.json",
+      "role": "integration smoke check",
+      "bytes": 9020,
+      "sha256": "a3d4a2ec24f7f349fb657e746cbe8209cbfefb0c647653193da1fd7e9ee9be0c",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/linear_search.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/local_subspace_stability.json",
+      "role": "integration smoke check",
+      "bytes": 1246,
+      "sha256": "3f6fb711e252f85640398658a27c769055e960eae08806a792b6b23893dd092e",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/local_subspace_stability.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/matched_local_alignment.csv",
+      "role": "integration smoke check",
+      "bytes": 379,
+      "sha256": "724330149274917e6fc563781b2557d574ae900915cea2e36073b2398f69442d",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/matched_local_alignment.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/model.json",
+      "role": "integration smoke check",
+      "bytes": 7853,
+      "sha256": "67d1e7fefa6f3c7bb14145093030770b3526a6816d52535e584611c40e1b2071",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/model.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/model_selection.json",
+      "role": "integration smoke check",
+      "bytes": 3279,
+      "sha256": "d12c300785f61f5dfa9caf883a8bdf0498115e23c78a7d22051d827ffcf5b9eb",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/model_selection.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/multioutput_metrics.csv",
+      "role": "integration smoke check",
+      "bytes": 2816,
+      "sha256": "e1d428a59d64746508186e9a954a1d52c97827334058ec9e7454d1932d2101dd",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/multioutput_metrics.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/multioutput_selection.json",
+      "role": "integration smoke check",
+      "bytes": 5199,
+      "sha256": "7a0c6f85101f3c821b967b2de58d89da54bfaba898784e9ce609ff9c051cd836",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/multioutput_selection.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/nonlinear.json",
+      "role": "integration smoke check",
+      "bytes": 61,
+      "sha256": "4473ca7fa76ca741f63ce743d839136a5bd9d4f6f4437d16255dd06f8ace7c7a",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/nonlinear.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/numeric_challenges.csv",
+      "role": "integration smoke check",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/numeric_challenges.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/original_pilot_reference.json",
+      "role": "integration smoke check",
+      "bytes": 2259,
+      "sha256": "bed5061462349cb8262bd1ea0c1537d6f79bc37670b3aa748b9784e91a6995bd",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/original_pilot_reference.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/paired_contrasts.csv",
+      "role": "integration smoke check",
+      "bytes": 47357,
+      "sha256": "eb57f809832f18b659326e00d0407f3b79b64841ac0d4c21f67a4619753a2f5c",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/paired_contrasts.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/paired_summary.csv",
+      "role": "integration smoke check",
+      "bytes": 7542,
+      "sha256": "256c23db0199cf24b404bd985fcbe39e9eca2e2b2e9426f98b10b3689b123325",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/paired_summary.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/physical_model_selection.json",
+      "role": "integration smoke check",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/physical_model_selection.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/plan.json",
+      "role": "integration smoke check",
+      "bytes": 749,
+      "sha256": "384adb9d0ea8dc7e491587b7469f64f0c76eec445df29594d98456199e795de4",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/plan.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/profile.json",
+      "role": "integration smoke check",
+      "bytes": 20056,
+      "sha256": "e7e90e21e064fe841a49e2a9987da3c6899217468d1da9410214d935b183bfdd",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/profile.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/report.md",
+      "role": "integration smoke check",
+      "bytes": 5827,
+      "sha256": "44fa542dbb45ff14a13f9fde4223bb951c7f9971c40db8ee2dc3ab6290d5c8be",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/report.md"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/report_rendering.json",
+      "role": "integration smoke check",
+      "bytes": 175,
+      "sha256": "5701d771b02e2b5506faaefb52dc9a9f948d9487886c0ec993346bf1841a3dc5",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/report_rendering.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/resources.json",
+      "role": "integration smoke check",
+      "bytes": 150,
+      "sha256": "fb0299c78893624e8725f7480249e90f0b71770a7336bd6f72ccc652d6811cf2",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/resources.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/source_snapshot.json",
+      "role": "integration smoke check",
+      "bytes": 204558,
+      "sha256": "9e697dd93ddba61318c539a2bb8f1f5c7d9d30558460bc5a891bb9ec7443b777",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/source_snapshot.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/state.json",
+      "role": "integration smoke check",
+      "bytes": 228,
+      "sha256": "156af09adb0034f239b8a83fb097a6fe6026d1c9f9bd369979704d87697412be",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/state.json"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/unit_invariance.csv",
+      "role": "integration smoke check",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/unit_invariance.csv"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/plots/behavior_accuracy.png",
+      "role": "integration smoke check",
+      "bytes": 43192,
+      "sha256": "051a1b9bc8f05d964324f5490fed724f295b92030f73d6055700af8a57d20c47",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/plots/behavior_accuracy.png"
+    },
+    {
+      "path": "runs/quality_suite_v3_smoke-55cb21caf007/plots/heldout_linear_rho.png",
+      "role": "integration smoke check",
+      "bytes": 46680,
+      "sha256": "e8bbfd7238987a86b431e87e5845120f9548942ad6d93b0267a678a9f37ee942",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/quality_suite_v3_smoke-55cb21caf007/plots/heldout_linear_rho.png"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/activation_cache.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 978,
+      "sha256": "cc8fe839c834c54d98b155dcdec5b458c83c5d4c4a13ca8c44830887ca606fbc",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/activation_cache.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/activation_index.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 251832,
+      "sha256": "e38aac0f37c1a13951c0d758950ca9e557d33fc291ad1b58f911d659479b0c5f",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/activation_index.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/analysis_complete.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 147,
+      "sha256": "32c3e75ad16cae19420e4f13c86db8cbe6c7483c5f54738c0fdc001847b3452d",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/analysis_complete.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/answer_encoding.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 68,
+      "sha256": "47213cd20e20b849f93a5a4e8f6082272444f128cde25b3306960e7659f45ac8",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/answer_encoding.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/baseline_metrics.csv",
+      "role": "original size-only pilot comparison",
+      "bytes": 1293,
+      "sha256": "368802c62d2b3627abd2bcdccae3211fcc124194cddf3aaa165d88b05f1bc1e5",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/baseline_metrics.csv"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/behavior_complete.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 162,
+      "sha256": "4bea172933ba229e9cf87c622bfdd3fed0519a53917fea7b4a59ae169d4e4752",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/behavior_complete.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/behavior_format_selection.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 3403,
+      "sha256": "fbe171c45dd61cb3da82b37ecc89c9d8bd36430674f9c96c601b8676afc28be2",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/behavior_format_selection.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/behavior_prompts.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 239444,
+      "sha256": "170cc737f778cf14f559c1594e70b50405bf79e4f6a33c1452a236eccfc45bed",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/behavior_prompts.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/behavior_prompts_unencoded.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 115072,
+      "sha256": "3d003ce2282089d00b53c69a21380b63f8cd8dc5f490f970651a314af6eafc28",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/behavior_prompts_unencoded.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/behavior_scores.csv",
+      "role": "original size-only pilot comparison",
+      "bytes": 914017,
+      "sha256": "6317b0e957d7eae189956559a385304fcd7e36c80367f5fcdd13f16a7bc3cb48",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/behavior_scores.csv"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/benchmark.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 609,
+      "sha256": "dab8ee7633de503cf4b1061bb7a31699ec7bd779355084acc1e5d82975f207b6",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/benchmark.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/concepts.csv",
+      "role": "original size-only pilot comparison",
+      "bytes": 13010,
+      "sha256": "6d4bc3264b42f724dcbab7c02c4fda8c7190e6e1e1a344755f800fbfe860e3aa",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/concepts.csv"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/concepts_analysis.csv",
+      "role": "original size-only pilot comparison",
+      "bytes": 13327,
+      "sha256": "ec2f0913b232fa0e35d559571081bbd5839fe07b57be5f99d3a4984bc065c804",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/concepts_analysis.csv"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/config.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 1330,
+      "sha256": "a4abbde886a389ab5d6e2a2fba20c5b6dedf401d6bbda748285d13232a097616",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/config.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/context.csv",
+      "role": "original size-only pilot comparison",
+      "bytes": 2456007,
+      "sha256": "e7708268f4fcd18ee0137ae23998e0e682b88e350885264a455c214b7ce63afb",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/context.csv"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/context_summary.csv",
+      "role": "original size-only pilot comparison",
+      "bytes": 84480,
+      "sha256": "a19371ff08d6e65b91b988f95542a4077620e9c6851a5b7321b7fe6a372172fc",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/context_summary.csv"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/effect_summary.csv",
+      "role": "original size-only pilot comparison",
+      "bytes": 9510,
+      "sha256": "456737ab817c2ab80ebaabf23bc4f94b80a78b0c4f672bbf6f0573191a0f6f6b",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/effect_summary.csv"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/environment.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 487,
+      "sha256": "2800e4b8b41b68203217a8378f9cb8983b631cd48360303773093f797f29e556",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/environment.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/extraction_complete.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 108,
+      "sha256": "04baa8bdbbb8fc6d7dd8603332f2a265831041523aa06dbe88702b30baa97f53",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/extraction_complete.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/identity.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 343,
+      "sha256": "119765951c611d45e130ce01963b6a5aec14ac9e9d9eeb8154e639e1b5a29665",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/identity.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/metrics.csv",
+      "role": "original size-only pilot comparison",
+      "bytes": 19714,
+      "sha256": "5668d8f8248226ea1425307ccc719bc38ec0ee42f771be121fa80992913292bf",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/metrics.csv"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/model.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 7853,
+      "sha256": "67d1e7fefa6f3c7bb14145093030770b3526a6816d52535e584611c40e1b2071",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/model.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/pairs.csv",
+      "role": "original size-only pilot comparison",
+      "bytes": 7152,
+      "sha256": "061659915fa09843492c9e3133af03f54bf72e9accdb846e3b32f3b64827ada5",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/pairs.csv"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/pca.csv",
+      "role": "original size-only pilot comparison",
+      "bytes": 65982,
+      "sha256": "b887c53475329342d3d53841f5453621ce98f0bf1a2661ebb613bd13e0e380e2",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/pca.csv"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/permutations.csv",
+      "role": "original size-only pilot comparison",
+      "bytes": 13386,
+      "sha256": "ca2f670892888ddb8febd2a226b37e8d7e8d4157ad7b5e195858e88ebd7bd487",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/permutations.csv"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/plan.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 750,
+      "sha256": "f12816478631987e51c5cb586779d8f69768f6cd963d0ffa47d249ec532a7f3b",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/plan.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/predictions.csv",
+      "role": "original size-only pilot comparison",
+      "bytes": 122110,
+      "sha256": "02a12e8a42cb55110f5d66c8686c7699b99d6508fc127fd13a90716f2318cbc8",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/predictions.csv"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/prompts.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 674096,
+      "sha256": "b840aeaecb4a3e57d08d2fa940e7fe30a2345f294426e76b8afbb2778cb87230",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/prompts.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/prompts_unencoded.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 300782,
+      "sha256": "f68ddd152edf73fdd9d91e365912adbd4ef5e154c0abe72d97668e3fd4980646",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/prompts_unencoded.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/references.csv",
+      "role": "original size-only pilot comparison",
+      "bytes": 204,
+      "sha256": "e20724ac756a8b6745ffd660dc0389678a71082129e1aedc359d8a910a0f33a5",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/references.csv"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/report.md",
+      "role": "original size-only pilot comparison",
+      "bytes": 13480,
+      "sha256": "49c3df70a701bb37cffcc97ee5d74a6f6c5029d7f77600d27cf8178fa4c503db",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/report.md"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/resources.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 425,
+      "sha256": "07e2abe21c7e65c4f325b3fccff4af9baea6a8ff2bc46e2a89463a6f6abf7067",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/resources.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/selection.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 1696,
+      "sha256": "add3346d45acb8e63815ba616e175144f3ec91bf223f0f358a89017569b8b5fd",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/selection.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/splits.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 1610,
+      "sha256": "6a236cba43311853b5a8e89b9b1ffb12baf225104fd15a1d61e81fc4ed748e2e",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/splits.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/state.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 235,
+      "sha256": "b9d85f5bb3278072534654aa561698805525d3346e57af110c9622f09128cb34",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/state.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/subjects.json",
+      "role": "original size-only pilot comparison",
+      "bytes": 240,
+      "sha256": "529a64902ec59be8d7553ead0ad77d1bf23205885f882fbd4d8438ddb86d6427",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/subjects.json"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/plots/context_shifts.png",
+      "role": "original size-only pilot comparison",
+      "bytes": 118494,
+      "sha256": "b448b6bc8ffd83b9e915182cab1bad69c3aca82275f47a7b318e6d4bc7ab9bf2",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/plots/context_shifts.png"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/plots/context_shifts.svg",
+      "role": "original size-only pilot comparison",
+      "bytes": 91497,
+      "sha256": "3699ed1ac67a858a7171cdc0863ab0cb0b2d23b98db9b56f2687d22c0eec9709",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/plots/context_shifts.svg"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/plots/off_target_effects.png",
+      "role": "original size-only pilot comparison",
+      "bytes": 104164,
+      "sha256": "cfbd1121b4885e533febc5fd16ca4e108b7361f843dd4347cd6a44121812244d",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/plots/off_target_effects.png"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/plots/off_target_effects.svg",
+      "role": "original size-only pilot comparison",
+      "bytes": 82473,
+      "sha256": "411b22578b274307e1e41207f92fb381e74a452d4e29f1afa33dbd5ecf2a0233",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/plots/off_target_effects.svg"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/plots/pca_selected.png",
+      "role": "original size-only pilot comparison",
+      "bytes": 67784,
+      "sha256": "a797e2dd4d5f68f251b48f318d1bfa5b83363454606c8b252821aeebbeeaa779",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/plots/pca_selected.png"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/plots/pca_selected.svg",
+      "role": "original size-only pilot comparison",
+      "bytes": 79652,
+      "sha256": "ed8eaa8abfd1c8282d86b397a353b74365c2456761182c6dd8073716b65b7034",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/plots/pca_selected.svg"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/plots/prediction_by_layer.png",
+      "role": "original size-only pilot comparison",
+      "bytes": 122188,
+      "sha256": "4d279ab7dfe9b3e171379ad7dd61f1b0bb0978cbb922f832938d67cbcc6f1148",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/plots/prediction_by_layer.png"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/plots/prediction_by_layer.svg",
+      "role": "original size-only pilot comparison",
+      "bytes": 72670,
+      "sha256": "ac69b2f4743d406f0cf6c235c7d77abda0357802708b7e4dfd90893235f74247",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/plots/prediction_by_layer.svg"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/plots/steering_dose_response.png",
+      "role": "original size-only pilot comparison",
+      "bytes": 79540,
+      "sha256": "09193a8432d21eb376102a6b7751f2f43b64c476031e645259f3c6b55d8d1c9b",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/plots/steering_dose_response.png"
+    },
+    {
+      "path": "runs/pilot_m2-792030855aa5/plots/steering_dose_response.svg",
+      "role": "original size-only pilot comparison",
+      "bytes": 60887,
+      "sha256": "14a8a99852c021e27292c30476bd32fb8e1d4ac9c3b54bbc89d3566d1146e2ac",
+      "source": "/Users/popthornthanatit/Desktop/CS/diss/qualityDims/quality-dimensions-llm/runs/pilot_m2-792030855aa5/plots/steering_dose_response.svg"
+    }
+  ],
+  "handoff_guides": [
+    {
+      "path": "README.md",
+      "bytes": 574,
+      "sha256": "a5b2e927548283ebb90a4a5a19d26a632ffb7ef59eef99a821e2c4650ea2f6cd"
+    },
+    {
+      "path": "START_HERE.md",
+      "bytes": 4609,
+      "sha256": "dc5bd8d1fef46435ec7a8dd7032ab9d27a03b7c5b66ccb0f31b467c22056b85d"
+    },
+    {
+      "path": "METHODS.md",
+      "bytes": 6251,
+      "sha256": "e19a3610ce3ee0a57c8f9d56abe216015568ddd575221257d09e28d1f178db5b"
+    },
+    {
+      "path": "RESULTS.md",
+      "bytes": 6667,
+      "sha256": "155b63d384169975137ebbbaca1cb3db474e39ff8dee17a07122b21aa7399946"
+    },
+    {
+      "path": "REPRODUCE.md",
+      "bytes": 3965,
+      "sha256": "8739e6c41d6c590631435caa3dbe92e125f840294418c77086b435b1b5887c1b"
+    },
+    {
+      "path": "VALIDATION.md",
+      "bytes": 1597,
+      "sha256": "763f9aa84e6ec8d70efd518089e487de9efa8b6c3443af640c556ec8bafbab14"
+    }
+  ]
+}

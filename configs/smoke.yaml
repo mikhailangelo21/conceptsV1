@@ -1,0 +1,26 @@
+profile: smoke
+model: Qwen/Qwen3-1.7B-Base
+revision: main
+backend: auto
+attention: eager
+seed: 1729
+max_tokens: 256
+batch_size: 1
+concepts: data/concepts.csv
+references: data/references.csv
+pairs: data/pairs.csv
+run_root: runs
+cache_root: cache/activations
+seen_templates: [t0, t1]
+heldout_template: t2
+context_templates: [t0, t2]
+category_limit: 2
+ridge_alphas: [0.1, 1, 10, 100, 1000]
+bootstrap_replicates: 100
+permutations: 5
+intervention_subjects: 2
+random_directions: 1
+strengths: [-1, 0, 1]
+behavior_templates: [b0]
+extra_intervention_layers: []
+max_model_minutes: 60

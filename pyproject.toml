@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quality-dimensions-llm"
+version = "0.1.0"
+description = "Reproducible ordinal size accessibility, context and additive-steering pilot"
+requires-python = ">=3.11"
+dependencies = ["torch>=2.6", "transformers>=4.51", "huggingface_hub", "numpy", "scipy", "scikit-learn", "pandas", "matplotlib", "PyYAML", "tqdm", "psutil", "joblib", "umap-learn>=0.5.7", "plotly>=6.0"]
+
+[project.scripts]
+qd = "quality_dimensions.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: requires public real-model weights and sufficient disk/memory"]

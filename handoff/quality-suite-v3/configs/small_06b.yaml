@@ -1,0 +1,26 @@
+profile: small_06b
+model: Qwen/Qwen3-0.6B-Base
+revision: main
+backend: auto
+attention: eager
+seed: 1729
+max_tokens: 256
+batch_size: 1
+concepts: data/concepts.csv
+references: data/references.csv
+pairs: data/pairs.csv
+run_root: runs
+cache_root: cache/activations
+seen_templates: [t0, t1]
+heldout_template: t2
+context_templates: [t0, t2]
+category_limit: null
+ridge_alphas: [0.1, 1, 10, 100, 1000]
+bootstrap_replicates: 1000
+permutations: 100
+intervention_subjects: 6
+random_directions: 3
+strengths: [-1, -0.5, 0, 0.5, 1]
+behavior_templates: [b0]
+extra_intervention_layers: []
+max_model_minutes: 60

@@ -1,0 +1,101 @@
+{
+  "affect": {
+    "axes": [
+      "pleasantness",
+      "arousal",
+      "danger"
+    ],
+    "cells": 27,
+    "grid_shape": [
+      3,
+      3,
+      3
+    ],
+    "heldout_rule": "weighted index sum modulo 5 equals 1",
+    "synthetic": true
+  },
+  "colour": {
+    "axes": [
+      "hue",
+      "saturation",
+      "value"
+    ],
+    "cells": 54,
+    "grid_shape": [
+      6,
+      3,
+      3
+    ],
+    "heldout_rule": "weighted index sum modulo 5 equals 1",
+    "synthetic": true
+  },
+  "extent_mass": {
+    "axes": [
+      "size",
+      "mass"
+    ],
+    "cells": 9,
+    "grid_shape": [
+      3,
+      3
+    ],
+    "heldout_rule": "weighted index sum modulo 5 equals 1",
+    "synthetic": true
+  },
+  "motion_thermal": {
+    "axes": [
+      "speed",
+      "temperature"
+    ],
+    "cells": 9,
+    "grid_shape": [
+      3,
+      3
+    ],
+    "heldout_rule": "weighted index sum modulo 5 equals 1",
+    "synthetic": true
+  },
+  "shape": {
+    "axes": [
+      "length",
+      "width",
+      "height"
+    ],
+    "cells": 27,
+    "grid_shape": [
+      3,
+      3,
+      3
+    ],
+    "heldout_rule": "weighted index sum modulo 5 equals 1",
+    "synthetic": true
+  },
+  "sound": {
+    "axes": [
+      "pitch",
+      "loudness"
+    ],
+    "cells": 9,
+    "grid_shape": [
+      3,
+      3
+    ],
+    "heldout_rule": "weighted index sum modulo 5 equals 1",
+    "synthetic": true
+  },
+  "surface": {
+    "axes": [
+      "roughness",
+      "hardness",
+      "elasticity"
+    ],
+    "cells": 27,
+    "grid_shape": [
+      3,
+      3,
+      3
+    ],
+    "heldout_rule": "weighted index sum modulo 5 equals 1",
+    "synthetic": true
+  }
+}

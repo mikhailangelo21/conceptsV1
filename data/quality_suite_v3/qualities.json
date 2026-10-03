@@ -1,0 +1,1053 @@
+[
+  {
+    "alternate": [
+      "has a minute overall extent",
+      "has a modest overall extent",
+      "has an intermediate overall extent",
+      "has a substantial overall extent",
+      "has a vast overall extent"
+    ],
+    "anchors": [
+      [
+        "salt grain",
+        "ant",
+        "pea",
+        "blueberry",
+        "button"
+      ],
+      [
+        "strawberry",
+        "walnut",
+        "apple",
+        "teacup",
+        "tennis ball"
+      ],
+      [
+        "loaf of bread",
+        "book",
+        "rabbit",
+        "basketball",
+        "brick"
+      ],
+      [
+        "chair",
+        "bicycle",
+        "dog",
+        "armchair",
+        "adult person"
+      ],
+      [
+        "elephant",
+        "shipping container",
+        "bus",
+        "airplane",
+        "building"
+      ]
+    ],
+    "comparison_subject": "the longest extent of {name}",
+    "domain": "spatial",
+    "extrapolate": true,
+    "higher": "longer",
+    "key": "size",
+    "log_sweep": true,
+    "lower": "shorter",
+    "note": "Controlled numeric size means longest linear extent, not mass, volume, visual angle or human typicality. Lexical size ranks are provisional and may overlap.",
+    "numeric_sweep": true,
+    "quantity": "longest linear extent",
+    "unit": "cm",
+    "values": [
+      1,
+      5,
+      15,
+      50,
+      150
+    ],
+    "words": [
+      "is tiny",
+      "is small",
+      "is medium-sized",
+      "is large",
+      "is enormous"
+    ]
+  },
+  {
+    "alternate": [
+      "has very little mass",
+      "has a low mass",
+      "has a moderate mass",
+      "has a high mass",
+      "has a very high mass"
+    ],
+    "anchors": [
+      [
+        "feather",
+        "paperclip",
+        "postage stamp",
+        "rice grain",
+        "dry leaf"
+      ],
+      [
+        "pencil",
+        "coin",
+        "key",
+        "eraser",
+        "teabag"
+      ],
+      [
+        "apple",
+        "smartphone",
+        "mug",
+        "orange",
+        "bar of soap"
+      ],
+      [
+        "laptop",
+        "brick",
+        "dictionary",
+        "bowling ball",
+        "kettlebell"
+      ],
+      [
+        "refrigerator",
+        "motorcycle",
+        "car",
+        "elephant",
+        "locomotive"
+      ]
+    ],
+    "comparison_subject": "the mass of {name}",
+    "domain": "mechanical",
+    "extrapolate": true,
+    "higher": "greater",
+    "key": "mass",
+    "log_sweep": true,
+    "lower": "smaller",
+    "note": "Mass is distinct from size; ordinary noun masses vary greatly. No real measurements are supplied.",
+    "numeric_sweep": true,
+    "quantity": "mass",
+    "unit": "g",
+    "values": [
+      1,
+      10,
+      100,
+      1000,
+      10000
+    ],
+    "words": [
+      "is extremely light",
+      "is lightweight",
+      "has an intermediate mass",
+      "is heavy",
+      "is extremely heavy"
+    ]
+  },
+  {
+    "alternate": [
+      "has a very low temperature",
+      "has a low temperature",
+      "has a moderate temperature",
+      "has an elevated temperature",
+      "has a very high temperature"
+    ],
+    "anchors": [
+      [
+        "dry ice",
+        "ice cube",
+        "snow",
+        "frozen lake",
+        "icicle"
+      ],
+      [
+        "chilled water",
+        "refrigerated milk",
+        "cold cellar",
+        "cool stream",
+        "winter air"
+      ],
+      [
+        "room-temperature water",
+        "indoor air",
+        "wooden desk",
+        "room-temperature apple",
+        "unheated ceramic tile"
+      ],
+      [
+        "warm bath",
+        "sunlit pavement",
+        "fresh tea",
+        "heating pad",
+        "warm radiator"
+      ],
+      [
+        "boiling water",
+        "oven interior",
+        "campfire",
+        "molten lava",
+        "blast furnace"
+      ]
+    ],
+    "comparison_subject": "the temperature of {name}",
+    "domain": "thermal",
+    "extrapolate": true,
+    "higher": "higher",
+    "key": "temperature",
+    "log_sweep": false,
+    "lower": "lower",
+    "note": "Celsius values are assigned fictional specifications. Qualitative words provide only designed ordinal categories, not exact temperatures.",
+    "numeric_sweep": true,
+    "quantity": "temperature",
+    "unit": "degrees Celsius",
+    "values": [
+      0,
+      10,
+      20,
+      40,
+      80
+    ],
+    "words": [
+      "is very cold",
+      "is cool",
+      "is at an intermediate temperature",
+      "is warm",
+      "is very hot"
+    ]
+  },
+  {
+    "alternate": [
+      "does not move",
+      "travels at a low speed",
+      "travels at a moderate speed",
+      "travels at a high speed",
+      "travels at a very high speed"
+    ],
+    "anchors": [
+      [
+        "parked car",
+        "stationary statue",
+        "resting stone",
+        "stopped clock hand",
+        "anchored boat"
+      ],
+      [
+        "snail",
+        "tortoise",
+        "crawling baby",
+        "drifting leaf",
+        "walking pedestrian"
+      ],
+      [
+        "jogger",
+        "cyclist",
+        "swimmer",
+        "running dog",
+        "rolling skateboard"
+      ],
+      [
+        "galloping horse",
+        "moving train",
+        "motorcycle on a highway",
+        "cheetah",
+        "speedboat"
+      ],
+      [
+        "jet aircraft",
+        "racing car",
+        "rocket",
+        "meteor",
+        "spacecraft"
+      ]
+    ],
+    "comparison_subject": "the speed of {name}",
+    "domain": "motion",
+    "extrapolate": false,
+    "higher": "higher",
+    "key": "speed",
+    "log_sweep": false,
+    "lower": "lower",
+    "note": "Lexical examples include state descriptions and therefore possible lexical shortcuts. Numeric scenes specify a common reference frame.",
+    "numeric_sweep": true,
+    "quantity": "speed",
+    "unit": "metres per second",
+    "values": [
+      0,
+      1,
+      5,
+      20,
+      100
+    ],
+    "words": [
+      "is motionless",
+      "moves slowly",
+      "moves at an intermediate speed",
+      "moves quickly",
+      "moves extremely quickly"
+    ]
+  },
+  {
+    "alternate": [
+      "has very low apparent brightness",
+      "has low apparent brightness",
+      "has moderate apparent brightness",
+      "has high apparent brightness",
+      "has very high apparent brightness"
+    ],
+    "anchors": [
+      [
+        "unlit cave",
+        "black cloth in shade",
+        "moonless sky",
+        "unlit screen",
+        "dark cupboard"
+      ],
+      [
+        "candlelit room",
+        "night-light",
+        "twilight sky",
+        "dim hallway",
+        "glowing ember"
+      ],
+      [
+        "cloudy sky",
+        "desk lamp",
+        "computer screen",
+        "lit kitchen",
+        "overcast courtyard"
+      ],
+      [
+        "sunlit white wall",
+        "stage spotlight",
+        "car headlight",
+        "bright shop window",
+        "sunlit snow"
+      ],
+      [
+        "sun's disc",
+        "camera flash",
+        "welding arc",
+        "lightning flash",
+        "floodlight"
+      ]
+    ],
+    "comparison_subject": "the luminance of {name}",
+    "domain": "visual",
+    "extrapolate": true,
+    "higher": "higher",
+    "key": "brightness",
+    "log_sweep": true,
+    "lower": "lower",
+    "note": "Luminance is a physical proxy; brightness depends on adaptation and context. Lexical examples are NOT a calibrated common photometric scale.",
+    "numeric_sweep": true,
+    "quantity": "emitted luminance",
+    "unit": "candela per square metre",
+    "values": [
+      1,
+      10,
+      100,
+      1000,
+      10000
+    ],
+    "words": [
+      "looks extremely dim",
+      "looks dim",
+      "has an intermediate brightness",
+      "looks bright",
+      "looks extremely bright"
+    ]
+  },
+  {
+    "alternate": [
+      "sounds very faint",
+      "sounds soft",
+      "sounds intermediate in loudness",
+      "sounds powerful",
+      "sounds deafening"
+    ],
+    "anchors": [
+      [
+        "falling snow",
+        "distant rustle",
+        "soft breathing",
+        "ticking wristwatch",
+        "faint hum"
+      ],
+      [
+        "whisper",
+        "turning book page",
+        "gentle rain",
+        "quiet fan",
+        "soft footsteps"
+      ],
+      [
+        "conversation",
+        "running tap",
+        "piano practice",
+        "busy cafe",
+        "television"
+      ],
+      [
+        "vacuum cleaner",
+        "shouting crowd",
+        "passing truck",
+        "power drill",
+        "barking dog"
+      ],
+      [
+        "thunderclap",
+        "jet takeoff",
+        "stadium roar",
+        "fire alarm",
+        "rock concert"
+      ]
+    ],
+    "comparison_subject": "the sound pressure level produced by {name}",
+    "domain": "auditory",
+    "extrapolate": false,
+    "higher": "higher",
+    "key": "loudness",
+    "log_sweep": false,
+    "lower": "lower",
+    "note": "SPL is not perceived loudness. Controlled single-property scenes specify a common listener position and tone frequency; lexical sound examples do not.",
+    "numeric_sweep": true,
+    "quantity": "sound pressure level at the same listener position",
+    "unit": "dB SPL",
+    "values": [
+      20,
+      40,
+      60,
+      80,
+      100
+    ],
+    "words": [
+      "produces a barely audible sound",
+      "produces a quiet sound",
+      "produces a moderately loud sound",
+      "produces a loud sound",
+      "produces an extremely loud sound"
+    ]
+  },
+  {
+    "alternate": [
+      "emits a very deep tone",
+      "emits a deep tone",
+      "emits a middle-register tone",
+      "emits a treble tone",
+      "emits an upper-register tone"
+    ],
+    "anchors": [
+      [
+        "bass drum",
+        "low organ pedal",
+        "tuba",
+        "bass guitar",
+        "distant rumble"
+      ],
+      [
+        "cello",
+        "baritone voice",
+        "bassoon",
+        "low piano note",
+        "bull's bellow"
+      ],
+      [
+        "conversational voice",
+        "viola",
+        "guitar middle string",
+        "clarinet middle register",
+        "middle piano note"
+      ],
+      [
+        "flute",
+        "soprano voice",
+        "violin upper register",
+        "birdsong",
+        "whistling kettle"
+      ],
+      [
+        "piccolo",
+        "mosquito whine",
+        "high electronic beep",
+        "squeaky hinge",
+        "bat chirp"
+      ]
+    ],
+    "comparison_subject": "the pure-tone frequency of {name}",
+    "domain": "auditory",
+    "extrapolate": true,
+    "higher": "higher",
+    "key": "pitch",
+    "log_sweep": true,
+    "lower": "lower",
+    "note": "Frequency is stated for controlled pure tones; complex lexical sounds have broad, variable spectra. Log-frequency analysis is a separately declared option.",
+    "numeric_sweep": true,
+    "quantity": "frequency of its pure tone",
+    "unit": "Hz",
+    "values": [
+      110,
+      220,
+      440,
+      880,
+      1760
+    ],
+    "words": [
+      "produces a very low-pitched tone",
+      "produces a low-pitched tone",
+      "produces a mid-pitched tone",
+      "produces a high-pitched tone",
+      "produces a very high-pitched tone"
+    ]
+  },
+  {
+    "alternate": [
+      "feels silky smooth",
+      "feels almost smooth",
+      "feels somewhat uneven",
+      "feels coarse",
+      "feels very coarse and irregular"
+    ],
+    "anchors": [
+      [
+        "polished glass",
+        "silk",
+        "mirror",
+        "glazed porcelain",
+        "smooth ice"
+      ],
+      [
+        "satin",
+        "plastic ruler",
+        "polished wood",
+        "fine paper",
+        "smooth leather"
+      ],
+      [
+        "cotton cloth",
+        "cardboard",
+        "unpolished wood",
+        "woven linen",
+        "orange peel"
+      ],
+      [
+        "tree bark",
+        "sandpaper",
+        "gravel",
+        "coarse fabric",
+        "rough stone"
+      ],
+      [
+        "jagged rock",
+        "coarse rasp",
+        "broken concrete",
+        "sharp lava rock",
+        "very coarse sandpaper"
+      ]
+    ],
+    "comparison_subject": "{name}",
+    "domain": "surface",
+    "extrapolate": false,
+    "higher": "rougher",
+    "key": "roughness",
+    "log_sweep": false,
+    "lower": "smoother",
+    "note": "Ordinal descriptions only; roughness is not identical to friction, hardness or bump wavelength.",
+    "numeric_sweep": false,
+    "quantity": "roughness on the fictional five-level scale",
+    "unit": "scale points",
+    "values": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "words": [
+      "has a perfectly smooth surface",
+      "has a slightly textured surface",
+      "has a moderately textured surface",
+      "has a rough surface",
+      "has an extremely rough surface"
+    ]
+  },
+  {
+    "alternate": [
+      "yields under very light pressure",
+      "yields under light pressure",
+      "yields under moderate pressure",
+      "requires strong pressure to dent",
+      "strongly resists being dented"
+    ],
+    "anchors": [
+      [
+        "whipped cream",
+        "soft foam",
+        "fresh dough",
+        "cotton wool",
+        "gelatin dessert"
+      ],
+      [
+        "rubber eraser",
+        "soft clay",
+        "candle wax",
+        "ripe banana",
+        "cork"
+      ],
+      [
+        "leather",
+        "cardboard",
+        "pine wood",
+        "firm rubber",
+        "packed soil"
+      ],
+      [
+        "hardwood",
+        "brick",
+        "aluminium plate",
+        "ceramic tile",
+        "bone"
+      ],
+      [
+        "steel block",
+        "granite",
+        "quartz",
+        "hardened tool steel",
+        "diamond"
+      ]
+    ],
+    "comparison_subject": "{name}",
+    "domain": "mechanical",
+    "extrapolate": false,
+    "higher": "harder",
+    "key": "hardness",
+    "log_sweep": false,
+    "lower": "softer",
+    "note": "Fictional ordinal indentation resistance, not Mohs hardness, stiffness, strength or brittleness. Lexical ranks are provisional.",
+    "numeric_sweep": false,
+    "quantity": "indentation resistance on the fictional five-level scale",
+    "unit": "scale points",
+    "values": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "words": [
+      "is extremely easy to indent",
+      "is easy to indent",
+      "offers moderate resistance to indentation",
+      "is difficult to indent",
+      "is extremely difficult to indent"
+    ]
+  },
+  {
+    "alternate": [
+      "does not spring back",
+      "barely springs back",
+      "partly springs back",
+      "mostly springs back",
+      "completely springs back"
+    ],
+    "anchors": [
+      [
+        "molded clay",
+        "kneaded dough",
+        "crumpled foil",
+        "bent paperclip",
+        "putty"
+      ],
+      [
+        "damp cardboard",
+        "creased paper",
+        "soft wax",
+        "compressed sand",
+        "flattened dough"
+      ],
+      [
+        "worn sponge",
+        "memory foam",
+        "soft leather",
+        "felt pad",
+        "flexible packing foam"
+      ],
+      [
+        "cork stopper",
+        "silicone sheet",
+        "springy foam",
+        "flexible plastic strip",
+        "wool cushion"
+      ],
+      [
+        "rubber band",
+        "steel spring",
+        "bungee cord",
+        "elastic fabric",
+        "rubber ball"
+      ]
+    ],
+    "comparison_subject": "the elastic recovery of {name}",
+    "domain": "mechanical",
+    "extrapolate": false,
+    "higher": "greater",
+    "key": "elasticity",
+    "log_sweep": false,
+    "lower": "smaller",
+    "note": "Recovery under a specified deformation is distinct from elastic modulus. Ordinary behavior depends on loading history; lexical ranks are examples only.",
+    "numeric_sweep": true,
+    "quantity": "recovery after the same small deformation",
+    "unit": "percent",
+    "values": [
+      0,
+      25,
+      50,
+      75,
+      100
+    ],
+    "words": [
+      "retains all of the imposed deformation",
+      "recovers little of its original shape",
+      "recovers half of its original shape",
+      "recovers most of its original shape",
+      "fully recovers its original shape"
+    ]
+  },
+  {
+    "alternate": [
+      "has no sweetness for Mira",
+      "has a hint of sweetness for Mira",
+      "has a noticeable sweetness for Mira",
+      "has a strong sweetness for Mira",
+      "has an overwhelming sweetness for Mira"
+    ],
+    "anchors": [
+      [
+        "plain water",
+        "unsweetened tea",
+        "black coffee",
+        "celery",
+        "cucumber"
+      ],
+      [
+        "plain milk",
+        "carrot",
+        "oatmeal",
+        "plain bread",
+        "unsweetened yogurt"
+      ],
+      [
+        "apple",
+        "banana",
+        "sweetcorn",
+        "strawberry",
+        "pear"
+      ],
+      [
+        "ripe mango",
+        "cake",
+        "sweetened yogurt",
+        "milk chocolate",
+        "fruit jam"
+      ],
+      [
+        "honey",
+        "sugar syrup",
+        "hard candy",
+        "marshmallow",
+        "icing sugar"
+      ]
+    ],
+    "comparison_subject": "the taste of {name} for Mira",
+    "domain": "gustatory",
+    "extrapolate": false,
+    "higher": "sweeter",
+    "key": "sweetness",
+    "log_sweep": false,
+    "lower": "less sweet",
+    "note": "Taste and recipes vary. The named observer and scale are fictional; no participant ratings exist.",
+    "numeric_sweep": false,
+    "quantity": "Mira's stated sweetness rating on the fictional five-level scale",
+    "unit": "scale points",
+    "values": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "words": [
+      "tastes unsweet to Mira",
+      "tastes faintly sweet to Mira",
+      "tastes moderately sweet to Mira",
+      "tastes very sweet to Mira",
+      "tastes intensely sweet to Mira"
+    ]
+  },
+  {
+    "alternate": [
+      "feels strongly aversive to Mira",
+      "feels somewhat aversive to Mira",
+      "feels affectively neutral to Mira",
+      "feels enjoyable to Mira",
+      "feels deeply enjoyable to Mira"
+    ],
+    "anchors": [
+      [
+        "toothache",
+        "bereavement",
+        "humiliation",
+        "severe loneliness",
+        "nausea"
+      ],
+      [
+        "traffic delay",
+        "minor argument",
+        "paper cut",
+        "boredom",
+        "unwanted noise"
+      ],
+      [
+        "blank form",
+        "plain wall",
+        "neutral announcement",
+        "empty cardboard box",
+        "ordinary timetable"
+      ],
+      [
+        "friendly conversation",
+        "warm bath",
+        "favorite meal",
+        "sunny walk",
+        "pleasant music"
+      ],
+      [
+        "joyful reunion",
+        "deep relief",
+        "loving embrace",
+        "major achievement",
+        "wonderful surprise"
+      ]
+    ],
+    "comparison_subject": "Mira's experience of {name}",
+    "domain": "affective",
+    "extrapolate": false,
+    "higher": "more pleasant",
+    "key": "pleasantness",
+    "log_sweep": false,
+    "lower": "less pleasant",
+    "note": "Observer-, culture- and situation-dependent candidate; not an objective property assigned to every noun.",
+    "numeric_sweep": false,
+    "quantity": "Mira's stated pleasantness rating",
+    "unit": "scale points",
+    "values": [
+      -2,
+      -1,
+      0,
+      1,
+      2
+    ],
+    "words": [
+      "is very unpleasant for Mira",
+      "is unpleasant for Mira",
+      "is neither pleasant nor unpleasant for Mira",
+      "is pleasant for Mira",
+      "is very pleasant for Mira"
+    ]
+  },
+  {
+    "alternate": [
+      "barely activates Mira",
+      "slightly activates Mira",
+      "moderately activates Mira",
+      "strongly activates Mira",
+      "intensely activates Mira"
+    ],
+    "anchors": [
+      [
+        "sleepy afternoon",
+        "quiet rest",
+        "slow breathing",
+        "drowsiness",
+        "gentle lullaby"
+      ],
+      [
+        "calm reading",
+        "peaceful garden",
+        "soft music",
+        "relaxed conversation",
+        "slow walk"
+      ],
+      [
+        "ordinary meeting",
+        "light exercise",
+        "interesting lecture",
+        "friendly game",
+        "routine shopping"
+      ],
+      [
+        "lively celebration",
+        "competitive match",
+        "urgent deadline",
+        "exciting news",
+        "tense argument"
+      ],
+      [
+        "panic",
+        "intense excitement",
+        "sudden alarm",
+        "thrilling climax",
+        "extreme surprise"
+      ]
+    ],
+    "comparison_subject": "Mira's arousal while experiencing {name}",
+    "domain": "affective",
+    "extrapolate": false,
+    "higher": "higher",
+    "key": "arousal",
+    "log_sweep": false,
+    "lower": "lower",
+    "note": "Arousal is not pleasantness. Synthetic scene ratings are not clinical observations.",
+    "numeric_sweep": false,
+    "quantity": "Mira's stated arousal rating on the fictional five-level scale",
+    "unit": "scale points",
+    "values": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "words": [
+      "leaves Mira very drowsy",
+      "leaves Mira calm",
+      "leaves Mira moderately alert",
+      "leaves Mira highly alert",
+      "leaves Mira extremely activated"
+    ]
+  },
+  {
+    "alternate": [
+      "presents no stated threat",
+      "presents a small stated threat",
+      "presents a medium stated threat",
+      "presents a major stated threat",
+      "presents a very severe stated threat"
+    ],
+    "anchors": [
+      [
+        "soft cushion",
+        "folded towel",
+        "paper bookmark",
+        "plush toy",
+        "empty notebook"
+      ],
+      [
+        "paper edge",
+        "uneven paving stone",
+        "warm cup",
+        "small splinter",
+        "mildly slippery floor"
+      ],
+      [
+        "steep staircase",
+        "sharp kitchen knife",
+        "busy road",
+        "deep pond",
+        "hot pan"
+      ],
+      [
+        "cliff edge",
+        "unstable ladder",
+        "large aggressive animal",
+        "fast-moving traffic",
+        "exposed electrical wire"
+      ],
+      [
+        "wildfire",
+        "avalanche",
+        "collapsing building",
+        "major flood",
+        "violent tornado"
+      ]
+    ],
+    "comparison_subject": "interacting with {name}",
+    "domain": "evaluative",
+    "extrapolate": false,
+    "higher": "more dangerous",
+    "key": "danger",
+    "log_sweep": false,
+    "lower": "less dangerous",
+    "note": "An evaluative candidate depending on agent, action and circumstances; fictional ratings are not real risk estimates or safety advice.",
+    "numeric_sweep": false,
+    "quantity": "stated interaction danger on the fictional five-level scale",
+    "unit": "scale points",
+    "values": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "words": [
+      "is harmless to interact with in this scene",
+      "poses a minor danger in this scene",
+      "poses a moderate danger in this scene",
+      "poses a serious danger in this scene",
+      "poses an extreme danger in this scene"
+    ]
+  },
+  {
+    "domain": "visual",
+    "geometry": "circular",
+    "hue_labels": [
+      [
+        0,
+        "red"
+      ],
+      [
+        30,
+        "orange"
+      ],
+      [
+        60,
+        "yellow"
+      ],
+      [
+        90,
+        "yellow-green"
+      ],
+      [
+        120,
+        "green"
+      ],
+      [
+        150,
+        "green-cyan"
+      ],
+      [
+        180,
+        "cyan"
+      ],
+      [
+        210,
+        "azure"
+      ],
+      [
+        240,
+        "blue"
+      ],
+      [
+        270,
+        "violet"
+      ],
+      [
+        300,
+        "magenta"
+      ],
+      [
+        330,
+        "rose"
+      ]
+    ],
+    "key": "hue",
+    "note": "Convention-defined synthetic hue; not a perceptually uniform color metric.",
+    "unit": "HSV degrees"
+  }
+]

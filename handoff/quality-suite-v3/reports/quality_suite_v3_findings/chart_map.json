@@ -1,0 +1,189 @@
+[
+  {
+    "id": "graded_order_1",
+    "question": "Graded test ordering by property and wording \u2014 Arousal to Mass",
+    "comparison": "Ten rows and two entity families per property and wording; ordering can survive numerical miscalibration. Score: 1 = perfect order, 0 = no monotonic relationship.",
+    "family": "horizontal grouped bar",
+    "rows": 14,
+    "categories": 7,
+    "metric": "rho",
+    "source": "reports/quality_suite_v3_findings/graded.csv",
+    "palette": "Native comparison palette; consistent series order. Legend, paired position, values and reference lines also encode the comparison."
+  },
+  {
+    "id": "graded_order_2",
+    "question": "Graded test ordering by property and wording \u2014 Pitch to Temperature",
+    "comparison": "Ten rows and two entity families per property and wording; ordering can survive numerical miscalibration. Score: 1 = perfect order, 0 = no monotonic relationship.",
+    "family": "horizontal grouped bar",
+    "rows": 14,
+    "categories": 7,
+    "metric": "rho",
+    "source": "reports/quality_suite_v3_findings/graded.csv",
+    "palette": "Native comparison palette; consistent series order. Legend, paired position, values and reference lines also encode the comparison."
+  },
+  {
+    "id": "graded_error_1",
+    "question": "Graded test error by property and wording \u2014 Arousal to Mass",
+    "comparison": "Lower is better. Unconstrained predictions can exceed the target range. Dashed line: one 0.25 step on the design scale.",
+    "family": "horizontal grouped bar",
+    "rows": 14,
+    "categories": 7,
+    "metric": "mae",
+    "source": "reports/quality_suite_v3_findings/graded.csv",
+    "palette": "Native comparison palette; consistent series order. Legend, paired position, values and reference lines also encode the comparison."
+  },
+  {
+    "id": "graded_error_2",
+    "question": "Graded test error by property and wording \u2014 Pitch to Temperature",
+    "comparison": "Lower is better. Unconstrained predictions can exceed the target range. Dashed line: one 0.25 step on the design scale.",
+    "family": "horizontal grouped bar",
+    "rows": 14,
+    "categories": 7,
+    "metric": "mae",
+    "source": "reports/quality_suite_v3_findings/graded.csv",
+    "palette": "Native comparison palette; consistent series order. Legend, paired position, values and reference lines also encode the comparison."
+  },
+  {
+    "id": "binding_error_1",
+    "question": "Binding test error by property and method \u2014 Arousal to Mass",
+    "comparison": "Eight rows from one test entity family per property and wording; static averages cannot distinguish same-word assignments. Dashed line: static word-average error = 0.5.",
+    "family": "horizontal grouped bar",
+    "rows": 14,
+    "categories": 7,
+    "metric": "mae",
+    "source": "reports/quality_suite_v3_findings/binding.csv",
+    "palette": "Native comparison palette; consistent series order. Legend, paired position, values and reference lines also encode the comparison."
+  },
+  {
+    "id": "binding_error_2",
+    "question": "Binding test error by property and method \u2014 Pitch to Temperature",
+    "comparison": "Eight rows from one test entity family per property and wording; static averages cannot distinguish same-word assignments. Dashed line: static word-average error = 0.5.",
+    "family": "horizontal grouped bar",
+    "rows": 14,
+    "categories": 7,
+    "metric": "mae",
+    "source": "reports/quality_suite_v3_findings/binding.csv",
+    "palette": "Native comparison palette; consistent series order. Legend, paired position, values and reference lines also encode the comparison."
+  },
+  {
+    "id": "nuisance",
+    "question": "Probe response to meaningful and invariant changes",
+    "comparison": "Equal-weight mean over 14 properties. Invariant edits ideally produce zero change; these are distinct contrast families.",
+    "family": "horizontal grouped bar",
+    "rows": 6,
+    "categories": 3,
+    "metric": "mean_absolute_delta",
+    "source": "reports/quality_suite_v3_findings/paired.csv",
+    "palette": "Native comparison palette; consistent series order. Legend, paired position, values and reference lines also encode the comparison."
+  },
+  {
+    "id": "lexical_order_1",
+    "question": "Lexical test ordering by property and wording \u2014 Arousal to Mass",
+    "comparison": "Only three to seven independent test concepts per property; labels are provisional authored ratings. Score: 1 = perfect order, 0 = no monotonic relationship.",
+    "family": "horizontal grouped bar",
+    "rows": 14,
+    "categories": 7,
+    "metric": "rho",
+    "source": "reports/quality_suite_v3_findings/lexical.csv",
+    "palette": "Native comparison palette; consistent series order. Legend, paired position, values and reference lines also encode the comparison."
+  },
+  {
+    "id": "lexical_order_2",
+    "question": "Lexical test ordering by property and wording \u2014 Pitch to Temperature",
+    "comparison": "Only three to seven independent test concepts per property; labels are provisional authored ratings. Score: 1 = perfect order, 0 = no monotonic relationship.",
+    "family": "horizontal grouped bar",
+    "rows": 14,
+    "categories": 7,
+    "metric": "rho",
+    "source": "reports/quality_suite_v3_findings/lexical.csv",
+    "palette": "Native comparison palette; consistent series order. Legend, paired position, values and reference lines also encode the comparison."
+  },
+  {
+    "id": "answer_format_plain",
+    "question": "Matched test accuracy: familiar wording",
+    "comparison": "Four underlying comparisons per property from one family; each A/B score averages four counterbalances.",
+    "family": "horizontal grouped bar",
+    "rows": 12,
+    "categories": 6,
+    "metric": "accuracy",
+    "source": "reports/quality_suite_v3_findings/matched_behavior.csv",
+    "palette": "Native comparison palette; consistent series order. Legend, paired position, values and reference lines also encode the comparison."
+  },
+  {
+    "id": "answer_format_paraphrase",
+    "question": "Matched test accuracy: held-out paraphrase",
+    "comparison": "Four underlying comparisons per property from one family; each A/B score averages four counterbalances.",
+    "family": "horizontal grouped bar",
+    "rows": 12,
+    "categories": 6,
+    "metric": "accuracy",
+    "source": "reports/quality_suite_v3_findings/matched_behavior.csv",
+    "palette": "Native comparison palette; consistent series order. Legend, paired position, values and reference lines also encode the comparison."
+  },
+  {
+    "id": "numeric_error_1",
+    "question": "Physical prediction error by property and method \u2014 Brightness to Mass",
+    "comparison": "One test family per property, 9\u201322 cases; challenge roles differ across properties. Lower is better.",
+    "family": "horizontal grouped bar",
+    "rows": 8,
+    "categories": 4,
+    "metric": "range_normalized_mae",
+    "source": "reports/quality_suite_v3_findings/numeric_overall.csv",
+    "palette": "Native comparison palette; consistent series order. Legend, paired position, values and reference lines also encode the comparison."
+  },
+  {
+    "id": "numeric_error_2",
+    "question": "Physical prediction error by property and method \u2014 Pitch to Temperature",
+    "comparison": "One test family per property, 9\u201322 cases; challenge roles differ across properties. Lower is better.",
+    "family": "horizontal grouped bar",
+    "rows": 8,
+    "categories": 4,
+    "metric": "range_normalized_mae",
+    "source": "reports/quality_suite_v3_findings/numeric_overall.csv",
+    "palette": "Native comparison palette; consistent series order. Legend, paired position, values and reference lines also encode the comparison."
+  },
+  {
+    "id": "factorial_error_1",
+    "question": "Joint probe error by output and wording \u2014 affect and colour",
+    "comparison": "Held-out entity, with training-eligible combinations in both series; one test family per domain. Dashed line: one 0.25 step on the design scale.",
+    "family": "horizontal grouped bar",
+    "rows": 10,
+    "categories": 5,
+    "metric": "mae",
+    "source": "reports/quality_suite_v3_findings/factorial.csv",
+    "palette": "Native comparison palette; consistent series order. Legend, paired position, values and reference lines also encode the comparison."
+  },
+  {
+    "id": "factorial_error_2",
+    "question": "Joint probe error by output and wording \u2014 extent, motion and sound",
+    "comparison": "Held-out entity, with training-eligible combinations in both series; one test family per domain. Dashed line: one 0.25 step on the design scale.",
+    "family": "horizontal grouped bar",
+    "rows": 12,
+    "categories": 6,
+    "metric": "mae",
+    "source": "reports/quality_suite_v3_findings/factorial.csv",
+    "palette": "Native comparison palette; consistent series order. Legend, paired position, values and reference lines also encode the comparison."
+  },
+  {
+    "id": "factorial_error_3",
+    "question": "Joint probe error by output and wording \u2014 shape and surface",
+    "comparison": "Held-out entity, with training-eligible combinations in both series; one test family per domain. Dashed line: one 0.25 step on the design scale.",
+    "family": "horizontal grouped bar",
+    "rows": 12,
+    "categories": 6,
+    "metric": "mae",
+    "source": "reports/quality_suite_v3_findings/factorial.csv",
+    "palette": "Native comparison palette; consistent series order. Legend, paired position, values and reference lines also encode the comparison."
+  },
+  {
+    "id": "hue_error",
+    "question": "Circular hue prediction error across test conditions",
+    "comparison": "All displayed conditions use block 16, final-token ridge selected on validation; lower is better. 90\u00b0 is the expected error of a uniform random angle, not a tested null.",
+    "family": "horizontal grouped bar",
+    "rows": 6,
+    "categories": 6,
+    "metric": "circular_mae_degrees",
+    "source": "reports/quality_suite_v3_findings/hue.csv",
+    "palette": "Native comparison palette; consistent series order. Legend, paired position, values and reference lines also encode the comparison."
+  }
+]
