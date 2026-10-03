@@ -52,4 +52,8 @@ sympy==1.14.0
 threadpoolctl==3.7.0
 tokenizers==0.23.2
 torch==2.14.0
-tqdm==4.70
+tqdm==4.70.1
+transformers==5.17.0
+typer==0.27.2
+typing_extensions==4.16.0
+umap-learn==0.5.12

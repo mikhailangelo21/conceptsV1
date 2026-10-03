@@ -55,4 +55,24 @@ The method registry is in `methods.csv`. Core linear baselines include centered 
 | `audit/layers.csv`, `audit/coverage.csv` | Actual SAE coverage and denominators |
 | `activity/*`, `features/candidates.csv`, `features/catalogue.csv` | Feature prevalence, magnitude, reconstruction association, training-selected hypotheses, checkpoint identities and activating prompts |
 | `activity/*_coactivation.npz` | Bounded binary joint frequency, prevalence-adjusted lift/phi, and value correlation |
-| `linear/*_pca.npz`, `linear/pca_summary.csv`
+| `linear/*_pca.npz`, `linear/pca_summary.csv` | Train-fitted centered PCA and compressed coordinates; summary RMSE pools the sampled splits |
+| `linear/partitioned_reconstruction.csv` | Frozen rank-64 reconstruction RMSE separately by fit/heldout partition |
+| `linear/component_interpretation.csv` | Leading F-PC loadings and descriptive quality, wording, entity-family and prompt-length associations |
+| `predictions/metrics.csv`, `predictions/rows.csv` | Partitioned ordinal/hue heldout scores and individual predictions |
+| `baselines/metrics.csv`, `baselines/*_tfidf.joblib`, `baselines/*_fit.json` | Same-cohort lexical controls and their train-fitted vectorizers/IDs |
+| `reconstruction/*_aligned.npz` | Bounded exact-decoder H, H_hat and E |
+| `contrasts/matched.csv`, `hue/triplets.csv` | Prespecified matched feature changes and circular near/far tests |
+| `dimension/estimates.csv` | Original-space TwoNN and kNN MLE sensitivity |
+| `embeddings/*.npz`, `embeddings/faithfulness.csv` | 2D/3D coordinates and local/global fidelity |
+| `tokens/summary.csv` | Prompt-grouped trace-role activity and causal-order retention |
+| `provenance.json`, `identity.json`, `state.json` | Source hashes, dependencies, seeds, and resumable stage status |
+| `predictions/additional_ranks.csv`, `predictions/transfer.csv` | Further compression ranks and test-entity withheld-wording results |
+| `dimension/local_pca.csv`, `dimension/truncated_spectrum.csv` | Neighbourhood-scale and truncated-spectrum diagnostics |
+| `dictionary/layer11_decoder_direction_pca.npz` | PCA on selected decoder columns as observations |
+| `linear/sensitivity.csv`, `embeddings/stability.csv` | Row/feature scale sensitivity and three-seed reproducibility |
+| `extended/optional_methods.csv`, `extended/nonlinear_sensitivity.csv` | Optional method status and prespecified parameter grids |
+| `factorial/summary.csv`, `behavior/observational_summary.csv` | Off-target factorial sensitivity and format-separated behaviour links |
+
+Candidate-feature ranks are hypotheses, with no uncorrected p-values or globally-dead labels. Top-K competition can induce coactivation patterns. PCA on feature activations describes variation in codes; dictionary geometry would require PCA on decoder directions and is a separate question. No PCA whitening is interpreted as Park et al.'s causal inner product. No pleasing 2D/3D arrangement by itself establishes a Gärdenfors quality dimension.
+
+Core method choices follow [scikit-learn PCA](https://scikit-learn.org/stable/modules/decomposition.html), [scikit-learn manifold methods](https://scikit-learn.org/stable/modules/manifold.html), and [UMAP's heldout transform documentation](https://umap-learn.readthedocs.io/en/latest/transform.html). Linear CKA follows [Kornblith et al.](https://proceedings.mlr.press/v97/kornblith19a.html). These references explain the estimators; the saved outputs document this dataset's actual implementation and limits.
